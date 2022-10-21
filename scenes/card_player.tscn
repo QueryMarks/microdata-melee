@@ -1,0 +1,176 @@
+[gd_scene load_steps=16 format=3 uid="uid://bn5kwo8406gwy"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_v68o5"]
+[ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_sfodf"]
+[ext_resource type="PackedScene" uid="uid://3oyeegtt5ps6" path="res://scenes/state_machine.tscn" id="3_xde3p"]
+[ext_resource type="Script" path="res://scripts/collision/hurtbox.gd" id="4_a5pjk"]
+[ext_resource type="Texture2D" uid="uid://dcxswsn0u2qu4" path="res://sprites/card sprite sheet.png" id="5_68sbw"]
+[ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="6_3cook"]
+[ext_resource type="Script" path="res://card_move_list.gd" id="7_1axb8"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(23, 37)
+
+[sub_resource type="Animation" id="Animation_g4jnt"]
+resource_name = "5a"
+length = 0.233333
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.068, 0.187),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [60, 61, 60]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitboxes/5aHitbox/CollisionShape2d:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0666667, 0.183333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ai5ji"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitboxes/5aHitbox/CollisionShape2d:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_m804a"]
+resource_name = "idle"
+length = 0.333333
+loop_mode = 2
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0166667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_84v7y"]
+resource_name = "walk"
+length = 1.4
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.666667, 0.933333, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ims83"]
+_data = {
+"5a": SubResource("Animation_g4jnt"),
+"RESET": SubResource("Animation_ai5ji"),
+"idle": SubResource("Animation_m804a"),
+"walk": SubResource("Animation_84v7y")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7mit"]
+size = Vector2(23, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytqxq"]
+size = Vector2(17, 11)
+
+[node name="Card_Player" type="CharacterBody2D"]
+script = ExtResource("1_v68o5")
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+modulate = Color(0.501961, 1, 0, 1)
+position = Vector2(0, -19)
+shape = SubResource("1")
+
+[node name="InputReader" type="Node" parent="." node_paths=PackedStringArray("my_player")]
+script = ExtResource("2_sfodf")
+my_player = NodePath("..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ims83")
+}
+
+[node name="StateMachine" parent="." instance=ExtResource("3_xde3p")]
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_a5pjk")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -18)
+shape = SubResource("RectangleShape2D_l7mit")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("5_68sbw")
+offset = Vector2(0, -32)
+hframes = 6
+vframes = 11
+
+[node name="Hitboxes" type="Node2D" parent="."]
+
+[node name="5aHitbox" type="Area2D" parent="Hitboxes"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("6_3cook")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Hitboxes/5aHitbox"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+position = Vector2(15.5, -22.5)
+shape = SubResource("RectangleShape2D_ytqxq")
+
+[node name="CardMoveList" type="Node" parent="." node_paths=PackedStringArray("player", "input_reader", "state_machine")]
+script = ExtResource("7_1axb8")
+player = NodePath("..")
+input_reader = NodePath("../InputReader")
+state_machine = NodePath("../StateMachine")
+
+[editable path="StateMachine"]

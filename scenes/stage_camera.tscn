@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://55puaspx6fc1"]
+
+[ext_resource type="Script" path="res://scenes/stage_camera.gd" id="1_dc1iy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bx3y"]
+size = Vector2(850, 10000)
+
+[node name="StageCamera" type="CharacterBody2D"]
+script = ExtResource("1_dc1iy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -45)
+current = true
+zoom = Vector2(4, 4)
+
+[node name="CameraLeftWall" type="CollisionShape2D" parent="."]
+position = Vector2(-500, 0)
+shape = SubResource("RectangleShape2D_4bx3y")
+
+[node name="CameraRightWall" type="CollisionShape2D" parent="."]
+position = Vector2(500, 0)
+shape = SubResource("RectangleShape2D_4bx3y")
