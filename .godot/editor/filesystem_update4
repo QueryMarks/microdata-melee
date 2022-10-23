@@ -1,6 +1,6 @@
+res://scenes/main.tscn
+res://os_basic.gd
 res://scenes/hitbox.tscn
 res://scenes/hurtbox.tscn
 res://scenes/card_player.tscn
 res://scenes/stage_camera.tscn
-res://scenes/main.tscn
-res://scripts/input management/input_reader.gd

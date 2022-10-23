@@ -51,5 +51,5 @@ position = Vector2(46, -21)
 [node name="Card_Player" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("4_dw13y")]
 opponent = NodePath("../CharacterBody2d")
 
-[node name="Player@OSBasic" type="Node" parent="Card_Player"]
+[node name="OSBasic" type="Node" parent="Card_Player"]
 script = ExtResource("3_t0yh7")

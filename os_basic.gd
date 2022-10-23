@@ -7,7 +7,7 @@ func os_action_check(tags : Array):
 	if tags.has("ground"):
 		
 		if tags.has("actionable"):
-			inputs = input_reader.read_inputs(move_list.ground_supers + move_list.ground_specials + move_list.ground_command_normals + move_list.ground_normals + [["6","5","6"]])
+			inputs = input_reader.read_inputs(move_list.ground_supers + move_list.ground_specials + move_list.ground_command_normals + move_list.ground_normals + [["6","5","6"], ["dash"]])
 		
 		elif tags.has("can_cancel"):
 		
@@ -46,4 +46,6 @@ func os_action_check(tags : Array):
 func os_change_state(inputs):
 	match inputs:
 		["6","5","6"]:
+			player.state_machine.change_state(DashState.new())
+		["dash"]:
 			player.state_machine.change_state(DashState.new())

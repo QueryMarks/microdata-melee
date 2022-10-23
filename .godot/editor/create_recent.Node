@@ -1,5 +1,5 @@
-CardMoveList (card_move_list.gd)
 OSBasic (os_basic.gd)
+CardMoveList (card_move_list.gd)
 CharacterBody2D
 StaticBody2D
 CollisionShape2D

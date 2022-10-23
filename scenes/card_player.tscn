@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bn5kwo8406gwy"]
+[gd_scene load_steps=17 format=3 uid="uid://bn5kwo8406gwy"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v68o5"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_sfodf"]
@@ -67,6 +67,22 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_lfhf3"]
+resource_name = "dash"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [54]
+}
+
 [sub_resource type="Animation" id="Animation_m804a"]
 resource_name = "idle"
 length = 0.333333
@@ -107,6 +123,7 @@ tracks/0/keys = {
 _data = {
 "5a": SubResource("Animation_g4jnt"),
 "RESET": SubResource("Animation_ai5ji"),
+"dash": SubResource("Animation_lfhf3"),
 "idle": SubResource("Animation_m804a"),
 "walk": SubResource("Animation_84v7y")
 }
