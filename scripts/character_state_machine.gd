@@ -7,9 +7,6 @@ var current_state
 var my_player
 var my_input_reader
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 
 func initialize(starting_state, player, input_reader):
 	current_state = starting_state

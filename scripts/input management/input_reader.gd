@@ -110,7 +110,7 @@ func read_inputs(move_list : Array):
 				if input_history_buttons[current_history_index].has(input_list[current_list_index]):
 					if current_list_index*-1 == input_list.size():
 								return(original_input_list)
-					elif current_list_index != -1 or input_history_frames[current_history_index] <= first_input_leniency:
+					elif current_list_index != -1:
 						input_distance = input_history_frames[current_history_index]
 						if current_list_index != -1:
 							current_history_index -= 1

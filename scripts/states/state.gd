@@ -12,10 +12,6 @@ func _ready():
 
 func enter():
 	pass
-	if (player.position.x > player.opponent.position.x) and (player.my_facing != -1):
-		player.turn(-1)
-	elif (player.position.x < player.opponent.position.x) and (player.my_facing != 1):
-		player.turn(1)
 
 func get_hit(_hitbox : Hitbox):
 	return null

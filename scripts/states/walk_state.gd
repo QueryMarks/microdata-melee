@@ -10,8 +10,8 @@ func _physics_process(_delta):
 	#for the love of god fix this later
 	if (Input.is_action_just_pressed("ui_a")):
 		player.os.os_action_check(tags)
-	elif (Input.is_action_just_pressed("ui_right")) or (Input.is_action_just_pressed("ui_left")):
-		player.os.os_action_check(tags)
+	#elif (Input.is_action_just_pressed("ui_right")) or (Input.is_action_just_pressed("ui_left")):
+	#	player.os.os_action_check(tags)
 	elif (Input.is_action_pressed("ui_up") and player.is_on_floor()):
 		state_machine.change_state(JumpState.new())
 	elif (Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right")):

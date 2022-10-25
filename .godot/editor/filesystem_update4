@@ -1,8 +1,6 @@
 res://scenes/hitbox.tscn
+res://ground_actionable_state.gd
 res://scenes/hurtbox.tscn
 res://scenes/card_player.tscn
 res://scenes/stage_camera.tscn
 res://scenes/main.tscn
-res://scripts/states/walk_state.gd
-res://scripts/input management/input_reader.gd
-res://ground_actionable_state.gd

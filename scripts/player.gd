@@ -29,7 +29,7 @@ func turn(facing: int):
 	
 	self.scale.x *= -1
 	my_facing = facing
-		
+	
 func get_hit(hitbox : Hitbox):
 	return state_machine.current_state.get_hit(hitbox)
 	
