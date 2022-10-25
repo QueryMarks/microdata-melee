@@ -7,7 +7,8 @@ var input_history_buttons = []
 var input_history_frames = []
 var input_history_both = [input_history_buttons, input_history_frames]
 var temp_input_dict = {}
-var input_leniency = 20
+var input_leniency = 10
+var first_input_leniency = 5
 	
 func _physics_process(_delta):
 	temp_input_dict.clear()
@@ -109,7 +110,7 @@ func read_inputs(move_list : Array):
 				if input_history_buttons[current_history_index].has(input_list[current_list_index]):
 					if current_list_index*-1 == input_list.size():
 								return(original_input_list)
-					else:
+					elif current_list_index != -1 or input_history_frames[current_history_index] <= first_input_leniency:
 						input_distance = input_history_frames[current_history_index]
 						if current_list_index != -1:
 							current_history_index -= 1

@@ -5,19 +5,20 @@ class_name WalkState
 # Called when the node enters the scene tree for the first time.
 func enter():
 	player.anim_player.play("walk")
-
-func _input(event):
-	if (event.is_action_pressed("ui_up") and player.is_on_floor()):
-		state_machine.change_state(JumpState.new())
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
-
-	if (Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right")):
-		player.velocity.x = -50
+	#for the love of god fix this later
+	if (Input.is_action_just_pressed("ui_a")):
 		player.os.os_action_check(tags)
+	elif (Input.is_action_just_pressed("ui_right")) or (Input.is_action_just_pressed("ui_left")):
+		player.os.os_action_check(tags)
+	elif (Input.is_action_pressed("ui_up") and player.is_on_floor()):
+		state_machine.change_state(JumpState.new())
+	elif (Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right")):
+		player.velocity.x = -50
 	elif (Input.is_action_pressed("ui_right") and !Input.is_action_pressed("ui_left")):
 		player.velocity.x = 50
-		player.os.os_action_check(tags)
+
 	elif (Input.is_action_pressed("ui_up")): 
 		state_machine.change_state(JumpState.new())
 	else:

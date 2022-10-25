@@ -1,7 +1,8 @@
-res://scenes/card_player.tscn
-res://scenes/main.tscn
-res://scripts/states/walk_state.gd
-res://scripts/states/jump_state.gd
 res://scenes/hitbox.tscn
 res://scenes/hurtbox.tscn
+res://scenes/card_player.tscn
 res://scenes/stage_camera.tscn
+res://scenes/main.tscn
+res://scripts/states/walk_state.gd
+res://scripts/input management/input_reader.gd
+res://ground_actionable_state.gd
