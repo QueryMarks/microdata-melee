@@ -1,12 +1,12 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1666499940
+::res://::1666575240
 card_move_list.gd::GDScript::-1::1666377532::0::1::::CardMoveList<>MoveList<>::
 dash_state.gd::GDScript::-1::1666499450::0::1::::DashState<>State<>::
 default_env.tres::Environment::-1::1664777392::0::1::::<><>::
 ground_actionable_state.gd::GDScript::-1::1666377532::0::1::::GroundActionableState<>State<>::
 icon.png::CompressedTexture2D::6617512264265594369::1664486406::1664778592::1::::<><>::
 os.gd::GDScript::-1::1666202160::0::1::::OSStyle<>Node<>::
-os_basic.gd::GDScript::-1::1666205864::0::1::::OSBasic<>OSStyle<>::
+os_basic.gd::GDScript::-1::1666500122::0::1::::OSBasic<>OSStyle<>::
 ::res://fonts/::1666377001
 CompassPro.ttf::FontFile::1091330615690628193::1622483120::1665462674::1::::<><>::
 EquipmentPro.ttf::FontFile::8369367549015221107::1622483124::1665462674::1::::<><>::
@@ -14,13 +14,13 @@ ExpressionPro.ttf::FontFile::881694791092610658::1622483130::1665462674::1::::<>
 FutilePro.ttf::FontFile::7019894180980603123::1622483134::1665462674::1::::<><>::
 MatchupPro.ttf::FontFile::2787932387355672399::1622483140::1665462674::1::::<><>::
 Silver.ttf::FontFile::1694964538141144166::1622483038::1665462674::1::::<><>::
-::res://scenes/::1666499536
-card_player.tscn::PackedScene::3361454228660597252::1666499536::0::1::::<><>::res://scripts/player.gd<>res://scripts/input management/input_reader.gd<>uid://3oyeegtt5ps6<>res://scripts/collision/hurtbox.gd<>uid://dcxswsn0u2qu4<>res://scripts/collision/hitbox.gd<>res://card_move_list.gd
-hitbox.tscn::PackedScene::4323117161573197690::1666499536::0::1::::<><>::res://scripts/collision/hitbox.gd
-hurtbox.tscn::PackedScene::1347667352558200117::1666499536::0::1::::<><>::res://scripts/collision/hurtbox.gd
-main.tscn::PackedScene::5709544074474371008::1666499536::0::1::::<><>::uid://55puaspx6fc1<>uid://be6unfrq265ji<>res://os_basic.gd<>uid://bn5kwo8406gwy<>uid://tg25cmprt526
+::res://scenes/::1666582900
+card_player.tscn::PackedScene::3361454228660597252::1666582900::0::1::::<><>::res://scripts/player.gd<>res://scripts/input management/input_reader.gd<>uid://3oyeegtt5ps6<>res://scripts/collision/hurtbox.gd<>uid://dcxswsn0u2qu4<>res://scripts/collision/hitbox.gd<>res://card_move_list.gd
+hitbox.tscn::PackedScene::4323117161573197690::1666582900::0::1::::<><>::res://scripts/collision/hitbox.gd
+hurtbox.tscn::PackedScene::1347667352558200117::1666582900::0::1::::<><>::res://scripts/collision/hurtbox.gd
+main.tscn::PackedScene::5709544074474371008::1666582900::0::1::::<><>::uid://55puaspx6fc1<>uid://be6unfrq265ji<>res://os_basic.gd<>uid://bn5kwo8406gwy<>uid://tg25cmprt526
 stage_camera.gd::GDScript::-1::1665681858::0::1::::<>CharacterBody2D<>::
-stage_camera.tscn::PackedScene::2168543141052330554::1666499536::0::1::::<><>::res://scenes/stage_camera.gd
+stage_camera.tscn::PackedScene::2168543141052330554::1666582900::0::1::::<><>::res://scenes/stage_camera.gd
 state_machine.tscn::PackedScene::1995653481675845951::1664817010::0::1::::<><>::res://scripts/character_state_machine.gd
 ::res://scripts/::1666377446
 character_state_machine.gd::GDScript::-1::1666377446::0::1::::CharacterStateMachine<>Node<>::
@@ -32,16 +32,16 @@ hurtbox.gd::GDScript::-1::1666115820::0::1::::Hurtbox<>Area2D<>::
 ::res://scripts/input management/::1666380701
 input_reader.gd::GDScript::-1::1666380700::0::1::::InputReader<>Node<>::
 input_reader_backup.gd::GDScript::-1::1666286362::0::1::::<>Node<>::
-::res://scripts/states/::1666376988
+::res://scripts/states/::1666582853
 ground_normal_state.gd::GDScript::-1::1666110768::0::1::::GroundNormalState<>State<>::
 idle_state.gd::GDScript::-1::1666203198::0::1::::IdleState<>GroundActionableState<>::
-jump_state.gd::GDScript::-1::1666308400::0::1::::JumpState<>State<>::
+jump_state.gd::GDScript::-1::1666582853::0::1::::JumpState<>State<>::
 state.gd::GDScript::-1::1666110870::0::1::::State<>Node<>::
-walk_state.gd::GDScript::-1::1666308466::0::1::::WalkState<>GroundActionableState<>::
+walk_state.gd::GDScript::-1::1666582823::0::1::::WalkState<>GroundActionableState<>::
 ::res://scripts/states/card/::1666376989
 card_5a_state.gd::GDScript::-1::1666110766::0::1::::Card5aState<>GroundNormalState<>::
 card_throw_a_state.gd::GDScript::-1::1666110766::0::1::::CardThrowaState<>State<>::
-::res://sprites/::1666499631
-card sprite sheet.png::CompressedTexture2D::7348253586700899581::1666499625::1666499631::1::::<><>::
+::res://sprites/::1666582890
+card sprite sheet.png::CompressedTexture2D::7348253586700899581::1666597540::1666597553::1::::<><>::
 ::res://sprites/refs/::1666376990
 japan stage.png::CompressedTexture2D::2732409613439903642::1664927826::1664927826::1::::<><>::

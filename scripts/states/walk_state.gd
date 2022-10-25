@@ -18,6 +18,8 @@ func _physics_process(_delta):
 	elif (Input.is_action_pressed("ui_right") and !Input.is_action_pressed("ui_left")):
 		player.velocity.x = 50
 		player.os.os_action_check(tags)
+	elif (Input.is_action_pressed("ui_up")): 
+		state_machine.change_state(JumpState.new())
 	else:
 		state_machine.change_state(IdleState.new())
 
