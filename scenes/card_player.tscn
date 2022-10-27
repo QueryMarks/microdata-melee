@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bn5kwo8406gwy"]
+[gd_scene load_steps=19 format=3 uid="uid://bn5kwo8406gwy"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v68o5"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_sfodf"]
@@ -79,6 +79,24 @@ tracks/2/keys = {
 "values": [Vector2i(0, 6)]
 }
 
+[sub_resource type="Animation" id="Animation_5mrnj"]
+resource_name = "crouch"
+length = 0.333333
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
 [sub_resource type="Animation" id="Animation_lfhf3"]
 resource_name = "dash"
 loop_mode = 1
@@ -107,7 +125,7 @@ tracks/0/path = NodePath("Sprite2d:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0166667, 0.116667, 0.216667, 0.316667, 0.416667),
+"times": PackedFloat32Array(0, 0.116667, 0.216667, 0.316667, 0.416667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4]
@@ -150,6 +168,7 @@ tracks/0/keys = {
 _data = {
 "5a": SubResource("Animation_g4jnt"),
 "RESET": SubResource("Animation_ai5ji"),
+"crouch": SubResource("Animation_5mrnj"),
 "dash": SubResource("Animation_lfhf3"),
 "idle": SubResource("Animation_m804a"),
 "jump": SubResource("Animation_vii2t"),

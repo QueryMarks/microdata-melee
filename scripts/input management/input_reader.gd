@@ -104,20 +104,31 @@ func read_inputs(move_list : Array):
 		var current_history_index = -1
 		#variable to track time difference between inputs
 		var input_distance = 0
-		while ((current_list_index*-1)<=len(input_history_buttons)) and ((current_list_index*-1)<=len(input_history_buttons)) and (input_distance <= input_leniency):
+		while ((current_list_index*-1)<=len(input_history_buttons)) and (input_distance <= input_leniency):
 			#if the current input list index is a string, check if the input history has that button within input leniency
 			if typeof(input_list[current_list_index]) == TYPE_STRING:
+				if current_list_index == -1 and input_history_buttons[current_history_index].has(input_list[current_list_index]):
+					var k = -1
+					var k_frame_check = 0
+					while input_history_buttons[k].has(input_list[current_list_index]):
+						k_frame_check += input_history_frames[k]
+						if k_frame_check + input_distance > first_input_leniency:
+							break
+						else:
+							k -= 1
+					if k_frame_check + input_distance > first_input_leniency:
+						break
 				if input_history_buttons[current_history_index].has(input_list[current_list_index]):
 					if current_list_index*-1 == input_list.size():
-								return(original_input_list)
-					elif current_list_index != -1:
+						return(original_input_list)
+					else:
 						input_distance = input_history_frames[current_history_index]
 						if current_list_index != -1:
 							current_history_index -= 1
 						current_list_index -= 1
-				else:
-						input_distance += input_history_frames[current_history_index]
-						current_history_index -= 1
+				else:				
+					input_distance += input_history_frames[current_history_index]
+					current_history_index -= 1
 			#if the current input list index is a string, check if a frame in input history has both pressed
 			elif typeof(input_list[current_list_index]) == TYPE_ARRAY:
 				var has_inputs = true
@@ -128,6 +139,7 @@ func read_inputs(move_list : Array):
 					if current_list_index*-1 == input_list.size():
 								return(original_input_list)
 					else:
+						input_distance = input_history_frames[current_history_index]
 						if current_list_index != -1:
 							current_history_index -= 1
 						current_list_index -= 1
