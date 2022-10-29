@@ -43,6 +43,9 @@ func os_action_check(tags : Array):
 	if inputs != null:
 		print(inputs)
 		move_list.move_change_state(inputs)
+		return true
+	else:
+		return false
 func os_change_state(inputs):
 	match inputs:
 		["6","5","6"]:

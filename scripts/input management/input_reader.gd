@@ -104,7 +104,7 @@ func read_inputs(move_list : Array):
 		var current_history_index = -1
 		#variable to track time difference between inputs
 		var input_distance = 0
-		while ((current_list_index*-1)<=len(input_history_buttons)) and (input_distance <= input_leniency):
+		while ((current_history_index*-1) <= len(input_history_buttons)) and (input_distance <= input_leniency):
 			#if the current input list index is a string, check if the input history has that button within input leniency
 			if typeof(input_list[current_list_index]) == TYPE_STRING:
 				if current_list_index == -1 and input_history_buttons[current_history_index].has(input_list[current_list_index]):

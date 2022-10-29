@@ -20,4 +20,4 @@ func _process(_delta):
 	pass
 
 func os_action_check(_tags : Array):
-	pass
+	return false
