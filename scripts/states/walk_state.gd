@@ -14,15 +14,15 @@ func _physics_process(_delta):
 		player.turn(1)
 	if player.os.os_action_check(tags):
 		return
-	#elif (Input.is_action_just_pressed("ui_right")) or (Input.is_action_just_pressed("ui_left")):
+	#elif (Input.is_action_just_pressed(player.input_right)) or (Input.is_action_just_pressed(player.input_left)):
 	#	player.os.os_action_check(tags)
-	elif (Input.is_action_pressed("ui_down")):
+	elif (Input.is_action_pressed(player.input_down)):
 		state_machine.change_state(CardCrouchState.new())
-	elif (Input.is_action_pressed("ui_up")): 
+	elif (Input.is_action_pressed(player.input_up)): 
 		state_machine.change_state(JumpState.new())
-	elif (Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right")):
+	elif (Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right)):
 		player.velocity.x = -50
-	elif (Input.is_action_pressed("ui_right") and !Input.is_action_pressed("ui_left")):
+	elif (Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left)):
 		player.velocity.x = 50
 
 

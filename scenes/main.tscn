@@ -1,15 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnl0mem8q7hhw"]
+[gd_scene load_steps=6 format=3 uid="uid://cnl0mem8q7hhw"]
 
 [ext_resource type="PackedScene" uid="uid://55puaspx6fc1" path="res://scenes/stage_camera.tscn" id="2_sl85s"]
 [ext_resource type="Texture2D" uid="uid://be6unfrq265ji" path="res://sprites/refs/japan stage.png" id="3_oghs1"]
 [ext_resource type="Script" path="res://os_basic.gd" id="3_t0yh7"]
 [ext_resource type="PackedScene" uid="uid://bn5kwo8406gwy" path="res://scenes/card_player.tscn" id="4_dw13y"]
-[ext_resource type="PackedScene" uid="uid://tg25cmprt526" path="res://scenes/hurtbox.tscn" id="5_o2syl"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1000, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3ny2"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -25,16 +22,6 @@ polygon = PackedVector2Array(-49.5, -10, 49.5, -10, 49.5, 10, -49.5, 10, -49.5, 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("1")
 
-[node name="CharacterBody2d" type="CharacterBody2D" parent="."]
-position = Vector2(29, -56)
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="CharacterBody2d"]
-shape = SubResource("RectangleShape2D_g3ny2")
-
-[node name="Polygon2d" type="Polygon2D" parent="CharacterBody2d"]
-color = Color(0.462745, 0.0901961, 0.270588, 1)
-polygon = PackedVector2Array(10, -10, 10, 10, -10, 10, -10, -10)
-
 [node name="Sprite2d" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(1, -45)
@@ -43,13 +30,19 @@ texture = ExtResource("3_oghs1")
 
 [node name="StageCamera" parent="." node_paths=PackedStringArray("player_1", "player_2") instance=ExtResource("2_sl85s")]
 player_1 = NodePath("../Card_Player")
-player_2 = NodePath("../CharacterBody2d")
-
-[node name="Hurtbox" parent="." instance=ExtResource("5_o2syl")]
-position = Vector2(46, -21)
+player_2 = NodePath("../Card_Player2")
 
 [node name="Card_Player" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("4_dw13y")]
-opponent = NodePath("../CharacterBody2d")
+position = Vector2(-46, -2)
+opponent = NodePath("../Card_Player2")
 
 [node name="OSBasic" type="Node" parent="Card_Player"]
+script = ExtResource("3_t0yh7")
+
+[node name="Card_Player2" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("4_dw13y")]
+position = Vector2(49, 0)
+opponent = NodePath("../Card_Player")
+player_index = 2
+
+[node name="OSBasic" type="Node" parent="Card_Player2"]
 script = ExtResource("3_t0yh7")

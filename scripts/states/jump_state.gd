@@ -10,10 +10,10 @@ class_name JumpState
 func enter():
 	print("wheee")
 	player.anim_player.play("jump")
-	player.velocity.y = -100
-	if (Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right")):
+	player.velocity.y = -180
+	if (Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right)):
 		player.velocity.x = -50
-	elif (Input.is_action_pressed("ui_right") and !Input.is_action_pressed("ui_left")):
+	elif (Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left)):
 		player.velocity.x = 50
 	else:
 		player.velocity.x = 0

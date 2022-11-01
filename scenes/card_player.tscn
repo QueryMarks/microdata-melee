@@ -189,9 +189,9 @@ modulate = Color(0.501961, 1, 0, 1)
 position = Vector2(0, -19)
 shape = SubResource("1")
 
-[node name="InputReader" type="Node" parent="." node_paths=PackedStringArray("my_player")]
+[node name="InputReader" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_sfodf")
-my_player = NodePath("..")
+player = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

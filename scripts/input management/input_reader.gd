@@ -2,7 +2,7 @@ extends Node
 class_name InputReader
 
 @export var my_device = 0
-@export var my_player : Node
+@export var player : Node
 var input_history_buttons = []
 var input_history_frames = []
 var input_history_both = [input_history_buttons, input_history_frames]
@@ -15,37 +15,37 @@ func _physics_process(_delta):
 
 	#a note: the dictionaries here should be replaced with just values in an array, i'll do that later
 	#up/down axis
-	if Input.is_action_pressed("ui_up") and !Input.is_action_pressed("ui_down"): 
-		if Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed(player.input_up) and !Input.is_action_pressed(player.input_down): 
+		if Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
 			temp_input_dict["7"] = true
-		elif Input.is_action_pressed("ui_right") and !Input.is_action_pressed("ui_left"):
+		elif Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left):
 			temp_input_dict["9"] = true
 		else:
 			temp_input_dict["8"] = true
-	elif Input.is_action_pressed("ui_down") and !Input.is_action_pressed("ui_up"):
-		if Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed(player.input_down) and !Input.is_action_pressed(player.input_up):
+		if Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
 			temp_input_dict["1"] = true
-		elif Input.is_action_pressed("ui_right") and !Input.is_action_pressed("ui_left"):
+		elif Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left):
 			temp_input_dict["3"] = true
 		else:
 			temp_input_dict["2"] = true
 
-	elif Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
 		temp_input_dict["4"] = true
-	elif Input.is_action_pressed("ui_right") and !Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left):
 		temp_input_dict["6"] = true
 	else:
 		temp_input_dict["5"] = true
-	if Input.is_action_pressed("ui_a"):
+	if Input.is_action_pressed(player.input_a):
 		temp_input_dict["a"] = true
-	if Input.is_action_pressed("ui_b"):
+	if Input.is_action_pressed(player.input_b):
 		temp_input_dict["b"] = true
-	if Input.is_action_pressed("ui_c"):
+	if Input.is_action_pressed(player.input_c):
 		temp_input_dict["c"] = true
-	if Input.is_action_pressed("ui_d"):
+	if Input.is_action_pressed(player.input_d):
 		temp_input_dict["d"] = true
-	if Input.is_action_pressed("ui_dash"):
-		temp_input_dict["dash"] = true
+	if Input.is_action_pressed(player.input_o):
+		temp_input_dict["o"] = true
 	if ((input_history_buttons == []) or (temp_input_dict.hash() != input_history_buttons.back().hash())):
 		if input_history_buttons != []:
 			print("Releasing " + str(input_history_buttons.back()) + " after " + str(input_history_frames.back()))
@@ -63,7 +63,7 @@ func read_inputs(move_list : Array):
 		var original_input_list = input_list.duplicate()
 		while i < len(input_list):
 			if typeof(input_list[i]) == TYPE_STRING:
-				if my_player.my_facing != 1:
+				if player.my_facing != 1:
 					match input_list[i]:
 						"6":
 							input_list[i] = "4"
@@ -82,7 +82,7 @@ func read_inputs(move_list : Array):
 			elif typeof(input_list[i]) == TYPE_ARRAY:
 				var j = 0
 				while j < len(input_list[i]):
-					if my_player.my_facing != 1:
+					if player.my_facing != 1:
 						match input_list[i][j]:
 							"6":
 								input_list[i][j] = "4"

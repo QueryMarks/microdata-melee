@@ -9,5 +9,5 @@ func enter():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
-	if !(Input.is_action_pressed("ui_down")):
+	if !(Input.is_action_pressed(player.input_down)):
 		state_machine.change_state(IdleState.new())
