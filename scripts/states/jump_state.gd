@@ -18,7 +18,6 @@ func enter():
 	else:
 		player.velocity.x = 0
 
-	
 
 
 func _process(_delta):

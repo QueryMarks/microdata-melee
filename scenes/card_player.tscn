@@ -182,11 +182,12 @@ size = Vector2(23, 36)
 size = Vector2(17, 11)
 
 [node name="Card_Player" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_v68o5")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 modulate = Color(0.501961, 1, 0, 1)
-position = Vector2(0, -19)
+position = Vector2(-1, -19)
 shape = SubResource("1")
 
 [node name="InputReader" type="Node" parent="." node_paths=PackedStringArray("player")]
@@ -237,5 +238,14 @@ script = ExtResource("7_1axb8")
 player = NodePath("..")
 input_reader = NodePath("../InputReader")
 state_machine = NodePath("../StateMachine")
+
+[node name="Pushbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionBox" type="CollisionShape2D" parent="Pushbox"]
+modulate = Color(0.501961, 1, 0, 1)
+position = Vector2(-1, -19)
+shape = SubResource("1")
 
 [editable path="StateMachine"]

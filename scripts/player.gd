@@ -21,6 +21,7 @@ var input_up
 var input_down
 var input_left
 var input_right
+var pushbox : Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -29,6 +30,7 @@ func _ready():
 			move_list = node
 	state_machine = $StateMachine
 	anim_player = $AnimationPlayer
+	pushbox = $Pushbox
 	#set up inputs
 	input_a = str("p"+str(player_index)+"_a")
 	input_b = str("p"+str(player_index)+"_b")
@@ -56,3 +58,7 @@ func get_hit(hitbox : Hitbox):
 	
 func _physics_process(delta):
 	self.move_and_slide()
+	if pushbox.get_overlapping_areas().has(opponent.pushbox):
+		if pushbox.global_position.x == opponent.pushbox.global_position.x:
+			pushbox.global_position.x += 0.000001
+		self.position.x += 10/(pushbox.global_position.x - opponent.pushbox.global_position.x)
