@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bn5kwo8406gwy"]
+[gd_scene load_steps=21 format=3 uid="uid://bn5kwo8406gwy"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v68o5"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_sfodf"]
@@ -179,9 +179,27 @@ tracks/0/keys = {
 "values": [12, 13, 14, 15, 16, 17]
 }
 
+[sub_resource type="Animation" id="Animation_5jtee"]
+resource_name = "5b"
+length = 0.366667
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 13), Vector2i(1, 13), Vector2i(0, 13)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ims83"]
 _data = {
 "5a": SubResource("Animation_g4jnt"),
+"5b": SubResource("Animation_5jtee"),
 "RESET": SubResource("Animation_ai5ji"),
 "crouch": SubResource("Animation_5mrnj"),
 "dash": SubResource("Animation_lfhf3"),
@@ -231,7 +249,7 @@ texture_filter = 3
 texture = ExtResource("5_68sbw")
 offset = Vector2(0, -32)
 hframes = 6
-vframes = 13
+vframes = 14
 frame = 36
 
 [node name="Hitboxes" type="Node2D" parent="."]
