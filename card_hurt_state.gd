@@ -17,7 +17,6 @@ func _physics_process(delta):
 			player.velocity.x -= 20
 		else:
 			player.velocity.x -= 4*sign(player.velocity.x)
-			print(player.velocity.x)
 	elif player.velocity.x != 0:
 		player.velocity.x = 0
 

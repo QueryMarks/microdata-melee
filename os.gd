@@ -16,8 +16,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func _physics_process(_delta):
+	if player.state_machine.current_state.tags.has("actionable") or player.state_machine.current_state.has_hit == true:
+		os_action_check(player.state_machine.current_state.tags)
 
 func os_action_check(_tags : Array):
 	return false

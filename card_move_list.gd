@@ -18,6 +18,9 @@ func _ready():
 		["a"], #5a
 		["b"] #5b
 		]
+	ground_normals_b = [
+		["b"]
+	]
 	air_normals = []
 
 
@@ -28,6 +31,7 @@ func move_change_state(inputs : Array):
 		["a"]:
 			state_machine.change_state(Card5aState.new())
 		["b"]:
+			print("current state is" + str(state_machine.current_state))
 			state_machine.change_state(Card5bState.new())
 		["2","3","6","a"]:
 			state_machine.change_state(CardThrowaState.new())

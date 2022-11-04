@@ -11,3 +11,7 @@ func _to_idle(_variable):
 	state_machine.change_state(IdleState.new())
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
+func exit():
+	for node in player.get_node("Hitboxes").get_children():
+		for collision in node.get_children():
+			collision.disabled = true

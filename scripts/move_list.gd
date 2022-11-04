@@ -12,6 +12,9 @@ var air_specials = []
 var ground_command_normals = []
 var air_command_normals = []
 var ground_normals = []
+var ground_normals_b = []
+var ground_normals_c = []
+var ground_normals_d = []
 var air_normals = []
 
 func _ready():

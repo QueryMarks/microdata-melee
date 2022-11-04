@@ -22,6 +22,12 @@ var input_down
 var input_left
 var input_right
 var pushbox : Area2D
+var hitstop = false
+
+#hitstop stuff, clean up later?
+var hitstop_timer : Timer
+var temp_velocity : Vector2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -31,6 +37,8 @@ func _ready():
 	state_machine = $StateMachine
 	anim_player = $AnimationPlayer
 	pushbox = $Pushbox
+	hitstop_timer = $HitstopTimer
+	hitstop_timer.timeout.connect(hit_restart)
 	#set up inputs
 	input_a = str("p"+str(player_index)+"_a")
 	input_b = str("p"+str(player_index)+"_b")
@@ -57,18 +65,15 @@ func get_hit(hitbox : Hitbox):
 	return state_machine.current_state.get_hit(hitbox)
 	
 func get_hurt(hitbox : Hitbox):
-
 	if self.is_on_floor():
-		print("on floor?")
 		state_machine.change_state(CardHurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 	else:
-		print("not on floor?")
 		state_machine.change_state(CardAirHurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 		velocity.y = hitbox.knockback.y
+	hit_stop(hitbox)
 	state_machine.current_state.hitstun = hitbox.hitstun
-	print(sign(hitbox.global_position.x - global_position.x))
 	
 func _physics_process(delta):
 	self.move_and_slide()
@@ -80,3 +85,22 @@ func _physics_process(delta):
 			self.position.x += 1*sign(pushbox.global_position.x - opponent.pushbox.global_position.x)
 		else:
 			self.position.x += 10/(pushbox.global_position.x - opponent.pushbox.global_position.x)
+
+func hit_stop(hitbox : Hitbox):
+	set_physics_process(false)
+	state_machine.current_state.set_physics_process(false)
+	anim_player.advance(1/60.0)
+	anim_player.stop(false)
+	temp_velocity = velocity
+	velocity = Vector2(0, 0)
+	hitstop_timer.stop()
+	hitstop_timer.start(hitbox.hitstop/60.0)
+	hitstop = true
+
+func hit_restart():
+	hitstop_timer.stop()
+	set_physics_process(true)
+	state_machine.current_state.set_physics_process(true)
+	velocity = temp_velocity
+	anim_player.play()
+	hitstop = false
