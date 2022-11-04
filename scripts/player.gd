@@ -56,9 +56,27 @@ func turn(facing: int):
 func get_hit(hitbox : Hitbox):
 	return state_machine.current_state.get_hit(hitbox)
 	
+func get_hurt(hitbox : Hitbox):
+
+	if self.is_on_floor():
+		print("on floor?")
+		state_machine.change_state(CardHurtState.new())
+		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
+	else:
+		print("not on floor?")
+		state_machine.change_state(CardAirHurtState.new())
+		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
+		velocity.y = hitbox.knockback.y
+	state_machine.current_state.hitstun = hitbox.hitstun
+	print(sign(hitbox.global_position.x - global_position.x))
+	
 func _physics_process(delta):
 	self.move_and_slide()
+	#push other player
 	if pushbox.get_overlapping_areas().has(opponent.pushbox):
 		if pushbox.global_position.x == opponent.pushbox.global_position.x:
-			pushbox.global_position.x += 0.000001
-		self.position.x += 10/(pushbox.global_position.x - opponent.pushbox.global_position.x)
+			pushbox.global_position.x += 0.001
+		if abs(pushbox.global_position.x - opponent.pushbox.global_position.x) < 0.1:
+			self.position.x += 1*sign(pushbox.global_position.x - opponent.pushbox.global_position.x)
+		else:
+			self.position.x += 10/(pushbox.global_position.x - opponent.pushbox.global_position.x)

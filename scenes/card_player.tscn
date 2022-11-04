@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bn5kwo8406gwy"]
+[gd_scene load_steps=20 format=3 uid="uid://bn5kwo8406gwy"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v68o5"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_sfodf"]
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.068, 0.187),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [60, 61, 60]
+"values": [72, 73, 72]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -110,7 +110,22 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [54]
+"values": [66]
+}
+
+[sub_resource type="Animation" id="Animation_08qeu"]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 9)]
 }
 
 [sub_resource type="Animation" id="Animation_m804a"]
@@ -170,6 +185,7 @@ _data = {
 "RESET": SubResource("Animation_ai5ji"),
 "crouch": SubResource("Animation_5mrnj"),
 "dash": SubResource("Animation_lfhf3"),
+"hurt": SubResource("Animation_08qeu"),
 "idle": SubResource("Animation_m804a"),
 "jump": SubResource("Animation_vii2t"),
 "walk": SubResource("Animation_84v7y")
@@ -182,7 +198,7 @@ size = Vector2(23, 36)
 size = Vector2(17, 11)
 
 [node name="Card_Player" type="CharacterBody2D"]
-collision_mask = 2
+collision_layer = 4
 script = ExtResource("1_v68o5")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
@@ -215,7 +231,7 @@ texture_filter = 3
 texture = ExtResource("5_68sbw")
 offset = Vector2(0, -32)
 hframes = 6
-vframes = 11
+vframes = 13
 frame = 36
 
 [node name="Hitboxes" type="Node2D" parent="."]
@@ -226,6 +242,7 @@ self_modulate = Color(1, 0, 0, 1)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("6_3cook")
+knockback = Vector2(80, -100)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Hitboxes/5aHitbox"]
 modulate = Color(1, 0, 0, 1)

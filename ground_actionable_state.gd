@@ -22,3 +22,7 @@ func _physics_process(_delta):
 		state_machine.change_state(JumpState.new())
 	elif ((Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right)) or (Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left))):
 		state_machine.change_state(WalkState.new())
+
+func get_hit(hitbox : Hitbox):
+	player.get_hurt(hitbox)
+	return "hit"

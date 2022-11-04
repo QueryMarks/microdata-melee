@@ -9,15 +9,30 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "State",
+"class": &"AirState",
+"language": &"GDScript",
+"path": "res://air_state.gd"
+}, {
 "base": "GroundNormalState",
 "class": &"Card5aState",
 "language": &"GDScript",
 "path": "res://scripts/states/card/card_5a_state.gd"
 }, {
 "base": "State",
+"class": &"CardAirHurtState",
+"language": &"GDScript",
+"path": "res://card_air_hurt_state.gd"
+}, {
+"base": "State",
 "class": &"CardCrouchState",
 "language": &"GDScript",
 "path": "res://card_crouch_state.gd"
+}, {
+"base": "State",
+"class": &"CardHurtState",
+"language": &"GDScript",
+"path": "res://card_hurt_state.gd"
 }, {
 "base": "MoveList",
 "class": &"CardMoveList",
@@ -105,8 +120,11 @@ _global_script_classes=[{
 "path": "res://scripts/states/walk_state.gd"
 }]
 _global_script_class_icons={
+"AirState": "",
 "Card5aState": "",
+"CardAirHurtState": "",
 "CardCrouchState": "",
+"CardHurtState": "",
 "CardMoveList": "",
 "CardThrowaState": "",
 "CharacterStateMachine": "",

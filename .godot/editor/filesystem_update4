@@ -3,12 +3,12 @@ res://scenes/hurtbox.tscn
 res://scenes/stage_camera.tscn
 res://scenes/main.tscn
 res://scenes/card_player.tscn
-res://scripts/player.gd
-res://scenes/inputs.gd
-res://scripts/states/walk_state.gd
-res://card_crouch_state.gd
-res://dash_state.gd
+res://card_hurt_state.gd
 res://ground_actionable_state.gd
-res://scripts/input management/input_reader.gd
-res://os_basic.gd
+res://scripts/player.gd
+res://card_air_hurt_state.gd
 res://scripts/states/jump_state.gd
+res://air_state.gd
+res://scripts/input management/input_reader.gd
+res://os.gd
+res://scripts/collision/hurtbox.gd

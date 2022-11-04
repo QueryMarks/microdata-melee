@@ -12,8 +12,6 @@ size = Vector2(1000, 20)
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 10)
-collision_layer = 2
-collision_mask = 2
 
 [node name="Polygon2D" type="Polygon2D" parent="Area2D"]
 visible = false
@@ -35,7 +33,7 @@ player_1 = NodePath("../Card_Player")
 player_2 = NodePath("../Card_Player2")
 
 [node name="Card_Player" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("4_dw13y")]
-position = Vector2(-46, 4)
+position = Vector2(-49, 5)
 opponent = NodePath("../Card_Player2")
 
 [node name="OSBasic" type="Node" parent="Card_Player"]

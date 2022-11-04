@@ -10,12 +10,11 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_area_entered(hitbox : Hitbox) -> void:
+	
 	if hitbox == null:
 		print("null??")
 		return
-	if owner.has_method("get_hit"):
-		print("OW!!!", hitbox)
-		print(hitbox.owner,"hitbox owner and",owner,"my owner")
+	if hitbox.owner != owner and owner.has_method("get_hit"):
 		hitbox.this_hit(owner.get_hit(hitbox))
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
