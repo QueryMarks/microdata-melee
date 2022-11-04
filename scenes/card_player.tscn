@@ -288,9 +288,9 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("6_3cook")
 damage = 8
-hitstun = 60
-hitstop = 60
-knockback = Vector2(400, -100)
+hitstun = 10
+hitstop = 8
+knockback = Vector2(80, -50)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Hitboxes/5aHitbox"]
 modulate = Color(1, 0, 0, 1)
