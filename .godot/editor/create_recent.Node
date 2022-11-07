@@ -1,6 +1,6 @@
+Area2D
 Timer
 CollisionShape2D
-Area2D
 OSBasic (os_basic.gd)
 Node
 CardMoveList (card_move_list.gd)

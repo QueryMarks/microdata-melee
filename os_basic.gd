@@ -16,7 +16,9 @@ func os_action_check(tags : Array):
 			if tags.has("normal"):
 				if tags.has("a"):
 					inputs = input_reader.read_inputs(move_list.ground_supers + move_list.ground_specials + move_list.ground_command_normals + move_list.ground_normals_b + move_list.ground_normals_c + move_list.ground_normals_d) 
-			#os will then call the movelist's arrays for normal'
+				elif tags.has("b"):
+					inputs = input_reader.read_inputs(move_list.ground_supers + move_list.ground_specials + move_list.ground_command_normals + move_list.ground_normals_c + move_list.ground_normals_d) 
+						#os will then call the movelist's arrays for normal
 		
 			elif tags.has("command_normal"):
 				print("ground super, special ok")

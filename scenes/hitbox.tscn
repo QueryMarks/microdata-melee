@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="1_fmdjf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3utw4"]
-size = Vector2(16, 8.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0i2e"]
+size = Vector2(21, 11)
 
 [node name="Area2D" type="Area2D"]
 collision_layer = 2
@@ -13,5 +13,5 @@ script = ExtResource("1_fmdjf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 modulate = Color(1, 0, 0, 1)
 self_modulate = Color(0.993421, 0, 0.216357, 1)
-shape = SubResource("RectangleShape2D_3utw4")
+shape = SubResource("RectangleShape2D_e0i2e")
 disabled = true

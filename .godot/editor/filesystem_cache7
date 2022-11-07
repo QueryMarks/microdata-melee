@@ -1,5 +1,5 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1667780798
+::res://::1667840468
 air_state.gd::GDScript::-1::1667520067::0::1::::AirState<>State<>::
 card_5b_state.gd::GDScript::-1::1667623236::0::1::::Card5bState<>GroundNormalState<>::
 card_air_hurt_state.gd::GDScript::-1::1667587595::0::1::::CardAirHurtState<>State<>::
@@ -19,26 +19,26 @@ ExpressionPro.ttf::FontFile::881694791092610658::1622479530::1665459074::1::::<>
 FutilePro.ttf::FontFile::7019894180980603123::1622479534::1665459074::1::::<><>::
 MatchupPro.ttf::FontFile::2787932387355672399::1622479540::1665459074::1::::<><>::
 Silver.ttf::FontFile::1694964538141144166::1622479438::1665459074::1::::<><>::
-::res://scenes/::1667623259
-card_player.tscn::PackedScene::3361454228660597252::1667623259::0::1::::<><>::res://scripts/player.gd<>res://scripts/input management/input_reader.gd<>uid://3oyeegtt5ps6<>res://scripts/collision/hurtbox.gd<>uid://dcxswsn0u2qu4<>res://scripts/collision/hitbox.gd<>res://card_move_list.gd
-hitbox.tscn::PackedScene::4323117161573197690::1667623259::0::1::::<><>::res://scripts/collision/hitbox.gd
-hurtbox.tscn::PackedScene::1347667352558200117::1667623259::0::1::::<><>::res://scripts/collision/hurtbox.gd
-main.tscn::PackedScene::5709544074474371008::1667623259::0::1::::<><>::uid://55puaspx6fc1<>uid://be6unfrq265ji<>res://os_basic.gd<>uid://bn5kwo8406gwy
+::res://scenes/::1667846234
+card_player.tscn::PackedScene::3361454228660597252::1667846234::0::1::::<><>::res://scripts/player.gd<>res://scripts/input management/input_reader.gd<>uid://3oyeegtt5ps6<>res://scripts/collision/hurtbox.gd<>uid://dcxswsn0u2qu4<>res://scripts/collision/hitbox.gd<>res://card_move_list.gd
+hitbox.tscn::PackedScene::4323117161573197690::1667846234::0::1::::<><>::res://scripts/collision/hitbox.gd
+hurtbox.tscn::PackedScene::1347667352558200117::1667846234::0::1::::<><>::res://scripts/collision/hurtbox.gd
+main.tscn::PackedScene::5709544074474371008::1667846234::0::1::::<><>::uid://byolagjxdgwfu<>uid://55puaspx6fc1<>res://os_basic.gd<>uid://bn5kwo8406gwy
 stage_camera.gd::GDScript::-1::1665678258::0::1::::<>CharacterBody2D<>::
-stage_camera.tscn::PackedScene::2168543141052330554::1667623259::0::1::::<><>::res://scenes/stage_camera.gd
+stage_camera.tscn::PackedScene::2168543141052330554::1667846234::0::1::::<><>::res://scenes/stage_camera.gd
 state_machine.tscn::PackedScene::1995653481675845951::1664813410::0::1::::<><>::res://scripts/character_state_machine.gd
 ::res://scripts/::1667601602
 character_state_machine.gd::GDScript::-1::1667601602::0::1::::CharacterStateMachine<>Node<>::
 move_list.gd::GDScript::-1::1667586643::0::1::::MoveList<>Node<>::
 player.gd::GDScript::-1::1667590374::0::1::::Player<>CharacterBody2D<>::
-::res://scripts/collision/::1667587946
-hitbox.gd::GDScript::-1::1667587570::0::1::::Hitbox<>Area2D<>::
+::res://scripts/collision/::1667781780
+hitbox.gd::GDScript::-1::1667781780::0::1::::Hitbox<>Area2D<>::
 hurtbox.gd::GDScript::-1::1667587946::0::1::::Hurtbox<>Area2D<>::
 ::res://scripts/input management/::1667587977
 input_reader.gd::GDScript::-1::1667587977::0::1::::InputReader<>Node<>::
 input_reader_backup.gd::GDScript::-1::1666282762::0::1::::<>Node<>::
-::res://scripts/states/::1667623240
-ground_normal_state.gd::GDScript::-1::1667623240::0::1::::GroundNormalState<>State<>::
+::res://scripts/states/::1667782348
+ground_normal_state.gd::GDScript::-1::1667782348::0::1::::GroundNormalState<>State<>::
 idle_state.gd::GDScript::-1::1667589981::0::1::::IdleState<>GroundActionableState<>::
 jump_state.gd::GDScript::-1::1667583917::0::1::::JumpState<>State<>::
 state.gd::GDScript::-1::1667589345::0::1::::State<>Node<>::
@@ -46,7 +46,8 @@ walk_state.gd::GDScript::-1::1667520068::0::1::::WalkState<>GroundActionableStat
 ::res://scripts/states/card/::1667623236
 card_5a_state.gd::GDScript::-1::1667623236::0::1::::Card5aState<>GroundNormalState<>::
 card_throw_a_state.gd::GDScript::-1::1666107166::0::1::::CardThrowaState<>State<>::
-::res://sprites/::1667529708
-card sprite sheet.png::CompressedTexture2D::7348253586700899581::1667529707::1667529708::1::::<><>::
+::res://sprites/::1667851838
+card sprite sheet.png::CompressedTexture2D::7348253586700899581::1667852244::1667852612::1::::<><>::
+placeholder stage.png::CompressedTexture2D::4100522436575772054::1667843472::1667843474::1::::<><>::
 ::res://sprites/refs/::1666373390
 japan stage.png::CompressedTexture2D::2732409613439903642::1664924226::1664924226::1::::<><>::

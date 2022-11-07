@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnl0mem8q7hhw"]
 
+[ext_resource type="Texture2D" uid="uid://byolagjxdgwfu" path="res://sprites/placeholder stage.png" id="1_64fyb"]
 [ext_resource type="PackedScene" uid="uid://55puaspx6fc1" path="res://scenes/stage_camera.tscn" id="2_sl85s"]
-[ext_resource type="Texture2D" uid="uid://be6unfrq265ji" path="res://sprites/refs/japan stage.png" id="3_oghs1"]
 [ext_resource type="Script" path="res://os_basic.gd" id="3_t0yh7"]
 [ext_resource type="PackedScene" uid="uid://bn5kwo8406gwy" path="res://scenes/card_player.tscn" id="4_dw13y"]
 
@@ -26,7 +26,7 @@ shape = SubResource("1")
 texture_filter = 1
 position = Vector2(1, -45)
 z_index = -1
-texture = ExtResource("3_oghs1")
+texture = ExtResource("1_64fyb")
 
 [node name="StageCamera" parent="." node_paths=PackedStringArray("player_1", "player_2") instance=ExtResource("2_sl85s")]
 player_1 = NodePath("../Card_Player")
@@ -46,3 +46,6 @@ player_index = 2
 
 [node name="OSBasic" type="Node" parent="Card_Player2"]
 script = ExtResource("3_t0yh7")
+
+[node name="Area2d" type="Area2D" parent="."]
+position = Vector2(-75, -3)
