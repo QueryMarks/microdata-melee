@@ -13,5 +13,5 @@ func _to_idle(_variable):
 
 func exit():
 	for node in player.get_node("Hitboxes").get_children():
-		for collision in node.get_children():
-			collision.disabled = true
+		if node.get_node("CollisionShape2D").disabled == false:
+			node.get_node("CollisionShape2D").set_deferred("disabled",true)

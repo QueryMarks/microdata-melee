@@ -17,7 +17,7 @@ func this_hit(hit_type):
 			owner.hit_stop(self)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$CollisionShape2d.disabled = true
+	$CollisionShape2D.disabled = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -23,6 +23,8 @@ func initialize(starting_state, player, input_reader):
 func change_state(new_state: State):
 	print("Current state ", current_state)
 	print("New state ", new_state)
+	if my_player.hitstop == true:
+		my_player.hit_restart
 	current_state.exit()
 	current_state.queue_free()
 	current_state = new_state

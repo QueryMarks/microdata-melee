@@ -30,7 +30,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitboxes/5aHitbox/CollisionShape2d:disabled")
+tracks/1/path = NodePath("Hitboxes/5aHitbox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -59,7 +59,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitboxes/5bHitbox/CollisionShape2d:disabled")
+tracks/1/path = NodePath("Hitboxes/5bHitbox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -86,7 +86,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitboxes/5aHitbox/CollisionShape2d:disabled")
+tracks/1/path = NodePath("Hitboxes/5aHitbox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -110,7 +110,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitboxes/5bHitbox/CollisionShape2d:disabled")
+tracks/3/path = NodePath("Hitboxes/5bHitbox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -292,7 +292,7 @@ hitstun = 10
 hitstop = 8
 knockback = Vector2(80, -50)
 
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Hitboxes/5aHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5aHitbox"]
 modulate = Color(1, 0, 0, 1)
 self_modulate = Color(0.993421, 0, 0.216357, 1)
 position = Vector2(15.5, -22.5)
@@ -305,7 +305,7 @@ script = ExtResource("6_3cook")
 hitstop = 10
 knockback = Vector2(100, -10)
 
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Hitboxes/5bHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5bHitbox"]
 modulate = Color(1, 0, 0, 1)
 self_modulate = Color(0.993421, 0, 0.216357, 1)
 position = Vector2(16, -4.75)
