@@ -1,11 +1,8 @@
-res://scenes/main.tscn
+res://scenes/card_player.tscn
+res://card_5d_state.gd
+res://card_move_list.gd
+res://os_basic.gd
 res://scenes/hitbox.tscn
 res://scenes/hurtbox.tscn
 res://scenes/stage_camera.tscn
-res://scenes/card_player.tscn
-res://card_5c_state.gd
-res://os_basic.gd
-res://card_move_list.gd
-res://card_5b_state.gd
-res://scripts/move_list.gd
-res://scenes/stage_camera.gd
+res://scenes/main.tscn

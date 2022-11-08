@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bn5kwo8406gwy"]
+[gd_scene load_steps=26 format=3 uid="uid://bn5kwo8406gwy"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v68o5"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_sfodf"]
@@ -69,6 +69,35 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_gns4t"]
+resource_name = "5c"
+length = 0.583333
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.483333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 14), Vector2i(1, 14), Vector2i(2, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitboxes/5cHitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 0.483333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="Animation" id="Animation_ai5ji"]
 length = 0.001
 tracks/0/type = "value"
@@ -126,6 +155,18 @@ tracks/4/path = NodePath("Hitboxes/5cHitbox/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hitboxes/5dHitbox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -232,10 +273,10 @@ tracks/0/keys = {
 "values": [12, 13, 14, 15, 16, 17]
 }
 
-[sub_resource type="Animation" id="Animation_gns4t"]
-resource_name = "5c"
-length = 0.8
-step = 0.04
+[sub_resource type="Animation" id="Animation_86n40"]
+resource_name = "5d"
+length = 0.666667
+step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -243,19 +284,19 @@ tracks/0/path = NodePath("Sprite2d:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.36, 0.56),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.116667, 0.25, 0.366667, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 14), Vector2i(1, 14), Vector2i(2, 14)]
+"values": [Vector2i(0, 15), Vector2i(1, 15), Vector2i(2, 15), Vector2i(3, 15), Vector2i(0, 15)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitboxes/5cHitbox/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Hitboxes/5dHitbox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.36, 0.56),
+"times": PackedFloat32Array(0.25, 0.366667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -266,6 +307,7 @@ _data = {
 "5a": SubResource("Animation_g4jnt"),
 "5b": SubResource("Animation_5jtee"),
 "5c": SubResource("Animation_gns4t"),
+"5d": SubResource("Animation_86n40"),
 "RESET": SubResource("Animation_ai5ji"),
 "crouch": SubResource("Animation_5mrnj"),
 "dash": SubResource("Animation_lfhf3"),
@@ -286,6 +328,9 @@ size = Vector2(16, 8.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0i2e"]
 size = Vector2(21, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iinxj"]
+size = Vector2(25, 19.5)
 
 [node name="Card_Player" type="CharacterBody2D"]
 collision_layer = 4
@@ -321,7 +366,7 @@ texture_filter = 3
 texture = ExtResource("5_68sbw")
 offset = Vector2(0, -32)
 hframes = 6
-vframes = 15
+vframes = 16
 frame = 36
 
 [node name="Hitboxes" type="Node2D" parent="."]
@@ -347,7 +392,7 @@ shape = SubResource("RectangleShape2D_ytqxq")
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("6_3cook")
-hitstop = 10
+hitstop = 11
 knockback = Vector2(50, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5bHitbox"]
@@ -370,6 +415,20 @@ modulate = Color(1, 0, 0, 1)
 self_modulate = Color(0.993421, 0, 0.216357, 1)
 position = Vector2(21.5, -18.5)
 shape = SubResource("RectangleShape2D_e0i2e")
+
+[node name="5dHitbox" type="Area2D" parent="Hitboxes"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("6_3cook")
+damage = 20
+hitstop = 20
+knockback = Vector2(150, -90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5dHitbox"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+position = Vector2(18.5, -21.75)
+shape = SubResource("RectangleShape2D_iinxj")
 
 [node name="CardMoveList" type="Node" parent="." node_paths=PackedStringArray("player", "input_reader", "state_machine")]
 script = ExtResource("7_1axb8")

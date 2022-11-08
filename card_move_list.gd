@@ -17,7 +17,8 @@ func _ready():
 	ground_normals = [
 		["a"], #5a
 		["b"], #5b
-		["c"]
+		["c"],
+		["d"]
 	]
 	ground_normals_a = [
 		["a"]
@@ -27,6 +28,9 @@ func _ready():
 	]
 	ground_normals_c = [
 		["c"]
+	]
+	ground_normals_d = [
+		["d"]
 	]
 	air_normals = []
 
@@ -41,6 +45,8 @@ func move_change_state(inputs : Array):
 			state_machine.change_state(Card5bState.new())
 		["c"]:
 			state_machine.change_state(Card5cState.new())
+		["d"]:
+			state_machine.change_state(Card5dState.new())
 		["2","3","6","a"]:
 			state_machine.change_state(CardThrowaState.new())
 		_:
