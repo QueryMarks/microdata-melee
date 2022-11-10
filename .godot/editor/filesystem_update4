@@ -1,9 +1,9 @@
 res://scenes/hitbox.tscn
-res://scripts/states/ground_normal_state.gd
+res://scripts/states/card/card_hurt_state.gd
 res://scenes/hurtbox.tscn
 res://scenes/stage_camera.tscn
 res://scenes/main.tscn
 res://scenes/card_player.tscn
 res://scenes/tossed_card.tscn
-res://scripts/states/ground_special_state.gd
+res://scripts/player.gd
 res://scripts/character_state_machine.gd

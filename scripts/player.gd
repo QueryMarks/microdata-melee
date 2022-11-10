@@ -66,9 +66,11 @@ func turn(facing: int):
 	my_facing = facing
 	
 func get_hit(hitbox : Hitbox):
+	print("get_hit")
 	return state_machine.current_state.get_hit(hitbox)
 	
 func get_hurt(hitbox : Hitbox):
+	print("get_hurt")
 	if self.is_on_floor():
 		state_machine.change_state(CardHurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
@@ -76,8 +78,8 @@ func get_hurt(hitbox : Hitbox):
 		state_machine.change_state(CardAirHurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 		velocity.y = hitbox.knockback.y
-	hit_stop(hitbox)
 	state_machine.current_state.hitstun = hitbox.hitstun
+	hit_stop(hitbox)
 	
 func _physics_process(delta):
 	self.move_and_slide()

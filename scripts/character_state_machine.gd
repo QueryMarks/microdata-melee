@@ -23,7 +23,9 @@ func initialize(starting_state, player, input_reader):
 func change_state(new_state: State):
 	if my_player.hitstop == true:
 		state_to_change = new_state	
+		new_state.set_physics_process(false)
 	else:
+		current_state.set_physics_process(false)
 		current_state.exit()
 		current_state.queue_free()
 		current_state = new_state
@@ -35,5 +37,6 @@ func change_state(new_state: State):
 
 func _physics_process(_delta):
 	if state_to_change != null and my_player.hitstop == false:
+		state_to_change.set_physics_process(true)
 		change_state(state_to_change)
 		state_to_change = null

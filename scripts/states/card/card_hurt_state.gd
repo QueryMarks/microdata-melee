@@ -10,13 +10,14 @@ func enter():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if hitstun <= 0:
+		print("hhh greg")
 		state_machine.change_state(IdleState.new())
 	hitstun -= 1
 	if abs(player.velocity.x) >= friction:
 		if abs(player.velocity.x) >= 200:
-			player.velocity.x -= 20
+			player.velocity.x -= 10*sign(player.velocity.x)
 		else:
-			player.velocity.x -= 4*sign(player.velocity.x)
+			player.velocity.x -= 1.0/20.0*player.velocity.x
 	elif player.velocity.x != 0:
 		player.velocity.x = 0
 
