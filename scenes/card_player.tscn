@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bn5kwo8406gwy"]
+[gd_scene load_steps=27 format=3 uid="uid://bn5kwo8406gwy"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v68o5"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_sfodf"]
@@ -202,6 +202,37 @@ tracks/5/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_dc15n"]
+resource_name = "card_toss"
+length = 0.833333
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 28), Vector2i(1, 28), Vector2i(2, 28)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["toss"],
+"method": &"anim_emit_signal"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_5mrnj"]
 resource_name = "crouch"
 length = 0.333333
@@ -309,6 +340,7 @@ _data = {
 "5c": SubResource("Animation_gns4t"),
 "5d": SubResource("Animation_86n40"),
 "RESET": SubResource("Animation_ai5ji"),
+"card_toss": SubResource("Animation_dc15n"),
 "crouch": SubResource("Animation_5mrnj"),
 "dash": SubResource("Animation_lfhf3"),
 "hurt": SubResource("Animation_08qeu"),
@@ -366,7 +398,7 @@ texture_filter = 3
 texture = ExtResource("5_68sbw")
 offset = Vector2(0, -32)
 hframes = 6
-vframes = 16
+vframes = 32
 frame = 36
 
 [node name="Hitboxes" type="Node2D" parent="."]
@@ -430,11 +462,8 @@ self_modulate = Color(0.993421, 0, 0.216357, 1)
 position = Vector2(18.5, -21.75)
 shape = SubResource("RectangleShape2D_iinxj")
 
-[node name="CardMoveList" type="Node" parent="." node_paths=PackedStringArray("player", "input_reader", "state_machine")]
+[node name="CardMoveList" type="Node" parent="."]
 script = ExtResource("7_1axb8")
-player = NodePath("..")
-input_reader = NodePath("../InputReader")
-state_machine = NodePath("../StateMachine")
 
 [node name="Pushbox" type="Area2D" parent="."]
 collision_layer = 4

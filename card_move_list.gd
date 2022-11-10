@@ -1,7 +1,7 @@
 extends MoveList
 class_name CardMoveList
 
-
+var tossed_card = load("res://scenes/tossed_card.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super()
@@ -48,6 +48,6 @@ func move_change_state(inputs : Array):
 		["d"]:
 			state_machine.change_state(Card5dState.new())
 		["2","3","6","a"]:
-			state_machine.change_state(CardThrowaState.new())
+			state_machine.change_state(CardTossState.new())
 		_:
 			player.os.os_change_state(inputs)

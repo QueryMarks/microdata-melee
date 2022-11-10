@@ -20,6 +20,8 @@ var air_normals = []
 
 func _ready():
 	player = self.get_parent()
+	input_reader = player.get_node("InputReader")
+	state_machine = player.get_node("StateMachine")
 
 func move_change_state(_inputs : Array):
 	pass

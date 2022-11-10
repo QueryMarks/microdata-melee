@@ -28,6 +28,10 @@ var hitstop = false
 var hitstop_timer : Timer
 var temp_velocity : Vector2
 
+#for use with anim_signal()
+var anim_var : String
+signal anim_signal
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -104,3 +108,7 @@ func hit_restart():
 	velocity = temp_velocity
 	anim_player.play()
 	hitstop = false
+	
+func anim_emit_signal(string : String):
+	anim_var = string
+	emit_signal("anim_signal")

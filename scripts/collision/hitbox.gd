@@ -10,11 +10,11 @@ func _init() -> void:
 	collision_layer = 2
 
 func this_hit(hit_type):
-	print("this hitbox is" + str(self))
 	match hit_type:
 		"hit":
 			owner.state_machine.current_state.has_hit = true
 			owner.hit_stop(self)
+			
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$CollisionShape2D.disabled = true
