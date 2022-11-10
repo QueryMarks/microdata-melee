@@ -113,7 +113,7 @@ func read_inputs(move_list : Array):
 					#conduct a while loop to see how long that input has been held
 					var k = -1
 					var k_frame_check = 0
-					while input_history_buttons[k].has(input_list[current_list_index]):
+					while len(input_history_buttons) >= k*-1 and input_history_buttons[k].has(input_list[current_list_index]):
 						k_frame_check += input_history_frames[k]
 						if k_frame_check + input_distance > first_input_leniency:
 							break

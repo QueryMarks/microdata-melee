@@ -11,3 +11,4 @@ res://scripts/input management/input_reader.gd
 res://scripts/states/card/card_toss_state.gd
 res://scenes/stage_camera.gd
 res://scripts/states/card/card_air_hurt_state.gd
+res://scripts/states/dash_state.gd
