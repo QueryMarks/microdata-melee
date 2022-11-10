@@ -5,3 +5,4 @@ res://scenes/card_player.tscn
 res://scenes/tossed_card.tscn
 res://scenes/hitbox.tscn
 res://scenes/new_character.tscn
+res://scripts/states/card/card_5a_state.gd
