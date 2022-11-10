@@ -10,3 +10,6 @@ res://dash_state.gd
 res://scripts/collision/hurtbox.gd
 res://scripts/collision/hitbox.gd
 res://scripts/states/card/card_toss_state.gd
+res://scripts/player.gd
+res://scripts/states/walk_state.gd
+res://scripts/states/jump_state.gd

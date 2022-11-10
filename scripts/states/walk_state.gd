@@ -21,9 +21,9 @@ func _physics_process(_delta):
 	elif (Input.is_action_pressed(player.input_up)): 
 		state_machine.change_state(JumpState.new())
 	elif (Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right)):
-		player.velocity.x = -50
+		player.velocity.x = -80
 	elif (Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left)):
-		player.velocity.x = 50
+		player.velocity.x = 80
 
 
 	else:

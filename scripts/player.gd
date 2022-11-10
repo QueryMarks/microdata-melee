@@ -5,7 +5,7 @@ class_name Player
 @export var opponent: Node2D
 @export var player_index := 1
 var inputs: Node
-var gravity = 6.0
+var gravity = 7.5
 var my_facing = 1
 var state_machine : CharacterStateMachine
 var anim_player : AnimationPlayer
