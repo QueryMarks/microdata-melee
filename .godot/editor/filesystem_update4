@@ -1,15 +1,9 @@
+res://scenes/hitbox.tscn
+res://scripts/states/ground_normal_state.gd
 res://scenes/hurtbox.tscn
 res://scenes/stage_camera.tscn
 res://scenes/main.tscn
 res://scenes/card_player.tscn
 res://scenes/tossed_card.tscn
-res://scenes/hitbox.tscn
-res://scripts/input management/input_reader.gd
+res://scripts/states/ground_special_state.gd
 res://scripts/character_state_machine.gd
-res://dash_state.gd
-res://scripts/collision/hurtbox.gd
-res://scripts/collision/hitbox.gd
-res://scripts/states/card/card_toss_state.gd
-res://scripts/player.gd
-res://scripts/states/walk_state.gd
-res://scripts/states/jump_state.gd

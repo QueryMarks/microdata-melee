@@ -1,17 +1,7 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1668039006
-air_state.gd::GDScript::-1::1667520067::0::1::::AirState<>State<>::
-card_5b_state.gd::GDScript::-1::1667853087::0::1::::Card5bState<>GroundNormalState<>::
-card_5c_state.gd::GDScript::-1::1667853093::0::1::::Card5cState<>GroundNormalState<>::
-card_5d_state.gd::GDScript::-1::1667879841::0::1::::Card5dState<>GroundNormalState<>::
-card_air_hurt_state.gd::GDScript::-1::1667587595::0::1::::CardAirHurtState<>State<>::
-card_crouch_state.gd::GDScript::-1::1667520067::0::1::::CardCrouchState<>State<>::
-card_hurt_state.gd::GDScript::-1::1667587595::0::1::::CardHurtState<>State<>::
+::res://::1668051024
 card_move_list.gd::GDScript::-1::1668022091::0::1::::CardMoveList<>MoveList<>::
-dash_state.gd::GDScript::-1::1667520068::0::1::::DashState<>State<>::
 default_env.tres::Environment::-1::1664773792::0::1::::<><>::
-ground_actionable_state.gd::GDScript::-1::1667520068::0::1::::GroundActionableState<>State<>::
-ground_special_state.gd::GDScript::-1::1668020107::0::1::::GroundSpecialState<>State<>::
 icon.png::CompressedTexture2D::6617512264265594369::1664482806::1664774992::1::::<><>::
 os.gd::GDScript::-1::1667587127::0::1::::OSStyle<>Node<>::
 os_basic.gd::GDScript::-1::1668021910::0::1::::OSBasic<>OSStyle<>::
@@ -23,34 +13,44 @@ ExpressionPro.ttf::FontFile::881694791092610658::1622479530::1665459074::1::::<>
 FutilePro.ttf::FontFile::7019894180980603123::1622479534::1665459074::1::::<><>::
 MatchupPro.ttf::FontFile::2787932387355672399::1622479540::1665459074::1::::<><>::
 Silver.ttf::FontFile::1694964538141144166::1622479438::1665459074::1::::<><>::
-::res://scenes/::1668026107
-card_player.tscn::PackedScene::3361454228660597252::1668026107::0::1::::<><>::res://scripts/player.gd<>res://scripts/input management/input_reader.gd<>uid://3oyeegtt5ps6<>res://scripts/collision/hurtbox.gd<>uid://dcxswsn0u2qu4<>res://scripts/collision/hitbox.gd<>res://card_move_list.gd
-hitbox.tscn::PackedScene::4323117161573197690::1668026107::0::1::::<><>::res://scripts/collision/hitbox.gd
-hurtbox.tscn::PackedScene::1347667352558200117::1668026107::0::1::::<><>::res://scripts/collision/hurtbox.gd
-main.tscn::PackedScene::5709544074474371008::1668026107::0::1::::<><>::uid://byolagjxdgwfu<>uid://55puaspx6fc1<>res://os_basic.gd<>uid://bn5kwo8406gwy
+::res://scenes/::1668046230
+card_player.tscn::PackedScene::3361454228660597252::1668046229::0::1::::<><>::res://scripts/player.gd<>res://scripts/input management/input_reader.gd<>uid://3oyeegtt5ps6<>res://scripts/collision/hurtbox.gd<>uid://dcxswsn0u2qu4<>res://scripts/collision/hitbox.gd<>res://card_move_list.gd
+hitbox.tscn::PackedScene::4323117161573197690::1668046230::0::1::::<><>::res://scripts/collision/hitbox.gd
+hurtbox.tscn::PackedScene::1347667352558200117::1668046229::0::1::::<><>::res://scripts/collision/hurtbox.gd
+main.tscn::PackedScene::5709544074474371008::1668046229::0::1::::<><>::uid://byolagjxdgwfu<>uid://55puaspx6fc1<>res://os_basic.gd<>uid://bn5kwo8406gwy
 stage_camera.gd::GDScript::-1::1667854866::0::1::::<>CharacterBody2D<>::
-stage_camera.tscn::PackedScene::2168543141052330554::1668026107::0::1::::<><>::res://scenes/stage_camera.gd
+stage_camera.tscn::PackedScene::2168543141052330554::1668046229::0::1::::<><>::res://scenes/stage_camera.gd
 state_machine.tscn::PackedScene::1995653481675845951::1664813410::0::1::::<><>::res://scripts/character_state_machine.gd
-tossed_card.tscn::PackedScene::4963744956632086500::1668026107::0::1::::<><>::res://projectile.gd<>res://scripts/collision/hitbox.gd<>uid://dcxswsn0u2qu4
-::res://scripts/::1668025939
-character_state_machine.gd::GDScript::-1::1667601602::0::1::::CharacterStateMachine<>Node<>::
+tossed_card.tscn::PackedScene::4963744956632086500::1668046229::0::1::::<><>::res://projectile.gd<>res://scripts/collision/hitbox.gd<>uid://dcxswsn0u2qu4
+::res://scripts/::1668045143
+character_state_machine.gd::GDScript::-1::1668042257::0::1::::CharacterStateMachine<>Node<>::
 move_list.gd::GDScript::-1::1668021853::0::1::::MoveList<>Node<>::
-player.gd::GDScript::-1::1668025939::0::1::::Player<>CharacterBody2D<>::
-::res://scripts/collision/::1668026050
-hitbox.gd::GDScript::-1::1668026050::0::1::::Hitbox<>Area2D<>::
-hurtbox.gd::GDScript::-1::1668025581::0::1::::Hurtbox<>Area2D<>::
-::res://scripts/input management/::1667587977
-input_reader.gd::GDScript::-1::1667587977::0::1::::InputReader<>Node<>::
+player.gd::GDScript::-1::1668045143::0::1::::Player<>CharacterBody2D<>::
+::res://scripts/collision/::1668044406
+hitbox.gd::GDScript::-1::1668044406::0::1::::Hitbox<>Area2D<>::
+hurtbox.gd::GDScript::-1::1668044402::0::1::::Hurtbox<>Area2D<>::
+::res://scripts/input management/::1668044370
+input_reader.gd::GDScript::-1::1668044370::0::1::::InputReader<>Node<>::
 input_reader_backup.gd::GDScript::-1::1666282762::0::1::::<>Node<>::
-::res://scripts/states/::1667782348
+::res://scripts/states/::1668051024
+air_state.gd::GDScript::-1::1667520067::0::1::::AirState<>State<>::
 ground_normal_state.gd::GDScript::-1::1667782348::0::1::::GroundNormalState<>State<>::
 idle_state.gd::GDScript::-1::1667589981::0::1::::IdleState<>GroundActionableState<>::
-jump_state.gd::GDScript::-1::1667583917::0::1::::JumpState<>State<>::
+jump_state.gd::GDScript::-1::1668045108::0::1::::JumpState<>State<>::
 state.gd::GDScript::-1::1667589345::0::1::::State<>Node<>::
-walk_state.gd::GDScript::-1::1667520068::0::1::::WalkState<>GroundActionableState<>::
-::res://scripts/states/card/::1668026034
+walk_state.gd::GDScript::-1::1668045071::0::1::::WalkState<>GroundActionableState<>::
+::res://scripts/states/card/::1668051024
 card_5a_state.gd::GDScript::-1::1667623236::0::1::::Card5aState<>GroundNormalState<>::
-card_toss_state.gd::GDScript::-1::1668026034::0::1::::CardTossState<>GroundSpecialState<>::
+card_5b_state.gd::GDScript::-1::1667853087::0::1::::Card5bState<>GroundNormalState<>::
+card_5c_state.gd::GDScript::-1::1667853093::0::1::::Card5cState<>GroundNormalState<>::
+card_5d_state.gd::GDScript::-1::1667879841::0::1::::Card5dState<>GroundNormalState<>::
+card_air_hurt_state.gd::GDScript::-1::1667587595::0::1::::CardAirHurtState<>State<>::
+card_crouch_state.gd::GDScript::-1::1667520067::0::1::::CardCrouchState<>State<>::
+card_hurt_state.gd::GDScript::-1::1667587595::0::1::::CardHurtState<>State<>::
+card_toss_state.gd::GDScript::-1::1668044611::0::1::::CardTossState<>GroundSpecialState<>::
+dash_state.gd::GDScript::-1::1668044391::0::1::::DashState<>State<>::
+ground_actionable_state.gd::GDScript::-1::1667520068::0::1::::GroundActionableState<>State<>::
+ground_special_state.gd::GDScript::-1::1668020107::0::1::::GroundSpecialState<>State<>::
 ::res://sprites/::1668021248
 card sprite sheet.png::CompressedTexture2D::7348253586700899581::1668035951::1668021248::1::::<><>::
 placeholder stage.png::CompressedTexture2D::4100522436575772054::1667843472::1667843474::1::::<><>::
