@@ -4,8 +4,4 @@ res://scenes/main.tscn
 res://scenes/card_player.tscn
 res://scenes/tossed_card.tscn
 res://scenes/hitbox.tscn
-res://scripts/states/walk_state.gd
-res://scripts/collision/hitbox.gd
-res://scripts/input management/input_reader.gd
-res://scripts/states/card/card_toss_state.gd
-res://card_move_list.gd
+res://scenes/new_character.tscn

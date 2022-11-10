@@ -13,12 +13,6 @@ size = Vector2(1000, 20)
 [node name="Area2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 10)
 
-[node name="Polygon2D" type="Polygon2D" parent="Area2D"]
-visible = false
-scale = Vector2(1.63636, 1)
-color = Color(0.0352941, 0, 0.333333, 1)
-polygon = PackedVector2Array(-49.5, -10, 49.5, -10, 49.5, 10, -49.5, 10, -49.5, 0)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("1")
 

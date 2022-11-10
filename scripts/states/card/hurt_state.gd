@@ -1,5 +1,5 @@
 extends State
-class_name CardHurtState
+class_name HurtState
 var friction = 1
 var hitstun
 # Called when the node enters the scene tree for the first time.
