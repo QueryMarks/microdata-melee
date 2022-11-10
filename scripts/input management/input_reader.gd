@@ -100,7 +100,7 @@ func read_inputs(move_list : Array):
 					
 				i += 1
 		#we're done altering the strings to match our current direction, time to actually check for the input
-		#set up variables for the current index of the input and history, they should be 0
+		#set up variables for the current index of the input and history
 		var current_list_index = -1
 		var current_history_index = -1
 		#variable to track time difference between inputs
@@ -109,13 +109,14 @@ func read_inputs(move_list : Array):
 			#if the current input list index is a string, check if the input history has that button within input leniency
 			if typeof(input_list[current_list_index]) == TYPE_STRING:
 				#if this is the first input of the move being checked, and the current frame in the history has that input
-				if current_list_index == -1 and input_history_buttons[current_history_index].has(input_list[current_list_index]):
+				if current_list_index == -1:
 					#conduct a while loop to see how long that input has been held
-					var k = -1
+					var k = current_history_index
 					var k_frame_check = 0
 					while len(input_history_buttons) >= k*-1 and input_history_buttons[k].has(input_list[current_list_index]):
 						k_frame_check += input_history_frames[k]
 						if k_frame_check + input_distance > first_input_leniency:
+							print("lalalalala")
 							break
 						else:
 							k -= 1
