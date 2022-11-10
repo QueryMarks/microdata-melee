@@ -7,7 +7,7 @@ var input_history_buttons = []
 var input_history_frames = []
 var input_history_both = [input_history_buttons, input_history_frames]
 var temp_input_dict = {}
-var input_leniency = 15
+var input_leniency = 10
 var first_input_leniency = 5
 	
 func _physics_process(_delta):

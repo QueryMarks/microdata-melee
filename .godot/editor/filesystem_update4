@@ -7,3 +7,5 @@ res://scenes/hitbox.tscn
 res://scripts/states/walk_state.gd
 res://scripts/collision/hitbox.gd
 res://scripts/input management/input_reader.gd
+res://scripts/states/card/card_toss_state.gd
+res://card_move_list.gd

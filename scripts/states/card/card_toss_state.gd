@@ -13,7 +13,7 @@ func toss_card():
 		player.add_child(my_card)
 		#my_card.set_owner(player)
 		#my_card.get_node("Hitbox").set_owner(player)
-		my_card.position.y -= 25 
+		my_card.position.y -= 20 
 		my_card.position.x += 10*player.my_facing
 		#my_card.position = player.position
 		my_card.velocity.x = 200*player.my_facing
