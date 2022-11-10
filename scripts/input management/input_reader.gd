@@ -116,7 +116,6 @@ func read_inputs(move_list : Array):
 					while len(input_history_buttons) >= k*-1 and input_history_buttons[k].has(input_list[current_list_index]):
 						k_frame_check += input_history_frames[k]
 						if k_frame_check + input_distance > first_input_leniency:
-							print("lalalalala")
 							break
 						else:
 							k -= 1
