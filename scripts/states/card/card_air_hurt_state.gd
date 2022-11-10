@@ -3,7 +3,7 @@ class_name CardAirHurtState
 var hitstun
 # Called when the node enters the scene tree for the first time.
 func enter():
-	print("air hurt")
+	tags += ["air","hurt"]
 	player.anim_player.play("hurt")
 
 

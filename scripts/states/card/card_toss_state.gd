@@ -16,4 +16,4 @@ func toss_card():
 		my_card.position.y -= 25 
 		my_card.position.x += 10*player.my_facing
 		#my_card.position = player.position
-		my_card.velocity.x = 500*player.my_facing
+		my_card.velocity.x = 200*player.my_facing

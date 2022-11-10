@@ -66,11 +66,9 @@ func turn(facing: int):
 	my_facing = facing
 	
 func get_hit(hitbox : Hitbox):
-	print("get_hit")
 	return state_machine.current_state.get_hit(hitbox)
 	
 func get_hurt(hitbox : Hitbox):
-	print("get_hurt")
 	if self.is_on_floor():
 		state_machine.change_state(CardHurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
@@ -95,7 +93,8 @@ func _physics_process(delta):
 func hit_stop(hitbox : Hitbox):
 	set_physics_process(false)
 	state_machine.current_state.set_physics_process(false)
-	anim_player.advance(1/60.0)
+	if state_machine.current_state.tags.has("hurt"):
+		anim_player.call_deferred("advance", 1.0/60.0)
 	anim_player.stop(false)
 	temp_velocity = velocity
 	velocity = Vector2(0, 0)

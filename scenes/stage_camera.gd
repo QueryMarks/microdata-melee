@@ -16,7 +16,6 @@ func _ready():
 func _physics_process(_delta):
 	midpoint = (player_1.get_position().x + player_2.get_position().x)/2
 	if midpoint <= left_bound:
-		print("lefto")
 		position.x = left_bound	
 	elif midpoint >= right_bound:
 		position.x = right_bound
