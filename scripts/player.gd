@@ -5,7 +5,7 @@ class_name Player
 @export var opponent: Node2D
 @export var player_index := 1
 var inputs: Node
-var gravity = 7.5
+@export var gravity = 7.5
 var my_facing = 1
 var state_machine : CharacterStateMachine
 var anim_player : AnimationPlayer
@@ -70,10 +70,10 @@ func get_hit(hitbox : Hitbox):
 	
 func get_hurt(hitbox : Hitbox):
 	if self.is_on_floor():
-		state_machine.change_state(CardHurtState.new())
+		state_machine.change_state(HurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 	else:
-		state_machine.change_state(CardAirHurtState.new())
+		state_machine.change_state(AirHurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 		velocity.y = hitbox.knockback.y
 	state_machine.current_state.hitstun = hitbox.hitstun

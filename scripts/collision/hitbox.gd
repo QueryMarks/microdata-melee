@@ -5,6 +5,7 @@ class_name Hitbox
 @export var hitstun := 15
 @export var hitstop := 15
 @export var knockback : Vector2
+@export var hit_type := "mid"
 
 func _init() -> void:
 	collision_layer = 2

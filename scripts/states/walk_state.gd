@@ -20,12 +20,17 @@ func _physics_process(_delta):
 		state_machine.change_state(CardCrouchState.new())
 	elif (Input.is_action_pressed(player.input_up)): 
 		state_machine.change_state(JumpState.new())
-	elif (Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right)):
-		player.velocity.x = -80
+
 	elif (Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left)):
-		player.velocity.x = 80
-
-
+		if player.my_facing == 1:
+			player.velocity.x = 80
+		else:
+			player.velocity.x = 60
+	elif (Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right)):
+		if player.my_facing == 1:
+			player.velocity.x = -60
+		else:
+			player.velocity.x = -80
 	else:
 		state_machine.change_state(IdleState.new())
 

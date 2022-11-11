@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bn5kwo8406gwy"]
+[gd_scene load_steps=27 format=3 uid="uid://cht3qbqtbjs7h"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v68o5"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_sfodf"]
@@ -63,10 +63,10 @@ tracks/1/path = NodePath("Hitboxes/5bHitbox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.133334, 0.233334),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.133334),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_gns4t"]
@@ -333,37 +333,6 @@ tracks/0/keys = {
 "values": [12, 13, 14, 15, 16, 17]
 }
 
-[sub_resource type="Animation" id="Animation_bc8bb"]
-resource_name = "block"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 4)]
-}
-
-[sub_resource type="Animation" id="Animation_4y1ii"]
-resource_name = "crouch_block"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 5)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ims83"]
 _data = {
 "5a": SubResource("Animation_g4jnt"),
@@ -371,10 +340,8 @@ _data = {
 "5c": SubResource("Animation_gns4t"),
 "5d": SubResource("Animation_86n40"),
 "RESET": SubResource("Animation_ai5ji"),
-"block": SubResource("Animation_bc8bb"),
 "card_toss": SubResource("Animation_dc15n"),
 "crouch": SubResource("Animation_5mrnj"),
-"crouch_block": SubResource("Animation_4y1ii"),
 "dash": SubResource("Animation_lfhf3"),
 "hurt": SubResource("Animation_08qeu"),
 "idle": SubResource("Animation_m804a"),
@@ -400,7 +367,6 @@ size = Vector2(25, 19.5)
 [node name="Card_Player" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_v68o5")
-player_index = null
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 modulate = Color(0.501961, 1, 0, 1)

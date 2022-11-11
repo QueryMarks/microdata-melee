@@ -9,7 +9,8 @@ func _ready():
 	ground_supers = []
 	air_supers = []
 	ground_specials = [
-		["2","3","6","a"] #Card Throw A
+		["2","3","6","a"], #Card Throw A
+		["2","3","6","c"] #also card throw A for now
 		]
 	air_specials = []
 	ground_command_normals = []
@@ -48,6 +49,8 @@ func move_change_state(inputs : Array):
 		["d"]:
 			state_machine.change_state(Card5dState.new())
 		["2","3","6","a"]:
+			state_machine.change_state(CardTossState.new())
+		["2","3","6","c"]:
 			state_machine.change_state(CardTossState.new())
 		_:
 			player.os.os_change_state(inputs)
