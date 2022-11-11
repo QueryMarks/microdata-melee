@@ -77,12 +77,30 @@ func get_hurt(hitbox : Hitbox):
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 		velocity.y = hitbox.knockback.y
 	state_machine.current_state.hitstun = hitbox.hitstun
-	hit_stop(hitbox)
+	hit_stop(hitbox.hitstop)
 	
 func block(hitbox : Hitbox):
 	if self.is_on_floor():
-		state_machine.change_state(BlockState.new())
-		hit_stop(hitbox)
+		if hitbox.hit_type == "mid":
+			if Input.is_action_pressed(input_down):
+				state_machine.change_state(CrouchBlockState.new())
+
+			else:
+				state_machine.change_state(BlockState.new())
+			state_machine.current_state.blockstun = hitbox.blockstun
+			hit_stop(hitbox.blockstop)
+		elif hitbox.hit_type == "high":
+			if !Input.is_action_pressed(input_down):
+				state_machine.change_state(BlockState.new())
+				state_machine.current_state.blockstun = hitbox.blockstun
+				hit_stop(hitbox.blockstop)
+			else:
+				get_hit(hitbox)
+		elif hitbox.hit_type == "low":
+			if Input.is_action_pressed(input_down):
+				state_machine.change_state(CrouchBlockState.new())
+				state_machine.current_state.blockstun = hitbox.blockstun
+				hit_stop(hitbox.blockstop)
 
 func _physics_process(delta):
 	self.move_and_slide()
@@ -95,16 +113,16 @@ func _physics_process(delta):
 		else:
 			self.position.x += 10/(pushbox.global_position.x - opponent.pushbox.global_position.x)
 
-func hit_stop(hitbox : Hitbox):
+func hit_stop(stop : int):
 	set_physics_process(false)
 	state_machine.current_state.set_physics_process(false)
-	if state_machine.current_state.tags.has("hurt"):
+	if state_machine.current_state.tags.has("hurt") or state_machine.current_state.tags.has("block"):
 		anim_player.call_deferred("advance", 1.0/60.0)
 	anim_player.stop(false)
 	temp_velocity = velocity
 	velocity = Vector2(0, 0)
 	hitstop_timer.stop()
-	hitstop_timer.start(hitbox.hitstop/60.0)
+	hitstop_timer.start(stop/60.0)
 	hitstop = true
 
 func hit_restart():

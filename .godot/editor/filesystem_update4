@@ -1,7 +1,9 @@
-res://scenes/stage_camera.tscn
-res://scripts/player.gd
-res://scripts/states/ground_actionable_state.gd
-res://scenes/main.tscn
-res://scenes/card_player.tscn
 res://scenes/new_character.tscn
 res://block_state.gd
+res://scripts/collision/hitbox.gd
+res://scripts/player.gd
+res://scenes/main.tscn
+res://scenes/card_player.tscn
+res://scenes/stage_camera.tscn
+res://scripts/states/walk_state.gd
+res://crouch_block_state.gd

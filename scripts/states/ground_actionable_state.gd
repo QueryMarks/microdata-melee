@@ -17,26 +17,15 @@ func _physics_process(_delta):
 	if player.os.os_action_check(tags):
 		return	
 	elif (Input.is_action_pressed(player.input_down)):
-		state_machine.change_state(CardCrouchState.new())
+		state_machine.change_state(CrouchState.new())
 	elif (Input.is_action_pressed(player.input_up)): 
 		state_machine.change_state(JumpState.new())
 	elif ((Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right)) or (Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left))):
 		state_machine.change_state(WalkState.new())
 
 func get_hit(hitbox : Hitbox):
-	if player.position.x > player.opponent.position.x:
-		if Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left):
-			player.block(hitbox)
-			return "block"
-		else:
-				player.get_hurt(hitbox)
-				return "hit"
-	else:
-		if Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
-			player.block(hitbox)
-			return "block"
-		else:
-				player.get_hurt(hitbox)
-				return "hit"
+	return block_check(hitbox)
+
+
 
 

@@ -29,7 +29,6 @@ player_2 = NodePath("../Card_Player2")
 [node name="Card_Player" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("4_dw13y")]
 position = Vector2(-49, 5)
 opponent = NodePath("../Card_Player2")
-player_index = 1
 
 [node name="OSBasic" type="Node" parent="Card_Player"]
 script = ExtResource("3_t0yh7")

@@ -17,7 +17,7 @@ func _physics_process(_delta):
 	#elif (Input.is_action_just_pressed(player.input_right)) or (Input.is_action_just_pressed(player.input_left)):
 	#	player.os.os_action_check(tags)
 	elif (Input.is_action_pressed(player.input_down)):
-		state_machine.change_state(CardCrouchState.new())
+		state_machine.change_state(CrouchState.new())
 	elif (Input.is_action_pressed(player.input_up)): 
 		state_machine.change_state(JumpState.new())
 

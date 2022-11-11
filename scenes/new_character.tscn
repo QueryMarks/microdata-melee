@@ -412,6 +412,8 @@ script = ExtResource("6_3cook")
 damage = 8
 hitstun = 10
 hitstop = 8
+blockstun = 6
+blockstop = 5
 knockback = Vector2(30, -50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5aHitbox"]
@@ -440,6 +442,8 @@ collision_mask = 0
 script = ExtResource("6_3cook")
 damage = 30
 hitstun = 20
+blockstun = 9
+blockstop = 12
 knockback = Vector2(150, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5cHitbox"]
@@ -454,6 +458,7 @@ collision_mask = 0
 script = ExtResource("6_3cook")
 damage = 20
 hitstun = 20
+blockstop = 11
 knockback = Vector2(100, -90)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5dHitbox"]
