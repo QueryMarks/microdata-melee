@@ -26,15 +26,15 @@ func _physics_process(_delta):
 func get_hit(hitbox : Hitbox):
 	if player.position.x > player.opponent.position.x:
 		if Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left):
-			pass
-			#block
+			player.block(hitbox)
+			return "block"
 		else:
 				player.get_hurt(hitbox)
 				return "hit"
 	else:
 		if Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
-			pass
-			#block
+			player.block(hitbox)
+			return "block"
 		else:
 				player.get_hurt(hitbox)
 				return "hit"

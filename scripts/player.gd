@@ -79,6 +79,11 @@ func get_hurt(hitbox : Hitbox):
 	state_machine.current_state.hitstun = hitbox.hitstun
 	hit_stop(hitbox)
 	
+func block(hitbox : Hitbox):
+	if self.is_on_floor():
+		state_machine.change_state(BlockState.new())
+		hit_stop(hitbox)
+
 func _physics_process(delta):
 	self.move_and_slide()
 	#push other player
