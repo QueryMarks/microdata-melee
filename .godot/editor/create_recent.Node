@@ -1,11 +1,11 @@
+Node2D
+OSBasic (os_basic.gd)
 CollisionShape2D
 CharacterBody2D
 Sprite2D
-Node2D
 Hitbox (hitbox.gd)
 Area2D
 Timer
-OSBasic (os_basic.gd)
 Node
 CardMoveList (card_move_list.gd)
 StaticBody2D

@@ -1,14 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnl0mem8q7hhw"]
+[gd_scene load_steps=6 format=3 uid="uid://b6f3soy01fw30"]
 
 [ext_resource type="Texture2D" uid="uid://byolagjxdgwfu" path="res://sprites/placeholder stage.png" id="1_64fyb"]
-[ext_resource type="PackedScene" uid="uid://55puaspx6fc1" path="res://scenes/stage_camera.tscn" id="2_sl85s"]
-[ext_resource type="Script" path="res://os_basic.gd" id="3_t0yh7"]
-[ext_resource type="PackedScene" uid="uid://bn5kwo8406gwy" path="res://scenes/card_player.tscn" id="4_dw13y"]
+[ext_resource type="Script" path="res://round_start.gd" id="1_xii17"]
+[ext_resource type="Texture2D" uid="uid://ccj8l1locmvro" path="res://palettes/card/card_red.png" id="2_werip"]
+[ext_resource type="Texture2D" uid="uid://dybpka51i6eub" path="res://palettes/card/card_blue.png" id="2_yhjcr"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1000, 20)
 
-[node name="Node2D" type="Node2D"]
+[node name="RoundStart" type="Node2D"]
+script = ExtResource("1_xii17")
+p1_character = "card"
+p1_os = "os_basic"
+p1_palette = ExtResource("2_yhjcr")
+p2_character = "card"
+p2_os = "os_basic"
+p2_palette = ExtResource("2_werip")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 10)
@@ -21,25 +28,3 @@ texture_filter = 1
 position = Vector2(1, -45)
 z_index = -1
 texture = ExtResource("1_64fyb")
-
-[node name="StageCamera" parent="." node_paths=PackedStringArray("player_1", "player_2") instance=ExtResource("2_sl85s")]
-player_1 = NodePath("../Card_Player")
-player_2 = NodePath("../Card_Player2")
-
-[node name="Card_Player" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("4_dw13y")]
-position = Vector2(-49, 5)
-opponent = NodePath("../Card_Player2")
-
-[node name="OSBasic" type="Node" parent="Card_Player"]
-script = ExtResource("3_t0yh7")
-
-[node name="Card_Player2" parent="." node_paths=PackedStringArray("opponent") instance=ExtResource("4_dw13y")]
-position = Vector2(49, 5)
-opponent = NodePath("../Card_Player")
-player_index = 2
-
-[node name="OSBasic" type="Node" parent="Card_Player2"]
-script = ExtResource("3_t0yh7")
-
-[node name="Area2d" type="Area2D" parent="."]
-position = Vector2(-75, -3)
