@@ -2,10 +2,13 @@ extends CharacterBody2D
 class_name Player
 
 #Player script for generic stuff like holding components, turning the player, and a (WIP) getting hit function
-@export var opponent: Node2D
-@export var player_index := 1
-var inputs: Node
+@export var character_name : String
 @export var gravity = 7.5
+@export var max_hp := 100.0
+var hp := 100.0
+
+var opponent: Node2D
+var player_index := 1
 var my_facing = 1
 var state_machine : CharacterStateMachine
 var anim_player : AnimationPlayer
@@ -31,6 +34,8 @@ var temp_velocity : Vector2
 #for use with anim_signal()
 var anim_var : String
 signal anim_signal
+
+signal damaged
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -59,12 +64,20 @@ func _ready():
 	else:
 		turn(-1)
 	
+	hp = max_hp
+	
 
 func turn(facing: int):
 	
 	self.scale.x *= -1
 	my_facing = facing
 	
+func take_damage(damage):
+	hp -= damage
+	hp = clamp(hp, 0, max_hp)
+	print(hp)
+	emit_signal("damaged")
+
 func get_hit(hitbox : Hitbox):
 	return state_machine.current_state.get_hit(hitbox)
 	

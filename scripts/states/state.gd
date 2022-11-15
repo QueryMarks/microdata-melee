@@ -17,6 +17,7 @@ func enter():
 
 func get_hit(hitbox : Hitbox):
 	player.get_hurt(hitbox)
+	player.take_damage(hitbox.damage)
 	return "hit"
 
 func block_check(hitbox : Hitbox):
@@ -26,6 +27,7 @@ func block_check(hitbox : Hitbox):
 			return "block"
 		else:
 				player.get_hurt(hitbox)
+				player.take_damage(hitbox.damage)
 				return "hit"
 	else:
 		if Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
@@ -33,6 +35,7 @@ func block_check(hitbox : Hitbox):
 			return "block"
 		else:
 				player.get_hurt(hitbox)
+				player.take_damage(hitbox.damage)
 				return "hit"
 
 func exit():

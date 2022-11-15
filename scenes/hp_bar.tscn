@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://do6m1kc3jfjsn"]
+
+[ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="1_38fqr"]
+[ext_resource type="Script" path="res://scripts/hp_bar.gd" id="1_a6e4e"]
+[ext_resource type="Texture2D" uid="uid://cioktkj7vkloa" path="res://sprites/ui/hp_bar_over.png" id="1_chxvu"]
+[ext_resource type="Texture2D" uid="uid://4x041bkw64dl" path="res://sprites/ui/hp bar.png" id="2_q0vqw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nynjb"]
+resource_local_to_scene = true
+shader = ExtResource("1_38fqr")
+shader_parameter/fps = null
+shader_parameter/skip_first_row = null
+shader_parameter/use_palette_alpha = null
+
+[node name="HPBar" type="TextureProgressBar"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_nynjb")
+max_value = 64.0
+texture_over = ExtResource("1_chxvu")
+texture_progress = ExtResource("2_q0vqw")
+script = ExtResource("1_a6e4e")

@@ -20,12 +20,22 @@ func _ready():
 	p1 = load("res://scenes/characters/"+p1_character+".tscn").instantiate()
 	p1.add_child(load("res://scripts/os/"+p1_os+".tscn").instantiate())
 	p1.get_node("Sprite2D").material.set_shader_parameter("palette", p1_palette)
-
+	var p1_bar = preload("res://scenes/hp_bar.tscn").instantiate()
+	p1_bar.player = p1
+	camera.add_child(p1_bar)
+	p1_bar.position = Vector2(-70, -115)
+	p1_bar.material.set_shader_parameter("palette", p1_palette)
 	
 	
 	p2 = load("res://scenes/characters/"+p2_character+".tscn").instantiate()
 	p2.add_child(load("res://scripts/os/"+p2_os+".tscn").instantiate())
 	p2.get_node("Sprite2D").material.set_shader_parameter("palette", p2_palette)
+	var p2_bar = preload("res://scenes/hp_bar.tscn").instantiate()
+	p2_bar.player = p2
+	camera.add_child(p2_bar)
+	p2_bar.scale.x = -1
+	p2_bar.position = Vector2(70, -115)
+	p2_bar.material.set_shader_parameter("palette", p2_palette)
 	
 	p1.player_index = 1
 	p2.player_index = 2

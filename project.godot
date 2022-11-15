@@ -15,6 +15,11 @@ _global_script_classes=[{
 "path": "res://scripts/states/card/air_hurt_state.gd"
 }, {
 "base": "State",
+"class": &"AirNormalState",
+"language": &"GDScript",
+"path": "res://air_normal_state.gd"
+}, {
+"base": "State",
 "class": &"AirState",
 "language": &"GDScript",
 "path": "res://scripts/states/air_state.gd"
@@ -53,6 +58,16 @@ _global_script_classes=[{
 "class": &"CardTossState",
 "language": &"GDScript",
 "path": "res://scripts/states/card/card_toss_state.gd"
+}, {
+"base": "AirNormalState",
+"class": &"CardjaState",
+"language": &"GDScript",
+"path": "res://card_ja_state.gd"
+}, {
+"base": "AirNormalState",
+"class": &"CardjbState",
+"language": &"GDScript",
+"path": "res://card_jb_state.gd"
 }, {
 "base": "Node",
 "class": &"CharacterStateMachine",
@@ -151,6 +166,7 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "AirHurtState": "",
+"AirNormalState": "",
 "AirState": "",
 "BlockState": "",
 "Card5aState": "",
@@ -159,6 +175,8 @@ _global_script_class_icons={
 "Card5dState": "",
 "CardMoveList": "",
 "CardTossState": "",
+"CardjaState": "",
+"CardjbState": "",
 "CharacterStateMachine": "",
 "CrouchBlockState": "",
 "CrouchState": "",
@@ -325,4 +343,5 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 textures/default_filters/use_nearest_mipmap_filter=true
+environment/defaults/default_clear_color=Color(0.282353, 0.243137, 0.423529, 1)
 environment/default_environment="res://default_env.tres"

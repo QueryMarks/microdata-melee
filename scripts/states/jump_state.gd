@@ -8,7 +8,7 @@ class_name JumpState
 
 
 func enter():
-	print("wheee")
+	tags += ["air", "actionable"]
 	player.anim_player.play("jump")
 	player.velocity.y = -200
 	if (Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right)):

@@ -33,14 +33,14 @@ func os_action_check(tags : Array):
 		
 	elif tags.has("air"):
 		if tags.has("actionable"):
-			print("all air actions ok")
+			inputs = input_reader.read_inputs(move_list.air_normals)
 		
 		elif tags.has("can_cancel"):
 		
 		#os will call any special actions for the os such as super moves, ex moves, dashing, super jumping, etc in order of priority.
 		#input_list = player.movelist.
 			if tags.has("normal"):
-				print("air super, special, and command normal cancel ok")
+				print("air super, special, command normals ok")
 			#os will then call the movelist's arrays for normal'
 		
 			elif tags.has("command_normal"):

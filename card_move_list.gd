@@ -33,24 +33,35 @@ func _ready():
 	ground_normals_d = [
 		["d"]
 	]
-	air_normals = []
+	air_normals = [
+		
+	["a"],
+	["b"]
+	]
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func move_change_state(inputs : Array):
-	match inputs:
-		["a"]:
-			state_machine.change_state(Card5aState.new())
-		["b"]:
-			state_machine.change_state(Card5bState.new())
-		["c"]:
-			state_machine.change_state(Card5cState.new())
-		["d"]:
-			state_machine.change_state(Card5dState.new())
-		["2","3","6","a"]:
-			state_machine.change_state(CardTossState.new())
-		["2","3","6","c"]:
-			state_machine.change_state(CardTossState.new())
-		_:
-			player.os.os_change_state(inputs)
+	if player.state_machine.current_state.tags.has("ground"):
+		match inputs:
+			["a"]:
+				state_machine.change_state(Card5aState.new())
+			["b"]:
+				state_machine.change_state(Card5bState.new())
+			["c"]:
+				state_machine.change_state(Card5cState.new())
+			["d"]:
+				state_machine.change_state(Card5dState.new())
+			["2","3","6","a"]:
+				state_machine.change_state(CardTossState.new())
+			["2","3","6","c"]:
+				state_machine.change_state(CardTossState.new())
+			_:
+				player.os.os_change_state(inputs)
+	elif player.state_machine.current_state.tags.has("air"):
+		match inputs:
+			["a"]:
+					state_machine.change_state(CardjaState.new())
+			["b"]:
+				state_machine.change_state(CardjbState.new())

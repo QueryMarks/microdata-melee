@@ -1,6 +1,10 @@
+CollisionShape2D
+ColorRect
+Polygon2D
+TextureProgressBar
+ProgressBar
 Node2D
 OSBasic (os_basic.gd)
-CollisionShape2D
 CharacterBody2D
 Sprite2D
 Hitbox (hitbox.gd)
@@ -12,5 +16,4 @@ StaticBody2D
 AnimationPlayer
 Hurtbox (hurtbox.gd)
 InputReader (input_reader.gd)
-Polygon2D
 RigidBody2D
