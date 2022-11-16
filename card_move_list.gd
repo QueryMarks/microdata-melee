@@ -56,7 +56,7 @@ func move_change_state(inputs : Array):
 			["d"]:
 				state_machine.change_state(Card5dState.new())
 			[["down","a"]]:
-				print("down a works, nerd")
+				print("down a works")
 			["2","3","6","a"]:
 				state_machine.change_state(CardTossState.new())
 			["2","3","6","c"]:

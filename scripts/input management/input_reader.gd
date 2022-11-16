@@ -154,7 +154,18 @@ func read_inputs(move_list : Array):
 					#conduct a while loop to see how long that input has been held
 					var k = current_history_index
 					var k_frame_check = 0
-					while len(input_history_buttons) >= k*-1 and input_history_buttons[k].has_all(input_list[current_list_index]):
+					var has_inputs = true
+					while (len(input_history_buttons) >= k*-1):
+						for current_list_index_part in input_list[current_list_index]:
+							#i am so sorry for the next line of code. basically, "if this part of the array input is a button and not a direction:"
+							if current_list_index_part == "a" or current_list_index_part == "b" or current_list_index_part == "c" or current_list_index_part == "d" or current_list_index_part == "o" or current_list_index_part == "s":
+								if input_history_buttons[k].has(current_list_index_part):
+									has_inputs = true
+									break
+								else:
+									has_inputs = false
+						if has_inputs == false:
+							break
 						k_frame_check += input_history_frames[k]
 						if k_frame_check + input_distance > first_input_leniency:
 							break
