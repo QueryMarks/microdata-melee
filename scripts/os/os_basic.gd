@@ -53,6 +53,7 @@ func os_action_check(tags : Array):
 		move_list.move_change_state(inputs)
 		return true
 	else:
+		print("help me")
 		return false
 func os_change_state(inputs):
 	match inputs:

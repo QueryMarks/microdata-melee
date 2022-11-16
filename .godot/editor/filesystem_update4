@@ -1,9 +1,7 @@
-res://scenes/characters/card.tscn
-res://card_j_a.gd
-res://card_jb_state.gd
-res://card_move_list.gd
-res://scenes/stage_camera.tscn
-res://scenes/new_character.tscn
-res://scenes/tossed_card.tscn
 res://scenes/main.tscn
-res://scenes/hp_bar.tscn
+res://scenes/new_character.tscn
+res://scenes/stage_camera.tscn
+res://scripts/input management/input_reader.gd
+res://card_move_list.gd
+res://scripts/os/os_basic.gd
+res://os.gd

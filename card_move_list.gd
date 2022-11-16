@@ -16,6 +16,7 @@ func _ready():
 	ground_command_normals = []
 	air_command_normals = []
 	ground_normals = [
+		[["2","a"]],
 		["a"], #5a
 		["b"], #5b
 		["c"],

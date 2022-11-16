@@ -59,6 +59,7 @@ func _physics_process(_delta):
 
 func read_inputs(move_list : Array):
 	for original_input_list in move_list:
+		print(original_input_list)
 		#alter each string to match player's current facing direction
 		var i = 0
 		var input_list = original_input_list.duplicate()
@@ -136,20 +137,33 @@ func read_inputs(move_list : Array):
 			#if the current input list index is an array, check if a frame in input history has both pressed
 			elif typeof(input_list[current_list_index]) == TYPE_ARRAY:
 				var has_inputs = true
+				print("in this part of the loop")
 				for current_list_index_inputs in input_list[current_list_index]:
 					if !input_history_buttons[current_history_index].has(current_list_index_inputs):
 						has_inputs = false
+				if current_list_index == -1:
+					#conduct a while loop to see how long that input has been held
+					var k = current_history_index
+					var k_frame_check = 0
+					while len(input_history_buttons) >= k*-1 and has_inputs:
+						k_frame_check += input_history_frames[k]
+						if k_frame_check + input_distance > first_input_leniency:
+							break
+						else:
+							k -= 1
+					if k_frame_check + input_distance > first_input_leniency:
+						break
 				if has_inputs:
 					if current_list_index*-1 == input_list.size():
-								return(original_input_list)
+						return(original_input_list)
 					else:
 						input_distance = input_history_frames[current_history_index]
 						if current_list_index != -1:
 							current_history_index -= 1
 						current_list_index -= 1
 				else:
-						input_distance += input_history_frames[current_history_index]
-						current_history_index -= 1
+					input_distance += input_history_frames[current_history_index]
+					current_history_index -= 1
 	return(null)
 #			for input in input_dict:
 #				if input contains 
