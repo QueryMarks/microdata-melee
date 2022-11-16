@@ -13,26 +13,34 @@ var first_input_leniency = 5
 func _physics_process(_delta):
 	temp_input_dict.clear()
 
-	#a note: the dictionaries here should be replaced with just values in an array, i'll do that later
-	#up/down axis
+	#add inputs to this frame's dictionary.
+	#numpad notation (1, 2, 3, etc) are used for precise inputs. direction notation (down, up, back, forward) are used for cardinal directions -- for example, 1, 2, and 3 would all still register "down". useful for crouching moves or moves that aren't picky about diagonals
 	if Input.is_action_pressed(player.input_up) and !Input.is_action_pressed(player.input_down): 
+		temp_input_dict["up"] = true
 		if Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
+			temp_input_dict["back"] = true
 			temp_input_dict["7"] = true
 		elif Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left):
+			temp_input_dict["forward"] = true
 			temp_input_dict["9"] = true
 		else:
 			temp_input_dict["8"] = true
 	elif Input.is_action_pressed(player.input_down) and !Input.is_action_pressed(player.input_up):
+		temp_input_dict["down"] = true
 		if Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
+			temp_input_dict["back"] = true
 			temp_input_dict["1"] = true
 		elif Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left):
+			temp_input_dict["forward"] = true
 			temp_input_dict["3"] = true
 		else:
 			temp_input_dict["2"] = true
 
 	elif Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
+		temp_input_dict["back"] = true
 		temp_input_dict["4"] = true
 	elif Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left):
+		temp_input_dict["forward"] = true
 		temp_input_dict["6"] = true
 	else:
 		temp_input_dict["5"] = true
@@ -56,10 +64,8 @@ func _physics_process(_delta):
 		
 	input_history_frames[-1] += 1
 
-
 func read_inputs(move_list : Array):
 	for original_input_list in move_list:
-		print(original_input_list)
 		#alter each string to match player's current facing direction
 		var i = 0
 		var input_list = original_input_list.duplicate()
@@ -80,6 +86,10 @@ func read_inputs(move_list : Array):
 							input_list[i] = "9"
 						"9":
 							input_list[i] = "7"
+						"back":
+							input_list[i] = "forward"
+						"forward":
+							input_list[i] = "back"
 							
 			#if that entry in input_list is an array (for multiple inputs on the same frame) edit those as well
 				elif typeof(input_list[i]) == TYPE_ARRAY:
@@ -98,7 +108,11 @@ func read_inputs(move_list : Array):
 								input_list[i][j] = "9"
 							"9":
 								input_list[i][j] = "7"
-					
+							"back":
+								input_list[i][j] = "forward"
+							"forward":
+								input_list[i][j] = "back"
+						j+=1
 				i += 1
 		#we're done altering the strings to match our current direction, time to actually check for the input
 		#set up variables for the current index of the input and history
@@ -136,16 +150,11 @@ func read_inputs(move_list : Array):
 					
 			#if the current input list index is an array, check if a frame in input history has both pressed
 			elif typeof(input_list[current_list_index]) == TYPE_ARRAY:
-				var has_inputs = true
-				print("in this part of the loop")
-				for current_list_index_inputs in input_list[current_list_index]:
-					if !input_history_buttons[current_history_index].has(current_list_index_inputs):
-						has_inputs = false
 				if current_list_index == -1:
 					#conduct a while loop to see how long that input has been held
 					var k = current_history_index
 					var k_frame_check = 0
-					while len(input_history_buttons) >= k*-1 and has_inputs:
+					while len(input_history_buttons) >= k*-1 and input_history_buttons[k].has_all(input_list[current_list_index]):
 						k_frame_check += input_history_frames[k]
 						if k_frame_check + input_distance > first_input_leniency:
 							break
@@ -153,7 +162,7 @@ func read_inputs(move_list : Array):
 							k -= 1
 					if k_frame_check + input_distance > first_input_leniency:
 						break
-				if has_inputs:
+				if input_history_buttons[current_history_index].has_all(input_list[current_list_index]):
 					if current_list_index*-1 == input_list.size():
 						return(original_input_list)
 					else:

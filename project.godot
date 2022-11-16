@@ -82,7 +82,7 @@ _global_script_classes=[{
 "base": "State",
 "class": &"CrouchState",
 "language": &"GDScript",
-"path": "res://scripts/states/card/crouch_state.gd"
+"path": "res://scripts/states/crouch_state.gd"
 }, {
 "base": "State",
 "class": &"DashState",

@@ -4,6 +4,7 @@ class_name CrouchState
 
 # Called when the node enters the scene tree for the first time.
 func enter():
+	tags += ["ground", "actionable"]
 	player.anim_player.play("crouch")
 
 
