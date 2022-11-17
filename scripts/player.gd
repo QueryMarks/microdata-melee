@@ -108,12 +108,14 @@ func block(hitbox : Hitbox):
 				state_machine.current_state.blockstun = hitbox.blockstun
 				hit_stop(hitbox.blockstop)
 			else:
-				get_hit(hitbox)
+				get_hurt(hitbox)
 		elif hitbox.hit_type == "low":
 			if Input.is_action_pressed(input_down):
 				state_machine.change_state(CrouchBlockState.new())
 				state_machine.current_state.blockstun = hitbox.blockstun
 				hit_stop(hitbox.blockstop)
+			else:
+				get_hurt(hitbox)
 
 func _physics_process(delta):
 	self.move_and_slide()

@@ -1,8 +1,5 @@
+res://scenes/characters/card.tscn
 res://scenes/main.tscn
-res://scripts/input management/input_reader.gd
 res://scenes/new_character.tscn
 res://scenes/stage_camera.tscn
-res://scripts/os/os_basic.gd
-res://card_move_list.gd
-res://scenes/characters/card.tscn
-res://scripts/states/crouch_state.gd
+res://scripts/player.gd

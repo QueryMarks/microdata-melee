@@ -633,6 +633,7 @@ script = ExtResource("7_gaxvm")
 damage = 5
 hitstop = 10
 knockback = Vector2(20, -10)
+hit_type = "high"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/jaHitbox"]
 modulate = Color(1, 0, 0, 1)
@@ -648,6 +649,7 @@ script = ExtResource("7_gaxvm")
 damage = 5
 hitstop = 10
 knockback = Vector2(40, -10)
+hit_type = "high"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/jaHitbox2"]
 modulate = Color(1, 0, 0, 1)
@@ -663,6 +665,7 @@ script = ExtResource("7_gaxvm")
 hitstun = 25
 hitstop = 10
 knockback = Vector2(50, -50)
+hit_type = "high"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/jbHitbox"]
 modulate = Color(1, 0, 0, 1)
