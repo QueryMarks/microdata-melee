@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bn5kwo8406gwy"]
+[gd_scene load_steps=38 format=3 uid="uid://bn5kwo8406gwy"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_fyvx3"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_2wore"]
@@ -238,6 +238,18 @@ tracks/8/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Hitboxes/2bHitbox/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_bc8bb"]
 resource_name = "block"
@@ -471,8 +483,38 @@ tracks/0/keys = {
 "values": [12, 13, 14, 15, 16, 17]
 }
 
+[sub_resource type="Animation" id="Animation_7xpdk"]
+resource_name = "2b"
+length = 0.333333
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 17), Vector2i(1, 17), Vector2i(0, 17)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitboxes/2bHitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ims83"]
 _data = {
+"2b": SubResource("Animation_7xpdk"),
 "5a": SubResource("Animation_g4jnt"),
 "5b": SubResource("Animation_5jtee"),
 "5c": SubResource("Animation_gns4t"),
@@ -521,6 +563,9 @@ size = Vector2(16, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya238"]
 size = Vector2(23, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktrt1"]
+size = Vector2(23, 8)
 
 [node name="Card_Player" type="CharacterBody2D"]
 collision_layer = 4
@@ -672,6 +717,22 @@ modulate = Color(1, 0, 0, 1)
 self_modulate = Color(0.993421, 0, 0.216357, 1)
 position = Vector2(14.5, -10.5)
 shape = SubResource("RectangleShape2D_ya238")
+
+[node name="2bHitbox" type="Area2D" parent="Hitboxes"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_gaxvm")
+damage = 8
+hitstun = 10
+hitstop = 8
+knockback = Vector2(30, 0)
+hit_type = "low"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/2bHitbox"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+position = Vector2(15.5, -5)
+shape = SubResource("RectangleShape2D_ktrt1")
 
 [node name="CardMoveList" type="Node" parent="."]
 script = ExtResource("8_6rfhj")

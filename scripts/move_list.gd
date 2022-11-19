@@ -17,6 +17,10 @@ var ground_normals_b = []
 var ground_normals_c = []
 var ground_normals_d = []
 var air_normals = []
+var air_normals_a = []
+var air_normals_b = []
+var air_normals_c = []
+var air_normals_d = []
 
 func _ready():
 	player = self.get_parent()

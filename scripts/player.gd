@@ -82,6 +82,8 @@ func get_hit(hitbox : Hitbox):
 	return state_machine.current_state.get_hit(hitbox)
 	
 func get_hurt(hitbox : Hitbox):
+	hitstop = false
+	print("i am player " + str(player_index) + " with hitbox knockback " + str(hitbox.knockback))
 	if self.is_on_floor():
 		state_machine.change_state(HurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
@@ -134,8 +136,6 @@ func hit_stop(stop : int):
 	if state_machine.current_state.tags.has("hurt") or state_machine.current_state.tags.has("block"):
 		anim_player.call_deferred("advance", 1.0/60.0)
 	anim_player.stop(false)
-	temp_velocity = velocity
-	velocity = Vector2(0, 0)
 	hitstop_timer.stop()
 	hitstop_timer.start(stop/60.0)
 	hitstop = true
@@ -144,7 +144,6 @@ func hit_restart():
 	hitstop_timer.stop()
 	set_physics_process(true)
 	state_machine.current_state.set_physics_process(true)
-	velocity = temp_velocity
 	anim_player.play()
 	hitstop = false
 	

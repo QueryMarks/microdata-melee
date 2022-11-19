@@ -1,5 +1,15 @@
-res://scenes/characters/card.tscn
 res://scenes/main.tscn
 res://scenes/new_character.tscn
 res://scenes/stage_camera.tscn
+res://scenes/characters/card.tscn
+res://card_2b_state.gd
+res://card_move_list.gd
 res://scripts/player.gd
+res://scripts/states/card/hurt_state.gd
+res://scenes/state_machine.tscn
+res://scenes/hitbox.tscn
+res://scripts/os/os_basic.gd
+res://card_ja_state.gd
+res://scripts/states/card/card_5a_state.gd
+res://card_jb_state.gd
+res://scripts/move_list.gd

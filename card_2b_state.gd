@@ -1,12 +1,12 @@
 extends GroundNormalState
-class_name Card5aState
+class_name Card2bState
 
 # called when the state machine changes state to this one
 func enter():
 	super()
-	tags += ["a", "standing", "can_cancel"]
+	tags += ["b", "crouching", "can_cancel"]
 	player.anim_player.stop()
-	player.anim_player.play("5a")
+	player.anim_player.play("2b")
 
 
 
