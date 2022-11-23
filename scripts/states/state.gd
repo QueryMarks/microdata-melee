@@ -13,6 +13,7 @@ func _ready():
 	pass # Replace with function body.
 
 func enter():
+	
 	pass
 
 func get_hit(hitbox : Hitbox):

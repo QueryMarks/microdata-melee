@@ -5,5 +5,5 @@ func enter():
 	super()
 	tags += ["b", "air", "can_cancel"]
 	player.anim_player.stop()
-	player.anim_player.play("jb")
+	player.anim_player.queue("jb")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
