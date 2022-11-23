@@ -17,4 +17,3 @@ func _on_area_entered(hitbox : Hitbox) -> void:
 	if hitbox.owner != owner and hitbox.owner.get_parent() != owner and owner.has_method("get_hit"):
 		hitbox.this_hit(owner.get_hit(hitbox))
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-

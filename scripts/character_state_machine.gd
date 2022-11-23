@@ -25,6 +25,7 @@ func change_state(new_state: State):
 		state_to_change = new_state	
 		new_state.set_physics_process(false)
 	else:
+		disable_hurtboxes()
 		current_state.set_physics_process(false)
 		current_state.exit()
 		current_state.queue_free()
@@ -40,3 +41,7 @@ func _physics_process(_delta):
 		state_to_change.set_physics_process(true)
 		change_state(state_to_change)
 		state_to_change = null
+func disable_hurtboxes():
+	for box in my_player.get_node("Hurtbox").get_children():
+		if box.disabled == false:
+			box.set_deferred("disabled",true)
