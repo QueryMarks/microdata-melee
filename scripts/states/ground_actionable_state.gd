@@ -14,9 +14,7 @@ func _physics_process(_delta):
 	elif (player.position.x < player.opponent.position.x) and (player.my_facing != 1):
 		player.turn(1)
 		
-	if player.os.os_action_check(tags):
-		return	
-	elif (Input.is_action_pressed(player.input_down)):
+	if (Input.is_action_pressed(player.input_down)):
 		state_machine.change_state(CrouchState.new())
 	elif (Input.is_action_pressed(player.input_up)): 
 		state_machine.change_state(JumpState.new())

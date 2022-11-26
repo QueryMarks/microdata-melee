@@ -5,7 +5,7 @@ var blockstun = 0
 # Called when the node enters the scene tree for the first time.
 func enter():
 	tags += ["block", "grounded"]
-	player.anim_player.play("block")
+	player.anim_player.queue("block")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

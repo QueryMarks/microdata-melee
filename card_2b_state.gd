@@ -5,8 +5,7 @@ class_name Card2bState
 func enter():
 	super()
 	tags += ["b", "crouching", "can_cancel"]
-	player.anim_player.stop()
-	player.anim_player.play("2b")
+	player.anim_player.queue("2b")
 
 
 
