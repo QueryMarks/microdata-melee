@@ -1,13 +1,7 @@
-res://scenes/hitbox.tscn
-res://scripts/character_state_machine.gd
+res://scenes/characters/card.tscn
 res://scenes/main.tscn
 res://scenes/new_character.tscn
 res://scenes/stage_camera.tscn
-res://scenes/characters/card.tscn
 res://scenes/state_machine.tscn
-res://scripts/states/idle_state.gd
-res://scripts/states/ground_normal_state.gd
-res://scripts/states/crouch_state.gd
-res://card_2b_state.gd
+res://scenes/hitbox.tscn
 res://scripts/os/os_basic.tscn
-res://scripts/states/ground_actionable_state.gd

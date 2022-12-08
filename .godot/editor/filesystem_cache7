@@ -1,8 +1,8 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1669435401
+::res://::1670466193
 air_normal_state.gd::GDScript::-1::1668463947::0::1::::AirNormalState<>State<>::
 block_state.gd::GDScript::-1::1669226901::0::1::::BlockState<>State<>::
-card_2b_state.gd::GDScript::-1::1669434954::0::1::::Card2bState<>GroundNormalState<>::
+card_2b_state.gd::GDScript::-1::1669436653::0::1::::Card2bState<>GroundNormalState<>::
 card_2c_state.gd::GDScript::-1::1669434954::0::1::::Card2cState<>GroundNormalState<>::
 card_ja_state.gd::GDScript::-1::1669434968::0::1::::CardjaState<>AirNormalState<>::
 card_jb_state.gd::GDScript::-1::1669434968::0::1::::CardjbState<>AirNormalState<>::
@@ -26,20 +26,20 @@ card_blue.png::CompressedTexture2D::8846787336514054001::1668215129::1668281281:
 card_red.png::CompressedTexture2D::4933823142182269476::1668211954::1668280911::1::::<><>::
 ::res://palette_swap/::1668244999
 PaletteSwap.gdshader::Shader::-1::1668244999::0::1::::<><>::
-::res://scenes/::1669435301
-hitbox.tscn::PackedScene::4323117161573197690::1669435301::0::1::::<><>::res://scripts/collision/hitbox.gd
+::res://scenes/::1670465472
+hitbox.tscn::PackedScene::4323117161573197690::1670465472::0::1::::<><>::res://scripts/collision/hitbox.gd
 hp_bar.tscn::PackedScene::8206677136549871181::1668471477::0::1::::<><>::res://palette_swap/PaletteSwap.gdshader<>res://scripts/hp_bar.gd<>uid://cioktkj7vkloa<>uid://4x041bkw64dl
 hurtbox.tscn::PackedScene::1347667352558200117::1668155219::0::1::::<><>::res://scripts/collision/hurtbox.gd
-main.tscn::PackedScene::4574329718903214225::1669435301::0::1::::<><>::uid://byolagjxdgwfu<>res://round_start.gd<>uid://ccj8l1locmvro<>uid://dybpka51i6eub
-new_character.tscn::PackedScene::5305115176784709703::1669435301::0::1::::<><>::res://scripts/player.gd<>res://scripts/input management/input_reader.gd<>uid://3oyeegtt5ps6<>res://scripts/collision/hurtbox.gd<>res://palette_swap/PaletteSwap.gdshader<>res://scripts/collision/hitbox.gd<>uid://ccj8l1locmvro<>res://card_move_list.gd<>uid://dcxswsn0u2qu4
+main.tscn::PackedScene::4574329718903214225::1670465472::0::1::::<><>::uid://byolagjxdgwfu<>res://round_start.gd<>uid://ccj8l1locmvro<>uid://dybpka51i6eub
+new_character.tscn::PackedScene::5305115176784709703::1670465472::0::1::::<><>::res://scripts/player.gd<>res://scripts/input management/input_reader.gd<>uid://3oyeegtt5ps6<>res://scripts/collision/hurtbox.gd<>res://palette_swap/PaletteSwap.gdshader<>res://scripts/collision/hitbox.gd<>uid://ccj8l1locmvro<>res://card_move_list.gd<>uid://dcxswsn0u2qu4
 stage_camera.gd::GDScript::-1::1668230872::0::1::::<>CharacterBody2D<>::
-stage_camera.tscn::PackedScene::2168543141052330554::1669435301::0::1::::<><>::res://scenes/stage_camera.gd
-state_machine.tscn::PackedScene::1995653481675845951::1669435301::0::1::::<><>::res://scripts/character_state_machine.gd
+stage_camera.tscn::PackedScene::2168543141052330554::1670465472::0::1::::<><>::res://scenes/stage_camera.gd
+state_machine.tscn::PackedScene::1995653481675845951::1670465472::0::1::::<><>::res://scripts/character_state_machine.gd
 tossed_card.tscn::PackedScene::4963744956632086500::1668471477::0::1::::<><>::res://projectile.gd<>res://scripts/collision/hitbox.gd<>res://palette_swap/PaletteSwap.gdshader<>uid://dcxswsn0u2qu4
-::res://scenes/characters/::1669435379
-card.tscn::PackedScene::3361454228660597252::1669435379::0::1::::<><>::res://scripts/player.gd<>res://scripts/input management/input_reader.gd<>uid://3oyeegtt5ps6<>res://scripts/collision/hurtbox.gd<>res://palette_swap/PaletteSwap.gdshader<>uid://dcxswsn0u2qu4<>res://scripts/collision/hitbox.gd<>res://card_move_list.gd
-::res://scripts/::1669223643
-character_state_machine.gd::GDScript::-1::1669223580::0::1::::CharacterStateMachine<>Node<>::
+::res://scenes/characters/::1670466183
+card.tscn::PackedScene::3361454228660597252::1670466183::0::1::::<><>::res://scripts/player.gd<>res://scripts/input management/input_reader.gd<>uid://3oyeegtt5ps6<>res://scripts/collision/hurtbox.gd<>res://palette_swap/PaletteSwap.gdshader<>uid://dcxswsn0u2qu4<>res://scripts/collision/hitbox.gd<>res://card_move_list.gd
+::res://scripts/::1669437663
+character_state_machine.gd::GDScript::-1::1669437663::0::1::::CharacterStateMachine<>Node<>::
 hp_bar.gd::GDScript::-1::1668294273::0::1::::<>TextureProgressBar<>::
 move_list.gd::GDScript::-1::1668880630::0::1::::MoveList<>Node<>::
 player.gd::GDScript::-1::1669223643::0::1::::Player<>CharacterBody2D<>::
@@ -49,17 +49,17 @@ hurtbox.gd::GDScript::-1::1669157173::0::1::::Hurtbox<>Area2D<>::
 ::res://scripts/input management/::1668574186
 input_reader.gd::GDScript::-1::1668574186::0::1::::InputReader<>Node<>::
 input_reader_backup.gd::GDScript::-1::1666282762::0::1::::<>Node<>::
-::res://scripts/os/::1668880630
+::res://scripts/os/::1670465472
 os_basic.gd::GDScript::-1::1668880630::0::1::::OSBasic<>OSStyle<>::
-os_basic.tscn::PackedScene::1832856463271076947::1668230320::0::1::::<><>::res://scripts/os/os_basic.gd
-::res://scripts/states/::1669224579
+os_basic.tscn::PackedScene::1832856463271076947::1670465472::0::1::::<><>::res://scripts/os/os_basic.gd
+::res://scripts/states/::1669437509
 air_state.gd::GDScript::-1::1667520067::0::1::::AirState<>State<>::
-crouch_state.gd::GDScript::-1::1669224522::0::1::::CrouchState<>State<>::
+crouch_state.gd::GDScript::-1::1669436623::0::1::::CrouchState<>State<>::
 dash_state.gd::GDScript::-1::1669224516::0::1::::DashState<>State<>::
-ground_actionable_state.gd::GDScript::-1::1669223709::0::1::::GroundActionableState<>State<>::
-ground_normal_state.gd::GDScript::-1::1669162804::0::1::::GroundNormalState<>State<>::
+ground_actionable_state.gd::GDScript::-1::1669437367::0::1::::GroundActionableState<>State<>::
+ground_normal_state.gd::GDScript::-1::1669437509::0::1::::GroundNormalState<>State<>::
 ground_special_state.gd::GDScript::-1::1669162804::0::1::::GroundSpecialState<>State<>::
-idle_state.gd::GDScript::-1::1669224396::0::1::::IdleState<>GroundActionableState<>::
+idle_state.gd::GDScript::-1::1669435869::0::1::::IdleState<>GroundActionableState<>::
 jump_state.gd::GDScript::-1::1669224579::0::1::::JumpState<>State<>::
 state.gd::GDScript::-1::1669162804::0::1::::State<>Node<>::
 walk_state.gd::GDScript::-1::1669224415::0::1::::WalkState<>GroundActionableState<>::
