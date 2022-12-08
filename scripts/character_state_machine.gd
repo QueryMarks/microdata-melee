@@ -26,7 +26,7 @@ func change_state(new_state: State):
 		new_state.set_physics_process(false)
 	else:
 		my_player.anim_player.play("RESET")
-		my_player.anim_player.call_deferred("advance", 1)
+		#my_player.anim_player.call_deferred("advance", 1)
 		current_state.set_physics_process(false)
 		current_state.exit()
 		current_state.queue_free()

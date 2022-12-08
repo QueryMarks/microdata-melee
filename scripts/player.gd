@@ -150,3 +150,4 @@ func hit_restart():
 func anim_emit_signal(string : String):
 	anim_var = string
 	emit_signal("anim_signal")
+
