@@ -1690,6 +1690,7 @@ size = Vector2(23, 8)
 [node name="Card_Player" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_fyvx3")
+gravity = 9.0
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 visible = false
@@ -1772,7 +1773,7 @@ visible = false
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_gaxvm")
-hitstun = 16
+hitstun = 18
 hitstop = 10
 knockback = Vector2(50, -10)
 
