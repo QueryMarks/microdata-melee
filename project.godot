@@ -105,6 +105,11 @@ _global_script_classes=[{
 "path": "res://scripts/states/general/inheritables/ground_actionable_state.gd"
 }, {
 "base": "State",
+"class": &"GroundBounceState",
+"language": &"GDScript",
+"path": "res://ground_bounce_state.gd"
+}, {
+"base": "State",
 "class": &"GroundNormalState",
 "language": &"GDScript",
 "path": "res://scripts/states/general/inheritables/ground_normal_state.gd"
@@ -194,6 +199,7 @@ _global_script_class_icons={
 "CrouchState": "",
 "DashState": "",
 "GroundActionableState": "",
+"GroundBounceState": "",
 "GroundNormalState": "",
 "GroundSpecialState": "",
 "Hitbox": "",

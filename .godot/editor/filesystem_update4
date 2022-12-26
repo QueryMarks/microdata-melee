@@ -1,6 +1,7 @@
 res://scenes/characters/card.tscn
-res://scripts/states/general/jump_state.gd
+res://ground_bounce_state.gd
 res://scenes/main.tscn
+res://scripts/states/card/air_hurt_state.gd
 res://scenes/new_character.tscn
 res://scenes/stage_camera.tscn
 res://scenes/state_machine.tscn

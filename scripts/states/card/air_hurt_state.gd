@@ -9,8 +9,8 @@ func enter():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if hitstun <= 0:
-		state_machine.change_state(AirState.new())
+	#if hitstun <= 0:
+	#	state_machine.change_state(AirState.new())
 	hitstun -= 1
 	if abs(player.velocity.x) >= 1:
 		if abs(player.velocity.x) >= 200:
@@ -21,4 +21,4 @@ func _physics_process(delta):
 		player.velocity.x = 0
 	player.velocity.y += player.gravity
 	if player.is_on_floor():
-		state_machine.change_state(IdleState.new())
+		state_machine.change_state(GroundBounceState.new())
