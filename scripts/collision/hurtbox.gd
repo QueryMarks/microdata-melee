@@ -5,9 +5,11 @@ func _init() -> void:
 	collision_layer = 0
 	collision_mask = 2
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready():
 	self.area_entered.connect(_on_area_entered)
-	pass # Replace with function body.
+	
+	for hurtbox in get_children():
+		hurtbox.set_shape(RectangleShape2D.new())
 
 func _on_area_entered(hitbox : Hitbox) -> void:
 	
