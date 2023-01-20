@@ -5,9 +5,11 @@ func enter():
 	super()
 	player.anim_player.play("idle")
 	player.velocity.x = 0
+	print(player.velocity)
 
 func _physics_process(delta):
 	super(delta)
+	#print(player.velocity)
 	
 
 

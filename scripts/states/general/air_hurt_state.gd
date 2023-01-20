@@ -4,7 +4,7 @@ var hitstun
 # Called when the node enters the scene tree for the first time.
 func enter():
 	tags += ["air","hurt"]
-	player.anim_player.play("hurt")
+	player.anim_player.play("air_hurt")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

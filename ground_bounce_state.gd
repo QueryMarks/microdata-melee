@@ -4,8 +4,9 @@ class_name GroundBounceState
 
 # Called when the node enters the scene tree for the first time.
 func enter():
-	player.hit_stop(60)
-	player.velocity.y = -100
+	player.hit_stop(6)
+	player.anim_player.queue("ground_bounce")
+	player.velocity.y *= -10
 	player.velocity.x = clamp(player.velocity.x, -80, 80)  
 
 
@@ -13,4 +14,4 @@ func enter():
 func _physics_process(delta):
 	player.velocity.y += player.gravity
 	if player.is_on_floor():
-		state_machine.change_state(IdleState.new())
+		state_machine.change_state(SoftKnockdownState.new())

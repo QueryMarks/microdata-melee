@@ -9,7 +9,7 @@ func _ready():
 	self.area_entered.connect(_on_area_entered)
 	
 	for hurtbox in get_children():
-		hurtbox.set_shape(RectangleShape2D.new())
+		hurtbox.set_shape(hurtbox.get_shape().duplicate())
 
 func _on_area_entered(hitbox : Hitbox) -> void:
 	

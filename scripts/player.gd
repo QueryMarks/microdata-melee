@@ -131,14 +131,15 @@ func _physics_process(delta):
 			self.position.x += 10/(pushbox.global_position.x - opponent.pushbox.global_position.x)
 
 func hit_stop(stop : int):
+	hitstop = true
 	set_physics_process(false)
 	state_machine.current_state.set_physics_process(false)
 	if state_machine.current_state.tags.has("hurt") or state_machine.current_state.tags.has("block"):
-		anim_player.call_deferred("advance", 1.0/60.0)
+		#anim_player.advance(1.0/60.0)
+		anim_player.call_deferred("advance",1.0/60.0)
 	anim_player.stop(false)
 	hitstop_timer.stop()
 	hitstop_timer.start(stop/60.0)
-	hitstop = true
 
 func hit_restart():
 	hitstop_timer.stop()

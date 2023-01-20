@@ -5,7 +5,7 @@ class_name CrouchBlockState
 # Called when the node enters the scene tree for the first time.
 func enter():
 	tags += ["block", "grounded"]
-	player.anim_player.queue("crouch_block")
+	player.anim_player.play("crouch_block")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
