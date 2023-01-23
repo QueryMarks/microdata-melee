@@ -1,5 +1,5 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1673737821
+::res://::1674255804
 card_2b_state.gd::GDScript::-1::1672936307::0::1::::Card2bState<>GroundNormalState<>::
 card_2c_state.gd::GDScript::-1::1672936307::0::1::::Card2cState<>GroundNormalState<>::
 card_deck.gd::GDScript::-1::1671478979::0::1::::<>Node<>::
@@ -82,8 +82,8 @@ ground_normal_state.gd::GDScript::-1::1669437509::0::1::::GroundNormalState<>Sta
 ground_special_state.gd::GDScript::-1::1669162804::0::1::::GroundSpecialState<>State<>::
 state.gd::GDScript::-1::1669162804::0::1::::State<>Node<>::
 ::res://shaders/::1668211774
-::res://sprites/::1673603192
-card sprite sheet.png::CompressedTexture2D::7348253586700899581::1673747179::1673747181::1::::<><>::
+::res://sprites/::1673984024
+card sprite sheet.png::CompressedTexture2D::7348253586700899581::1673984028::1674255804::1::::<><>::
 placeholder stage.png::CompressedTexture2D::4100522436575772054::1667843472::1667843474::1::::<><>::
 ::res://sprites/refs/::1666373390
 japan stage.png::CompressedTexture2D::2732409613439903642::1664924226::1664924226::1::::<><>::
