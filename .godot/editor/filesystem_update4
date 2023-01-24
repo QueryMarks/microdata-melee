@@ -12,3 +12,4 @@ res://scripts/states/general/idle_state.gd
 res://scripts/player.gd
 res://scripts/character_state_machine.gd
 res://scripts/states/card/card_5b_state.gd
+res://card_jb_state.gd

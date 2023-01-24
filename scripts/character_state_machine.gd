@@ -28,7 +28,7 @@ func change_state(new_state: State):
 	else:
 		my_player.anim_player.play("RESET")
 		#my_player.anim_player.call_deferred("advance",1.0/60.0)
-		#my_player.anim_player.advance(1/60)
+		my_player.anim_player.advance(1/60)
 		#my_player.anim_player.call_deferred("advance", 1)
 		current_state.set_physics_process(false)
 		current_state.exit()
