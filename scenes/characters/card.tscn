@@ -13,6 +13,23 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayr5o"]
 size = Vector2(23, 37)
 
+[sub_resource type="Animation" id="Animation_sujsn"]
+resource_name = "2a"
+length = 0.333333
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.116667, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 16), Vector2i(1, 16), Vector2i(2, 16), Vector2i(3, 16), Vector2i(4, 16), Vector2i(5, 16)]
+}
+
 [sub_resource type="Animation" id="Animation_7xpdk"]
 resource_name = "2b"
 length = 0.333333
@@ -1828,23 +1845,6 @@ tracks/3/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_sujsn"]
-resource_name = "2a"
-length = 0.333333
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.116667, 0.15, 0.2, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 16), Vector2i(1, 16), Vector2i(2, 16), Vector2i(3, 16), Vector2i(4, 16), Vector2i(5, 16)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ims83"]
 _data = {
 "2a": SubResource("Animation_sujsn"),
@@ -1952,7 +1952,7 @@ shape = SubResource("RectangleShape2D_m7vcu")
 disabled = true
 
 [node name="Hurtbox2" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(10, -22)
+position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_qmbbf")
 disabled = true
 debug_color = Color(0, 0.6, 0.701961, 0.419608)

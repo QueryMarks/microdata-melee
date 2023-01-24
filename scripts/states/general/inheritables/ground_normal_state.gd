@@ -9,7 +9,7 @@ func enter():
 	player.get_node("Sprite2D").z_index = 1
 
 func _to_idle(_variable):
-	player.anim_player.animation_finished.disconnect(self._to_idle)
+	print("TO IDLE")
 	if (Input.is_action_pressed(player.input_down)):
 		print("CROUCHING")
 		state_machine.change_state(CrouchState.new())
@@ -23,6 +23,7 @@ func _to_idle(_variable):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func exit():
+	player.anim_player.animation_finished.disconnect(self._to_idle)
 	player.get_node("Sprite2D").z_index = 0
 	for node in player.get_node("Hitboxes").get_children():
 		if node.get_node("CollisionShape2D").disabled == false:

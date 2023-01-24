@@ -26,6 +26,7 @@ var input_left
 var input_right
 var pushbox : Area2D
 var hitstop = false
+var hitstun = 0
 
 #hitstop stuff, clean up later?
 var hitstop_timer : Timer
@@ -83,16 +84,16 @@ func get_hit(hitbox : Hitbox):
 	
 func get_hurt(hitbox : Hitbox):
 	hitstop = false
+	hitstun = hitbox.hitstun
 	print("i am player " + str(player_index) + " with hitbox knockback " + str(hitbox.knockback))
 	if self.is_on_floor():
-		state_machine.change_state(HurtState.new())
+		state_machine.call_deferred("change_state", HurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 	else:
-		state_machine.change_state(AirHurtState.new())
+		state_machine.call_deferred("change_state", HurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 		velocity.y = hitbox.knockback.y
-	state_machine.current_state.hitstun = hitbox.hitstun
-	hit_stop(hitbox.hitstop)
+	call_deferred("hit_stop", hitbox.hitstop)
 	
 func block(hitbox : Hitbox):
 	if self.is_on_floor():

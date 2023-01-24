@@ -9,6 +9,7 @@ func enter():
 	player.anim_player.animation_finished.connect(self._to_idle)
 
 func _to_idle(_variable):
+	player.anim_player.animation_finished.disconnect(self._to_idle)
 	state_machine.change_state(IdleState.new())
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
