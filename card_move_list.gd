@@ -17,6 +17,7 @@ func _ready():
 	air_command_normals = []
 	ground_normals = [
 		#use "down" instead of "2" for crouching normals. this ensures that 3a and 1a still count for the move. if you want *exactly* 2a, use 2a.
+		[["down","a"]],
 		[["down","b"]],
 		[["down","c"]],
 		["a"], #5a
@@ -25,6 +26,7 @@ func _ready():
 		["d"]
 	]
 	ground_normals_a = [
+		[["down","a"]],
 		["a"]
 	]
 	ground_normals_b = [
@@ -68,6 +70,8 @@ func move_change_state(inputs : Array):
 				state_machine.change_state(Card5cState.new())
 			["d"]:
 				state_machine.change_state(Card5dState.new())
+			[["down","a"]]:
+				state_machine.change_state(Card2aState.new())
 			[["down","b"]]:
 				state_machine.change_state(Card2bState.new())
 			[["down","c"]]:

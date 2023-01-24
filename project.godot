@@ -30,6 +30,11 @@ _global_script_classes=[{
 "path": "res://scripts/states/general/block_state.gd"
 }, {
 "base": "GroundNormalState",
+"class": &"Card2aState",
+"language": &"GDScript",
+"path": "res://card_2a_state.gd"
+}, {
+"base": "GroundNormalState",
 "class": &"Card2bState",
 "language": &"GDScript",
 "path": "res://card_2b_state.gd"
@@ -204,6 +209,7 @@ _global_script_class_icons={
 "AirNormalState": "",
 "AirState": "",
 "BlockState": "",
+"Card2aState": "",
 "Card2bState": "",
 "Card2cState": "",
 "Card5aState": "",
