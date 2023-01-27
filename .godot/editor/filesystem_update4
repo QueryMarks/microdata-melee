@@ -1,8 +1,1 @@
 res://scenes/characters/card.tscn
-res://scripts/player.gd
-res://scripts/states/general/hurt_state.gd
-res://card_2b_state.gd
-res://scripts/character_state_machine.gd
-res://scripts/states/card/card_5b_state.gd
-res://scripts/states/general/inheritables/ground_normal_state.gd
-res://scripts/states/general/inheritables/ground_special_state.gd

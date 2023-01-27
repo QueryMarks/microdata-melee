@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bn5kwo8406gwy"]
+[gd_scene load_steps=52 format=3 uid="uid://bn5kwo8406gwy"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_fyvx3"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_2wore"]
@@ -28,6 +28,90 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 16), Vector2i(1, 16), Vector2i(2, 16), Vector2i(3, 16), Vector2i(4, 16), Vector2i(5, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitboxes/2aHitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.116667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hurtbox/Hurtbox1:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(24, 34), Vector2(24, 32)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hurtbox/Hurtbox1:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hurtbox/Hurtbox1:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(3, -17), Vector2(3, -16)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hurtbox/Hurtbox4:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0666668),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Hurtbox/Hurtbox4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.0666668, 0.116667, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(14.5, -11.75), Vector2(17, -7), Vector2(15, -7)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hurtbox/Hurtbox4:shape:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.0666668, 0.116667, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(9, 7.5), Vector2(14, 10), Vector2(10, 10)]
 }
 
 [sub_resource type="Animation" id="Animation_7xpdk"]
@@ -733,6 +817,42 @@ tracks/16/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Hitboxes/2aHitbox/CollisionShape2D:disabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Hurtbox/Hurtbox4:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(14.5, -11.75)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Hurtbox/Hurtbox4:shape:size")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 7.5)]
 }
 
 [sub_resource type="Animation" id="Animation_luapq"]
@@ -1884,7 +2004,7 @@ size = Vector2(16, 10)
 size = Vector2(18, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rvntp"]
-size = Vector2(12, 10)
+size = Vector2(9, 7.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_up8ol"]
 
@@ -1918,6 +2038,9 @@ size = Vector2(23, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktrt1"]
 size = Vector2(23, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6a20"]
+size = Vector2(18, 10)
 
 [node name="Card_Player" type="CharacterBody2D"]
 collision_layer = 4
@@ -1963,7 +2086,7 @@ shape = SubResource("RectangleShape2D_m12ty")
 disabled = true
 
 [node name="Hurtbox4" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(16, -10.5)
+position = Vector2(14.5, -11.75)
 shape = SubResource("RectangleShape2D_rvntp")
 disabled = true
 
@@ -2116,6 +2239,18 @@ modulate = Color(1, 0, 0, 1)
 self_modulate = Color(0.993421, 0, 0.216357, 1)
 position = Vector2(15.5, -5)
 shape = SubResource("RectangleShape2D_ktrt1")
+disabled = true
+
+[node name="2aHitbox" type="Area2D" parent="Hitboxes"]
+position = Vector2(19, -5)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_gaxvm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/2aHitbox"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+shape = SubResource("RectangleShape2D_l6a20")
 disabled = true
 
 [node name="CardMoveList" type="Node" parent="."]
