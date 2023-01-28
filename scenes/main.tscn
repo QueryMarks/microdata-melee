@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://byolagjxdgwfu" path="res://sprites/placeholder stage.png" id="1_64fyb"]
 [ext_resource type="Script" path="res://round_start.gd" id="1_xii17"]
-[ext_resource type="Texture2D" uid="uid://ccj8l1locmvro" path="res://palettes/card/card_red.png" id="2_werip"]
 [ext_resource type="Texture2D" uid="uid://dybpka51i6eub" path="res://palettes/card/card_blue.png" id="2_yhjcr"]
+[ext_resource type="Texture2D" uid="uid://dgr2esxkmgwuw" path="res://palettes/card/card_brown.png" id="3_g2vso"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1000, 20)
@@ -15,7 +15,7 @@ p1_os = "os_basic"
 p1_palette = ExtResource("2_yhjcr")
 p2_character = "card"
 p2_os = "os_basic"
-p2_palette = ExtResource("2_werip")
+p2_palette = ExtResource("3_g2vso")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 10)
