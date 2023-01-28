@@ -1,7 +1,7 @@
 extends MoveList
 class_name CardMoveList
 
-var tossed_card = load("res://scenes/tossed_card.tscn")
+var tossed_card = load("res://resources/characters/card/tossed_card.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super()

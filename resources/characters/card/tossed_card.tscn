@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccyqfijuo38km"]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="Script" path="res://projectile.gd" id="1_iafb7"]
+[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_iafb7"]
 [ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="2_buk38"]
 [ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="3_cpivs"]
-[ext_resource type="Texture2D" uid="uid://dcxswsn0u2qu4" path="res://sprites/card sprite sheet.png" id="3_e4fth"]
+[ext_resource type="Texture2D" uid="uid://dcxswsn0u2qu4" path="res://resources/characters/card/sprites/card sprite sheet.png" id="3_e4fth"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_owqss"]
 shader = ExtResource("3_cpivs")

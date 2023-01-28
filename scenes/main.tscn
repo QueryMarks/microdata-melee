@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6f3soy01fw30"]
+[gd_scene load_steps=6 format=3 uid="uid://ckvrclmekkrma"]
 
 [ext_resource type="Texture2D" uid="uid://byolagjxdgwfu" path="res://sprites/placeholder stage.png" id="1_64fyb"]
-[ext_resource type="Script" path="res://round_start.gd" id="1_xii17"]
+[ext_resource type="Script" path="res://scripts/round_start.gd" id="1_xii17"]
 [ext_resource type="Texture2D" uid="uid://dybpka51i6eub" path="res://palettes/card/card_blue.png" id="2_yhjcr"]
 [ext_resource type="Texture2D" uid="uid://dgr2esxkmgwuw" path="res://palettes/card/card_brown.png" id="3_g2vso"]
 

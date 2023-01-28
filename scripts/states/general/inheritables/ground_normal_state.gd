@@ -9,9 +9,7 @@ func enter():
 	player.get_node("Sprite2D").z_index = 1
 
 func _to_idle(_variable):
-	print("TO IDLE")
 	if (Input.is_action_pressed(player.input_down)):
-		print("CROUCHING")
 		state_machine.change_state(CrouchState.new())
 	elif (Input.is_action_pressed(player.input_up)): 
 		state_machine.change_state(JumpState.new())

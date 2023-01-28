@@ -1,2 +1,7 @@
-res://scenes/characters/card.tscn
+res://resources/characters/card/card.tscn
 res://scenes/main.tscn
+res://round_start.gd
+res://resources/characters/card/scripts/card_move_list.gd
+res://character_list_generator.gd
+res://scripts/states/general/inheritables/ground_normal_state.gd
+res://scenes/character_list_generator.tscn

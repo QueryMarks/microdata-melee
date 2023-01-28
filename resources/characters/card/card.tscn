@@ -1,14 +1,14 @@
-[gd_scene load_steps=52 format=3 uid="uid://bn5kwo8406gwy"]
+[gd_scene load_steps=52 format=3 uid="uid://dhxyjo7g6eo4s"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_fyvx3"]
-[ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_2wore"]
-[ext_resource type="PackedScene" uid="uid://3oyeegtt5ps6" path="res://scenes/state_machine.tscn" id="3_yvy76"]
-[ext_resource type="Script" path="res://scripts/collision/hurtbox.gd" id="4_vfdsj"]
-[ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="5_57i21"]
-[ext_resource type="Texture2D" uid="uid://dcxswsn0u2qu4" path="res://sprites/card sprite sheet.png" id="6_u5sgf"]
-[ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="7_gaxvm"]
-[ext_resource type="Script" path="res://card_move_list.gd" id="8_6rfhj"]
-[ext_resource type="Script" path="res://card_deck.gd" id="8_wf5a0"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_p0blo"]
+[ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_pajsi"]
+[ext_resource type="PackedScene" uid="uid://3oyeegtt5ps6" path="res://scenes/state_machine.tscn" id="3_p21cg"]
+[ext_resource type="Script" path="res://scripts/collision/hurtbox.gd" id="4_obkc2"]
+[ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="5_xe5rc"]
+[ext_resource type="Texture2D" uid="uid://dcxswsn0u2qu4" path="res://resources/characters/card/sprites/card sprite sheet.png" id="6_3ffx4"]
+[ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="7_hds3c"]
+[ext_resource type="Script" path="res://resources/characters/card/scripts/card_move_list.gd" id="8_nvq6e"]
+[ext_resource type="Script" path="res://resources/characters/card/scripts/card_deck.gd" id="9_n07uy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayr5o"]
 size = Vector2(23, 37)
@@ -2046,7 +2046,7 @@ size = Vector2(9, 7.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kxekc"]
 resource_local_to_scene = true
-shader = ExtResource("5_57i21")
+shader = ExtResource("5_xe5rc")
 shader_parameter/fps = null
 shader_parameter/skip_first_row = null
 shader_parameter/use_palette_alpha = null
@@ -2080,7 +2080,7 @@ size = Vector2(18, 10)
 
 [node name="Card_Player" type="CharacterBody2D"]
 collision_layer = 4
-script = ExtResource("1_fyvx3")
+script = ExtResource("1_p0blo")
 gravity = 9.0
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
@@ -2090,7 +2090,7 @@ position = Vector2(-1, -19)
 shape = SubResource("RectangleShape2D_ayr5o")
 
 [node name="InputReader" type="Node" parent="." node_paths=PackedStringArray("player")]
-script = ExtResource("2_2wore")
+script = ExtResource("2_pajsi")
 player = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -2098,12 +2098,12 @@ libraries = {
 "": SubResource("AnimationLibrary_ims83")
 }
 
-[node name="StateMachine" parent="." instance=ExtResource("3_yvy76")]
+[node name="StateMachine" parent="." instance=ExtResource("3_p21cg")]
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("4_vfdsj")
+script = ExtResource("4_obkc2")
 
 [node name="Hurtbox1" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -18)
@@ -2134,7 +2134,7 @@ disabled = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
 material = SubResource("ShaderMaterial_kxekc")
-texture = ExtResource("6_u5sgf")
+texture = ExtResource("6_3ffx4")
 offset = Vector2(0, -32)
 hframes = 8
 vframes = 32
@@ -2147,7 +2147,7 @@ modulate = Color(1, 0, 0, 1)
 self_modulate = Color(1, 0, 0, 1)
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_gaxvm")
+script = ExtResource("7_hds3c")
 damage = 8
 hitstun = 10
 hitstop = 8
@@ -2164,7 +2164,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_gaxvm")
+script = ExtResource("7_hds3c")
 hitstun = 18
 hitstop = 10
 knockback = Vector2(50, -10)
@@ -2180,7 +2180,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_gaxvm")
+script = ExtResource("7_hds3c")
 damage = 30
 hitstun = 20
 knockback = Vector2(150, -30)
@@ -2196,7 +2196,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_gaxvm")
+script = ExtResource("7_hds3c")
 damage = 20
 hitstun = 20
 knockback = Vector2(100, -90)
@@ -2212,7 +2212,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_gaxvm")
+script = ExtResource("7_hds3c")
 damage = 5
 hitstop = 10
 knockback = Vector2(20, -10)
@@ -2229,7 +2229,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_gaxvm")
+script = ExtResource("7_hds3c")
 damage = 5
 hitstop = 10
 knockback = Vector2(40, -10)
@@ -2246,7 +2246,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_gaxvm")
+script = ExtResource("7_hds3c")
 hitstun = 25
 hitstop = 10
 knockback = Vector2(50, -50)
@@ -2263,7 +2263,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_gaxvm")
+script = ExtResource("7_hds3c")
 damage = 8
 hitstun = 10
 hitstop = 8
@@ -2281,7 +2281,7 @@ disabled = true
 position = Vector2(19, -5)
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_gaxvm")
+script = ExtResource("7_hds3c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/2aHitbox"]
 modulate = Color(1, 0, 0, 1)
@@ -2290,7 +2290,7 @@ shape = SubResource("RectangleShape2D_l6a20")
 disabled = true
 
 [node name="CardMoveList" type="Node" parent="."]
-script = ExtResource("8_6rfhj")
+script = ExtResource("8_nvq6e")
 
 [node name="Pushbox" type="Area2D" parent="."]
 visible = false
@@ -2307,6 +2307,6 @@ shape = SubResource("RectangleShape2D_ayr5o")
 process_callback = 0
 
 [node name="Deck" type="Node" parent="."]
-script = ExtResource("8_wf5a0")
+script = ExtResource("9_n07uy")
 
 [editable path="StateMachine"]

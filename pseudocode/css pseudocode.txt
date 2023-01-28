@@ -1,0 +1,27 @@
+create file "character list" (probably based on folders in "characters")
+
+read character list as array
+
+in css scene:
+
+
+
+create area2D that matches desired size of grid
+
+for character in character list:
+	create combination node that contains the character's icon and a reference to the character's scene
+	add characterselect node to existing 3-column GridContainer
+	if characterselect node is not inside area2D:
+		disable characterselect node
+
+if player cursor selects an icon:
+	px_character = selected
+	ready_check()
+
+ready_check():
+	if p1_character and p2_character != null:
+		change_scene to main
+		set round_start parameters
+
+worry abt colors after 
+

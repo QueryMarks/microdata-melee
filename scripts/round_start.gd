@@ -17,7 +17,7 @@ func _ready():
 	add_child(camera)
 	camera.position = Vector2(0,0)
 	#var camera = get_node("StageCamera")
-	p1 = load("res://scenes/characters/"+p1_character+".tscn").instantiate()
+	p1 = load("res://resources/characters/"+p1_character+"/"+p1_character+".tscn").instantiate()
 	p1.add_child(load("res://scripts/os/"+p1_os+".tscn").instantiate())
 	p1.get_node("Sprite2D").material.set_shader_parameter("palette", p1_palette)
 	var p1_bar = preload("res://scenes/hp_bar.tscn").instantiate()
@@ -27,7 +27,7 @@ func _ready():
 	p1_bar.material.set_shader_parameter("palette", p1_palette)
 	
 	
-	p2 = load("res://scenes/characters/"+p2_character+".tscn").instantiate()
+	p2 = load("res://resources/characters/"+p2_character+"/"+p2_character+".tscn").instantiate()
 	p2.add_child(load("res://scripts/os/"+p2_os+".tscn").instantiate())
 	p2.get_node("Sprite2D").material.set_shader_parameter("palette", p2_palette)
 	var p2_bar = preload("res://scenes/hp_bar.tscn").instantiate()
