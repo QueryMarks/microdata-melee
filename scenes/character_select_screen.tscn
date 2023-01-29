@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://caega2vwfpk48"]
+
+[ext_resource type="Texture2D" uid="uid://8p4er31w1fxw" path="res://sprites/ui/css bg.png" id="1_mfyhk"]
+[ext_resource type="Texture2D" uid="uid://bcjdwjwrusiwb" path="res://sprites/ui/css grid.png" id="2_11ydh"]
+[ext_resource type="Script" path="res://scripts/css_adder.gd" id="3_nwsvq"]
+[ext_resource type="PackedScene" uid="uid://ddusf3ay6shqf" path="res://scenes/css_cursor.tscn" id="3_uv6po"]
+[ext_resource type="Script" path="res://css_cursor.gd" id="5_o7jlx"]
+[ext_resource type="Texture2D" uid="uid://61v4hm2q33k3" path="res://sprites/ui/p2 select.png" id="6_el753"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -76.0
+offset_right = 80.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mfyhk")
+stretch_mode = 2
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+current = true
+zoom = Vector2(4, 4)
+
+[node name="CSS Grid 1" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.0
+offset_top = -74.0
+offset_right = 3.0
+offset_bottom = -74.0
+
+[node name="TextureRect" type="TextureRect" parent="CSS Grid 1"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 73.0
+texture = ExtResource("2_11ydh")
+
+[node name="GridContainer" type="GridContainer" parent="CSS Grid 1/TextureRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 42.0
+offset_bottom = 42.0
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+columns = 3
+
+[node name="CSSAdder" type="Node" parent="CSS Grid 1/TextureRect/GridContainer"]
+script = ExtResource("3_nwsvq")
+
+[node name="Node2D" parent="CSS Grid 1" node_paths=PackedStringArray("preview") instance=ExtResource("3_uv6po")]
+position = Vector2(13, 13)
+preview = NodePath("../../Node2D")
+portraitOffset = Vector2(24, 24)
+
+[node name="CSS Grid 2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -77.0
+offset_top = 1.0
+offset_right = -77.0
+offset_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="CSS Grid 2"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 73.0
+texture = ExtResource("2_11ydh")
+
+[node name="GridContainer" type="GridContainer" parent="CSS Grid 2/TextureRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 42.0
+offset_bottom = 42.0
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+columns = 3
+
+[node name="CSSAdder" type="Node" parent="CSS Grid 2/TextureRect/GridContainer"]
+script = ExtResource("3_nwsvq")
+
+[node name="Node2D" type="Node2D" parent="CSS Grid 2" node_paths=PackedStringArray("preview")]
+position = Vector2(13, 13)
+script = ExtResource("5_o7jlx")
+player_index = 2
+preview = NodePath("../../Node2D2")
+portraitOffset = Vector2(24, 24)
+
+[node name="Sprite2D" type="Sprite2D" parent="CSS Grid 2/Node2D"]
+texture_filter = 1
+texture = ExtResource("6_el753")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-40, -2)
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(40, 72)
+scale = Vector2(-1, 1)

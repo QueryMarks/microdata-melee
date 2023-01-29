@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddusf3ay6shqf"]
+
+[ext_resource type="Script" path="res://css_cursor.gd" id="1_r175i"]
+[ext_resource type="Texture2D" uid="uid://b6nk1eg8tan0i" path="res://sprites/ui/p1 select.png" id="2_pbs56"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_r175i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_pbs56")

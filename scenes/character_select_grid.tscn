@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1srr4jpn23rf"]
+
+[ext_resource type="Script" path="res://scripts/css_adder.gd" id="1_jyv8k"]
+[ext_resource type="Texture2D" uid="uid://bcjdwjwrusiwb" path="res://sprites/ui/css grid.png" id="2_bhe44"]
+[ext_resource type="PackedScene" uid="uid://ddusf3ay6shqf" path="res://scenes/css_cursor.tscn" id="3_ljub2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 74.0
+offset_bottom = 73.0
+texture = ExtResource("2_bhe44")
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect"]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 42.0
+offset_bottom = 42.0
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+columns = 3
+
+[node name="CSSAdder" type="Node" parent="TextureRect/GridContainer"]
+script = ExtResource("1_jyv8k")
+
+[node name="Node2D" parent="." instance=ExtResource("3_ljub2")]
+position = Vector2(13, 13)
+portraitOffset = Vector2(24, 24)

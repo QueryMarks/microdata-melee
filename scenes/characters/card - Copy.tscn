@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://3oyeegtt5ps6" path="res://scenes/state_machine.tscn" id="3_yvy76"]
 [ext_resource type="Script" path="res://scripts/collision/hurtbox.gd" id="4_vfdsj"]
 [ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="5_57i21"]
-[ext_resource type="Texture2D" uid="uid://dcxswsn0u2qu4" path="res://resources/characters/card/sprites/card sprite sheet.png" id="6_u5sgf"]
+[ext_resource type="Texture2D" uid="uid://dcxswsn0u2qu4" path="res://resources/characters/lamb/sprites/lamb sprite sheet.png" id="6_u5sgf"]
 [ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="7_gaxvm"]
 [ext_resource type="Script" path="res://resources/characters/card/scripts/card_move_list.gd" id="8_6rfhj"]
 

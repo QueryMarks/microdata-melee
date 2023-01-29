@@ -90,7 +90,7 @@ func get_hurt(hitbox : Hitbox):
 		state_machine.call_deferred("change_state", HurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 	else:
-		state_machine.call_deferred("change_state", HurtState.new())
+		state_machine.call_deferred("change_state", AirHurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 		velocity.y = hitbox.knockback.y
 	call_deferred("hit_stop", hitbox.hitstop)

@@ -1,12 +1,13 @@
-[gd_scene load_steps=52 format=3 uid="uid://dhxyjo7g6eo4s"]
+[gd_scene load_steps=53 format=3 uid="uid://dpowklmtj8rea"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p0blo"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_pajsi"]
+[ext_resource type="AnimationLibrary" uid="uid://cskp3yfuireji" path="res://resources/characters/lamb/card anims.res" id="3_lfxwa"]
 [ext_resource type="PackedScene" uid="uid://3oyeegtt5ps6" path="res://scenes/state_machine.tscn" id="3_p21cg"]
 [ext_resource type="Script" path="res://scripts/collision/hurtbox.gd" id="4_obkc2"]
 [ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="5_xe5rc"]
-[ext_resource type="Texture2D" uid="uid://dcxswsn0u2qu4" path="res://resources/characters/card/sprites/card sprite sheet.png" id="6_3ffx4"]
 [ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="7_hds3c"]
+[ext_resource type="Texture2D" uid="uid://cg1a0oew0cahn" path="res://resources/characters/card/sprites/card sprite sheet.png" id="7_v5jnl"]
 [ext_resource type="Script" path="res://resources/characters/card/scripts/card_move_list.gd" id="8_nvq6e"]
 [ext_resource type="Script" path="res://resources/characters/card/scripts/card_deck.gd" id="9_n07uy"]
 
@@ -2095,7 +2096,8 @@ player = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ims83")
+"": SubResource("AnimationLibrary_ims83"),
+"card": ExtResource("3_lfxwa")
 }
 
 [node name="StateMachine" parent="." instance=ExtResource("3_p21cg")]
@@ -2134,7 +2136,7 @@ disabled = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
 material = SubResource("ShaderMaterial_kxekc")
-texture = ExtResource("6_3ffx4")
+texture = ExtResource("7_v5jnl")
 offset = Vector2(0, -32)
 hframes = 8
 vframes = 32

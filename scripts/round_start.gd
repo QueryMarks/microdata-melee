@@ -12,7 +12,10 @@ var p2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	if RoundStartInfo.p1_character != null:
+		p1_character = RoundStartInfo.p1_character
+	if RoundStartInfo.p2_character != null:
+		p2_character = RoundStartInfo.p2_character
 	var camera = preload("res://scenes/stage_camera.tscn").instantiate()
 	add_child(camera)
 	camera.position = Vector2(0,0)

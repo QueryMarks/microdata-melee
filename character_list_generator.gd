@@ -1,22 +1,24 @@
 extends Node
-var char_path = "res://resources/characters"
-var char_array = []
+var character_path = "res://resources/characters"
+var character_list = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	character_array_make() # Replace with function body.
-
+	character_list_make()
+	
+	#weird bug with the window being sized incorrectly -- maybe due to godot 4 weirdness? anyway this line is here so the window will be properly sized to the settings
+	DisplayServer.window_set_size(Vector2i(ProjectSettings.get_setting("display/window/size/viewport_width"),ProjectSettings.get_setting("display/window/size/viewport_height")))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func character_array_make():
-	var dir = DirAccess.open(char_path)
+func character_list_make():
+	var dir = DirAccess.open(character_path)
 	if dir:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
 			if dir.current_is_dir():
-				if dir.file_exists(char_path+"/"+file_name+"/"+file_name+".tscn"):
-					char_array.append(file_name)
+				if dir.file_exists(character_path+"/"+file_name+"/"+file_name+".tscn"):
+					character_list.append(file_name)
 			file_name = dir.get_next()
 	else:
 		print("uh oh! problem")
-	print(char_array)
+	print(character_list)

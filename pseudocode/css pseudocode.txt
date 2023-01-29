@@ -1,10 +1,12 @@
+at runtime:
+
 create file "character list" (probably based on folders in "characters")
 
 read character list as array
 
+
+
 in css scene:
-
-
 
 create area2D that matches desired size of grid
 
