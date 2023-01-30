@@ -21,6 +21,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	match player_index:
+		1:
+			if RoundStartInfo.p1_character == null:
+				move_cursor()
+			elif Input.is_action_just_pressed("p"+str(player_index)+"_b"):
+				RoundStartInfo.p1_character = null
+		2:
+			if RoundStartInfo.p2_character == null:
+				move_cursor()
+			elif Input.is_action_just_pressed("p"+str(player_index)+"_b"):
+				RoundStartInfo.p2_character = null
+
+
+func move_cursor():
 	if(Input.is_action_just_pressed("p"+str(player_index)+"_right")) and (currentColumnSpot < maxColumn):
 		currentSelected += 1
 		currentColumnSpot += 1
@@ -54,7 +68,7 @@ func _process(_delta):
 				RoundStartInfo.p2_character = CharacterList.character_list[currentSelected]
 		if RoundStartInfo.p1_character != null and RoundStartInfo.p2_character != null:
 			get_tree().change_scene_to_file("res://scenes/main.tscn")
-
+	
 func update_preview():
 	if len(CharacterList.character_list) > currentSelected:
 		for child in preview.get_children():
