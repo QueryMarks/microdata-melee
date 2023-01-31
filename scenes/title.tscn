@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfulaeb5yxukl"]
+
+[ext_resource type="Texture2D" uid="uid://edl88smbmrxa" path="res://sprites/Street_Fighter_Logo.png" id="1_mpp6k"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-9.53674e-07, -57)
+scale = Vector2(0.218333, 0.222973)
+texture = ExtResource("1_mpp6k")

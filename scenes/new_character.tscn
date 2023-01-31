@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3]
+[gd_scene load_steps=30 format=3 uid="uid://choawgtm8yfjg"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v68o5"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_sfodf"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="6_3cook"]
 [ext_resource type="Texture2D" uid="uid://ccj8l1locmvro" path="res://palettes/card/card_red.png" id="6_ueydo"]
 [ext_resource type="Script" path="res://resources/characters/card/scripts/card_move_list.gd" id="7_1axb8"]
-[ext_resource type="Texture2D" uid="uid://dcxswsn0u2qu4" path="res://resources/characters/lamb/sprites/lamb sprite sheet.png" id="7_pbstg"]
+[ext_resource type="Texture2D" uid="uid://dcxswsn0u2qu4" path="res://resources/characters/luke/sprites/lamb sprite sheet.png" id="7_pbstg"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(23, 37)

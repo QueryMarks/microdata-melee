@@ -32,7 +32,7 @@ texture = ExtResource("1_64fyb")
 [node name="ColorRect" type="ColorRect" parent="Sprite2d"]
 modulate = Color(0, 0, 0, 1)
 show_behind_parent = true
-offset_left = -186.0
-offset_top = -157.0
-offset_right = 183.0
-offset_bottom = 138.0
+offset_left = -190.0
+offset_top = -151.0
+offset_right = 179.0
+offset_bottom = 144.0
