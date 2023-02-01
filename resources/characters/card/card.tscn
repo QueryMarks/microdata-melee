@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p0blo"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_pajsi"]
-[ext_resource type="AnimationLibrary" uid="uid://cskp3yfuireji" path="res://resources/characters/lamb/card anims.res" id="3_lfxwa"]
+[ext_resource type="AnimationLibrary" uid="uid://cskp3yfuireji" path="res://resources/characters/luke/card anims.res" id="3_lfxwa"]
 [ext_resource type="PackedScene" uid="uid://3oyeegtt5ps6" path="res://scenes/state_machine.tscn" id="3_p21cg"]
 [ext_resource type="Script" path="res://scripts/collision/hurtbox.gd" id="4_obkc2"]
 [ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="5_xe5rc"]
