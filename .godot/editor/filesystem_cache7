@@ -1,5 +1,5 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1675227498
+::res://::1675392887
 character_list_generator.gd::GDScript::-1::1675123789::0::1::::<>Node<>::
 css_cursor.gd::GDScript::-1::1675123789::0::1::::<>Node2D<>::
 default_env.tres::Environment::-1::1675123789::0::1::::<><>::
@@ -59,7 +59,7 @@ preview.tscn::PackedScene::8800407282968763366::1675124220::0::1::::<><>::res://
 ::res://resources/characters/luke/sprites/::1675124220
 css.png::CompressedTexture2D::5758671326383562567::1675124220::1675124220::1::::<><>::
 lamb sprite sheet.png::CompressedTexture2D::7348253586700899581::1675124220::1675124220::1::::<><>::
-::res://scenes/::1675131680
+::res://scenes/::1675227584
 character_list_generator.tscn::PackedScene::3976690444594599889::1675123790::0::1::::<><>::res://character_list_generator.gd
 character_select_grid.tscn::PackedScene::9022394870395026047::1675131680::0::1::::<><>::res://scripts/css_adder.gd<>uid://bcjdwjwrusiwb<>uid://ddusf3ay6shqf
 character_select_screen.tscn::PackedScene::4781464631937249771::1675131679::0::1::::<><>::uid://8p4er31w1fxw<>uid://bcjdwjwrusiwb<>res://scripts/css_adder.gd<>uid://ddusf3ay6shqf<>res://css_cursor.gd<>uid://61v4hm2q33k3
@@ -70,14 +70,13 @@ hp_bar.tscn::PackedScene::8206677136549871181::1675123790::0::1::::<><>::res://p
 hurtbox.tscn::PackedScene::1347667352558200117::1675123790::0::1::::<><>::res://scripts/collision/hurtbox.gd
 main.tscn::PackedScene::5519118093556643660::1675131679::0::1::::<><>::uid://byolagjxdgwfu<>res://scripts/round_start.gd<>uid://dybpka51i6eub<>uid://dgr2esxkmgwuw
 new_character.tscn::PackedScene::5293104193956831708::1675131680::0::1::::<><>::res://scripts/player.gd<>res://scripts/input management/input_reader.gd<>uid://3oyeegtt5ps6<>res://scripts/collision/hurtbox.gd<>res://palette_swap/PaletteSwap.gdshader<>res://scripts/collision/hitbox.gd<>uid://ccj8l1locmvro<>res://resources/characters/card/scripts/card_move_list.gd<>uid://dcxswsn0u2qu4
-titlescreen.gd::GDScript::-1::1675227571::0::1::::<>Node<>::
 stage_camera.gd::GDScript::-1::1675123790::0::1::::<>CharacterBody2D<>::
 stage_camera.tscn::PackedScene::2168543141052330554::1675123790::0::1::::<><>::res://scenes/stage_camera.gd
 state_machine.tscn::PackedScene::1995653481675845951::1675123790::0::1::::<><>::res://scripts/character_state_machine.gd
 title.tscn::PackedScene::2779320556919156839::1675131680::0::1::::<><>::uid://edl88smbmrxa
 ::res://scenes/characters/::1675123790
 card - Copy.tscn::PackedScene::-1::1675123790::0::1::::<><>::res://scripts/player.gd<>res://scripts/input management/input_reader.gd<>uid://3oyeegtt5ps6<>res://scripts/collision/hurtbox.gd<>res://palette_swap/PaletteSwap.gdshader<>uid://dcxswsn0u2qu4<>res://scripts/collision/hitbox.gd<>res://resources/characters/card/scripts/card_move_list.gd
-::res://scripts/::1675227498
+::res://scripts/::1675270256
 character_state_machine.gd::GDScript::-1::1675123790::0::1::::CharacterStateMachine<>Node<>::
 css_adder.gd::GDScript::-1::1675123790::0::1::::<>Node<>::
 getup_state.gd::GDScript::-1::1675123790::0::1::::GetupState<>State<>::
@@ -90,6 +89,7 @@ projectile.gd::GDScript::-1::1675123790::0::1::::<>Node2D<>::
 round_start.gd::GDScript::-1::1675123790::0::1::::<>Node<>::
 soft_knockdown_state.gd::GDScript::-1::1675123790::0::1::::SoftKnockdownState<>State<>::
 tech_roll_back_state.gd::GDScript::-1::1675123790::0::1::::TechRollBackState<>GetupState<>::
+titlescreen.gd::GDScript::-1::1675270256::0::1::::<>RefCounted<>::
 ::res://scripts/collision/::1675123790
 hitbox.gd::GDScript::-1::1675123790::0::1::::Hitbox<>Area2D<>::
 hurtbox.gd::GDScript::-1::1675123790::0::1::::Hurtbox<>Area2D<>::

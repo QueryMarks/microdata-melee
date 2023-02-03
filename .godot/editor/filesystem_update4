@@ -1,3 +1,5 @@
+res://scenes/title.tscn
+res://scripts/titlescreen.gd
 res://resources/characters/card/card.tscn
 res://scenes/main.tscn
 res://resources/characters/lamb/lamb.tscn
@@ -6,4 +8,3 @@ res://scenes/character_select_grid.tscn
 res://scenes/css_cursor.tscn
 res://scenes/hitbox.tscn
 res://scenes/new_character.tscn
-res://scenes/title.tscn
