@@ -4,11 +4,15 @@ extends Node
 @export var p1_os : String
 @export var p1_palette : Texture2D
 var p1
+var p1_bar
 
 @export var p2_character : String
 @export var p2_os : String
 @export var p2_palette : Texture2D
 var p2
+var p2_bar
+
+var camera : Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,29 +20,31 @@ func _ready():
 		p1_character = RoundStartInfo.p1_character
 	if RoundStartInfo.p2_character != null:
 		p2_character = RoundStartInfo.p2_character
-	var camera = preload("res://scenes/stage_camera.tscn").instantiate()
+	camera = preload("res://scenes/stage_camera.tscn").instantiate()
 	add_child(camera)
 	camera.position = Vector2(0,0)
 	#var camera = get_node("StageCamera")
 	p1 = load("res://resources/characters/"+p1_character+"/"+p1_character+".tscn").instantiate()
 	p1.add_child(load("res://scripts/os/"+p1_os+".tscn").instantiate())
 	p1.get_node("Sprite2D").material.set_shader_parameter("palette", p1_palette)
-	var p1_bar = preload("res://scenes/hp_bar.tscn").instantiate()
+	p1_bar = preload("res://scenes/hp_bar.tscn").instantiate()
 	p1_bar.player = p1
 	camera.add_child(p1_bar)
 	p1_bar.position = Vector2(-70, -115)
 	p1_bar.material.set_shader_parameter("palette", p1_palette)
+	p1_bar.health_zero.connect(round_end)
 	
 	
 	p2 = load("res://resources/characters/"+p2_character+"/"+p2_character+".tscn").instantiate()
 	p2.add_child(load("res://scripts/os/"+p2_os+".tscn").instantiate())
 	p2.get_node("Sprite2D").material.set_shader_parameter("palette", p2_palette)
-	var p2_bar = preload("res://scenes/hp_bar.tscn").instantiate()
+	p2_bar = preload("res://scenes/hp_bar.tscn").instantiate()
 	p2_bar.player = p2
 	camera.add_child(p2_bar)
 	p2_bar.scale.x = -1
 	p2_bar.position = Vector2(70, -115)
 	p2_bar.material.set_shader_parameter("palette", p2_palette)
+	p2_bar.health_zero.connect(round_end)
 	
 	p1.player_index = 1
 	p2.player_index = 2
@@ -55,3 +61,54 @@ func _ready():
 
 	add_child(p1)
 	add_child(p2)
+	
+	players_act(false)
+
+	$RoundAnims.play("round_start")
+	
+func players_act(yesno : bool):
+	if yesno:
+		camera.disable_walls(false)
+	p1.can_act = yesno
+	p2.can_act = yesno
+	print("players can act? " + str(yesno))
+
+func next_round():
+
+	p1.get_node("Sprite2D").material.set_shader_parameter("palette", p1_palette)
+	p1_bar.position = Vector2(-70, -115)
+	p1_bar.material.set_shader_parameter("palette", p1_palette)
+	
+	
+	p2.get_node("Sprite2D").material.set_shader_parameter("palette", p2_palette)
+	p2_bar.position = Vector2(70, -115)
+	p2_bar.material.set_shader_parameter("palette", p2_palette)
+	
+	p1.opponent = p2
+	p2.opponent = p1
+	
+	p1.hp = p1.max_hp
+	p2.hp = p2.max_hp
+	p1_bar.update_bar()
+	p2_bar.update_bar()
+	
+	camera.disable_walls(true)
+	
+	p1.position = Vector2(-40, 1)
+	p2.position = Vector2(40, 1)
+	
+	
+	print("p1 is " + str(p1.position) + "and p2 is " + str(p2.position))
+
+	
+	p1.state_machine.change_state(IdleState.new())
+	p2.state_machine.change_state(IdleState.new())
+	
+	players_act(false)
+
+	$RoundAnims.play("round_start")
+	
+
+func round_end():
+	$RoundAnims.play("round_end")
+	players_act(false)

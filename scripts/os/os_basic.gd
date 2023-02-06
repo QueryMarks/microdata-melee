@@ -2,6 +2,8 @@ extends OSStyle
 class_name OSBasic
 
 func os_action_check(tags : Array):
+	if !player.can_act:
+		return false
 	var inputs
 	#for states like idle, walk, crouch etc
 	if tags.has("ground"):

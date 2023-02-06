@@ -1,6 +1,5 @@
-res://scenes/title.tscn
-res://scripts/titlescreen.gd
 res://resources/characters/card/card.tscn
+res://scripts/round_start.gd
 res://scenes/main.tscn
 res://resources/characters/lamb/lamb.tscn
 res://scenes/character_select_screen.tscn
@@ -8,3 +7,8 @@ res://scenes/character_select_grid.tscn
 res://scenes/css_cursor.tscn
 res://scenes/hitbox.tscn
 res://scenes/new_character.tscn
+res://scenes/title.tscn
+res://scenes/hp_bar.tscn
+res://scenes/stage_camera.tscn
+res://scripts/player.gd
+res://scenes/stage_camera.gd

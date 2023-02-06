@@ -21,3 +21,8 @@ func _physics_process(_delta):
 		position.x = right_bound
 	else:
 		self.position.x = midpoint
+		
+func disable_walls(yesno : bool):
+	for child in get_children():
+		if child is CollisionShape2D:
+			child.set_disabled(yesno)

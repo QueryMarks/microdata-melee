@@ -7,6 +7,8 @@ class_name Player
 @export var max_hp := 100.0
 var hp := 100.0
 
+var can_act := true
+
 var opponent: Node2D
 var player_index := 1
 var my_facing = 1

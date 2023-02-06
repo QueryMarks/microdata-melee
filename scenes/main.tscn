@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckvrclmekkrma"]
+[gd_scene load_steps=10 format=3 uid="uid://ckvrclmekkrma"]
 
 [ext_resource type="Texture2D" uid="uid://byolagjxdgwfu" path="res://sprites/placeholder stage.png" id="1_64fyb"]
 [ext_resource type="Script" path="res://scripts/round_start.gd" id="1_xii17"]
@@ -7,6 +7,86 @@
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1000, 20)
+
+[sub_resource type="Animation" id="Animation_1wpww"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_42hnv"]
+resource_name = "round_end"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["round over", ""]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"next_round"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_sto7v"]
+resource_name = "round_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["round start go go go", ""]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"players_act"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rwyjs"]
+_data = {
+"RESET": SubResource("Animation_1wpww"),
+"round_end": SubResource("Animation_42hnv"),
+"round_start": SubResource("Animation_sto7v")
+}
 
 [node name="RoundStart" type="Node2D"]
 script = ExtResource("1_xii17")
@@ -36,3 +116,14 @@ offset_left = -190.0
 offset_top = -151.0
 offset_right = 179.0
 offset_bottom = 144.0
+
+[node name="RoundAnims" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rwyjs")
+}
+
+[node name="Label" type="Label" parent="."]
+offset_left = -60.0
+offset_top = -71.0
+offset_right = 40.0
+offset_bottom = 23.0
