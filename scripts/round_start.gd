@@ -5,12 +5,16 @@ extends Node
 @export var p1_palette : Texture2D
 var p1
 var p1_bar
+var p1_rounds = []
 
 @export var p2_character : String
 @export var p2_os : String
 @export var p2_palette : Texture2D
 var p2
 var p2_bar
+var p2_rounds = []
+
+var max_wins = 2
 
 var camera : Node2D
 
@@ -32,7 +36,7 @@ func _ready():
 	camera.add_child(p1_bar)
 	p1_bar.position = Vector2(-70, -115)
 	p1_bar.material.set_shader_parameter("palette", p1_palette)
-	p1_bar.health_zero.connect(round_end)
+	p1_bar.health_zero.connect(round_end, p1)
 	
 	
 	p2 = load("res://resources/characters/"+p2_character+"/"+p2_character+".tscn").instantiate()
@@ -44,7 +48,7 @@ func _ready():
 	p2_bar.scale.x = -1
 	p2_bar.position = Vector2(70, -115)
 	p2_bar.material.set_shader_parameter("palette", p2_palette)
-	p2_bar.health_zero.connect(round_end)
+	p2_bar.health_zero.connect(round_end, p2)
 	
 	p1.player_index = 1
 	p2.player_index = 2
@@ -109,6 +113,15 @@ func next_round():
 	$RoundAnims.play("round_start")
 	
 
-func round_end():
+func round_end(loser : Player):
 	$RoundAnims.play("round_end")
+	if loser.hp <= 0 and loser.opponent.hp <= 0:
+		print("tie")
+	else:
+		if loser == p1:
+			p1_rounds.append("loss")
+			p2_rounds.append("win")
+		else:
+			p2_rounds.append("loss")
+			p1_rounds.append("win")
 	players_act(false)
