@@ -155,4 +155,7 @@ func round_end_p2():
 	round_end(p2)
 	
 func match_end():
+	RoundStartInfo.p1_character = null
+	RoundStartInfo.p2_character = null
 	get_tree().change_scene_to_file("res://scenes/character_select_screen.tscn")
+	
