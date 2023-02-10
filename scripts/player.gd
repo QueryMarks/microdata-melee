@@ -126,7 +126,7 @@ func block(hitbox : Hitbox):
 			else:
 				get_hurt(hitbox)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	self.move_and_slide()
 	#push other player
 	if pushbox.get_overlapping_areas().has(opponent.pushbox):

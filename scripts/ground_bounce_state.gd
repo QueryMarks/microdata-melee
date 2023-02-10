@@ -11,7 +11,7 @@ func enter():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	player.velocity.y += player.gravity
 	if player.is_on_floor():
 		state_machine.change_state(SoftKnockdownState.new())

@@ -135,8 +135,8 @@ func round_end(loser : Player):
 	var rounds_array = [p1_rounds, p2_rounds]
 	for count in range(2):
 		var wins = 0
-		for round in rounds_array[count]:
-			if round == "win":
+		for game_round in rounds_array[count]:
+			if game_round == "win":
 				wins += 1
 		if wins >= max_wins:
 			winner = count+1

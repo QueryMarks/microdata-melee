@@ -6,8 +6,8 @@ func enter():
 	player.anim_player.play("idle")
 	player.velocity.x = 0
 
-func _physics_process(delta):
-	super(delta)
+func _physics_process(_delta):
+	super(_delta)
 	#print(player.velocity)
 	
 

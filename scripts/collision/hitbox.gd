@@ -12,8 +12,8 @@ class_name Hitbox
 func _init() -> void:
 	collision_layer = 2
 
-func this_hit(hit_type):
-	match hit_type:
+func this_hit(hit_block):
+	match hit_block:
 		"hit":
 			owner.state_machine.current_state.has_hit = true
 			owner.hit_stop(hitstop)

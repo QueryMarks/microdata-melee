@@ -8,7 +8,7 @@ func enter():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player.hitstun <= 0:
 		state_machine.change_state(IdleState.new())
 	player.hitstun -= 1

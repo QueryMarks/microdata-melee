@@ -8,9 +8,9 @@ func enter():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	player.velocity.x = -100 * player.my_facing
-	super(delta)
+	super(_delta)
 
 	
 	

@@ -8,7 +8,7 @@ func enter():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	print(player.anim_player.current_animation)
 	if player.hitstun <= 0:
 		if Input.is_action_pressed(player.input_down):
