@@ -39,13 +39,11 @@ offset_bottom = -74.0
 
 [node name="TextureRect" type="TextureRect" parent="CSS Grid 1"]
 texture_filter = 1
-layout_mode = 0
 offset_right = 74.0
 offset_bottom = 73.0
 texture = ExtResource("2_11ydh")
 
 [node name="GridContainer" type="GridContainer" parent="CSS Grid 1/TextureRect"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 42.0
@@ -72,13 +70,11 @@ offset_bottom = 1.0
 
 [node name="TextureRect" type="TextureRect" parent="CSS Grid 2"]
 texture_filter = 1
-layout_mode = 0
 offset_right = 74.0
 offset_bottom = 73.0
 texture = ExtResource("2_11ydh")
 
 [node name="GridContainer" type="GridContainer" parent="CSS Grid 2/TextureRect"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 42.0

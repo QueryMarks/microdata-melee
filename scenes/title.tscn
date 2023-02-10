@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfulaeb5yxukl"]
+[gd_scene load_steps=6 format=3 uid="uid://bfulaeb5yxukl"]
 
 [ext_resource type="Texture2D" uid="uid://edl88smbmrxa" path="res://sprites/Street_Fighter_Logo.png" id="1_mpp6k"]
+[ext_resource type="FontFile" uid="uid://drigi4ou15cr0" path="res://fonts/EquipmentPro.ttf" id="2_aq1h8"]
+[ext_resource type="StyleBox" uid="uid://cgkrtysd83qy2" path="res://title_buttons.tres" id="3_racfd"]
+
+[sub_resource type="Theme" id="Theme_4e7pw"]
+default_font = ExtResource("2_aq1h8")
+
+[sub_resource type="Theme" id="Theme_y0uej"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,3 +20,36 @@ texture_filter = 1
 position = Vector2(-9.53674e-07, -57)
 scale = Vector2(0.218333, 0.222973)
 texture = ExtResource("1_mpp6k")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = -37.0
+offset_top = -22.0
+offset_right = 42.0
+offset_bottom = 18.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+offset_right = 79.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_4e7pw")
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 79.0
+offset_bottom = 18.0
+theme = SubResource("Theme_y0uej")
+theme_override_styles/normal = ExtResource("3_racfd")
+text = "GAMING!!"
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 22.0
+offset_right = 79.0
+offset_bottom = 40.0
+theme_override_styles/normal = ExtResource("3_racfd")
+text = " NOT GAMING "
