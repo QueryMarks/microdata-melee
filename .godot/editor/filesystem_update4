@@ -16,3 +16,5 @@ res://scripts/soft_knockdown_state.gd
 res://resources/characters/card/scripts/states/card_toss_state.gd
 res://scripts/player.gd
 res://scripts/states/general/inheritables/state.gd
+res://scripts/states/general/block_state.gd
+res://scripts/states/general/crouch_block_state.gd

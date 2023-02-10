@@ -105,24 +105,24 @@ func block(hitbox : Hitbox):
 	if self.is_on_floor():
 		if hitbox.hit_type == "mid":
 			if Input.is_action_pressed(input_down):
-				state_machine.change_state(CrouchBlockState.new())
+				state_machine.call_deferred("change_state", CrouchBlockState.new())
 
 			else:
-				state_machine.change_state(BlockState.new())
-			state_machine.current_state.blockstun = hitbox.blockstun
-			hit_stop(hitbox.blockstop)
+				state_machine.call_deferred("change_state", BlockState.new())
+			hitstun = hitbox.blockstun
+			call_deferred("hit_stop", hitbox.hitstop)
 		elif hitbox.hit_type == "high":
 			if !Input.is_action_pressed(input_down):
-				state_machine.change_state(BlockState.new())
-				state_machine.current_state.blockstun = hitbox.blockstun
-				hit_stop(hitbox.blockstop)
+				state_machine.call_deferred("change_state", BlockState.new())
+				hitstun = hitbox.blockstun
+				call_deferred("hit_stop", hitbox.hitstop)
 			else:
 				get_hurt(hitbox)
 		elif hitbox.hit_type == "low":
 			if Input.is_action_pressed(input_down):
-				state_machine.change_state(CrouchBlockState.new())
-				state_machine.current_state.blockstun = hitbox.blockstun
-				hit_stop(hitbox.blockstop)
+				state_machine.call_deferred("change_state", CrouchBlockState.new())
+				hitstun = hitbox.blockstun
+				call_deferred("hit_stop", hitbox.hitstop)
 			else:
 				get_hurt(hitbox)
 

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://byolagjxdgwfu" path="res://sprites/placeholder stage.png" id="1_64fyb"]
 [ext_resource type="Script" path="res://scripts/round_start.gd" id="1_xii17"]
 [ext_resource type="Texture2D" uid="uid://dybpka51i6eub" path="res://palettes/card/card_blue.png" id="2_yhjcr"]
-[ext_resource type="Texture2D" uid="uid://dgr2esxkmgwuw" path="res://palettes/card/card_brown.png" id="3_g2vso"]
+[ext_resource type="Texture2D" uid="uid://ccj8l1locmvro" path="res://palettes/card/card_red.png" id="3_nqdbu"]
 [ext_resource type="FontFile" uid="uid://bfyq3r85rco1d" path="res://fonts/MatchupPro.ttf" id="5_5ushf"]
 [ext_resource type="PackedScene" uid="uid://55puaspx6fc1" path="res://scenes/stage_camera.tscn" id="5_lj7ec"]
 
@@ -222,7 +222,7 @@ p1_os = "os_basic"
 p1_palette = ExtResource("2_yhjcr")
 p2_character = "card"
 p2_os = "os_basic"
-p2_palette = ExtResource("3_g2vso")
+p2_palette = ExtResource("3_nqdbu")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 10)
