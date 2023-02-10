@@ -61,6 +61,25 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_ptkmi"]
+resource_name = "match_end"
+length = 2.0
+step = 0.0166667
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"match_end"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_42hnv"]
 resource_name = "round_end"
 length = 2.0
@@ -180,25 +199,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Color(0.992157, 0, 0.25098, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_ptkmi"]
-resource_name = "match_end"
-length = 2.0
-step = 0.0166667
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"match_end"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rwyjs"]

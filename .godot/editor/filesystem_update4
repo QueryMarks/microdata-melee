@@ -1,5 +1,4 @@
 res://resources/characters/card/card.tscn
-res://scripts/round_start.gd
 res://scenes/main.tscn
 res://resources/characters/lamb/lamb.tscn
 res://scenes/character_select_screen.tscn
@@ -10,3 +9,5 @@ res://scenes/new_character.tscn
 res://scenes/title.tscn
 res://scenes/hp_bar.tscn
 res://scenes/stage_camera.tscn
+res://scripts/character_state_machine.gd
+res://scripts/states/general/hurt_state.gd
