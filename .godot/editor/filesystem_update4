@@ -20,3 +20,4 @@ res://scripts/states/general/block_state.gd
 res://scripts/states/general/crouch_block_state.gd
 res://scripts/round_start.gd
 res://scripts/collision/hitbox.gd
+res://scenes/title_screen_focus.gd
