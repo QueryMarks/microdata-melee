@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckvrclmekkrma"]
+[gd_scene load_steps=14 format=3 uid="uid://ckvrclmekkrma"]
 
 [ext_resource type="Texture2D" uid="uid://byolagjxdgwfu" path="res://sprites/placeholder stage.png" id="1_64fyb"]
 [ext_resource type="Script" path="res://scripts/round_start.gd" id="1_xii17"]
 [ext_resource type="Texture2D" uid="uid://dybpka51i6eub" path="res://palettes/card/card_blue.png" id="2_yhjcr"]
 [ext_resource type="Texture2D" uid="uid://dgr2esxkmgwuw" path="res://palettes/card/card_brown.png" id="3_g2vso"]
+[ext_resource type="FontFile" uid="uid://bfyq3r85rco1d" path="res://fonts/MatchupPro.ttf" id="5_5ushf"]
+[ext_resource type="PackedScene" uid="uid://55puaspx6fc1" path="res://scenes/stage_camera.tscn" id="5_lj7ec"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1000, 20)
@@ -13,7 +15,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:text")
+tracks/0/path = NodePath("StageCamera/Label:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,20 +24,57 @@ tracks/0/keys = {
 "update": 1,
 "values": [""]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StageCamera/Label:label_settings:font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StageCamera/Label:label_settings:outline_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StageCamera/Label:label_settings:font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_42hnv"]
 resource_name = "round_end"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:text")
+tracks/0/path = NodePath("StageCamera/Label:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": ["round over", ""]
+"values": ["K.O.!!", ""]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -44,35 +83,49 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"next_round"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StageCamera/Label:label_settings:font_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [32, 16]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StageCamera/Label:label_settings:outline_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 4]
+}
 
 [sub_resource type="Animation" id="Animation_sto7v"]
 resource_name = "round_start"
-tracks/0/type = "value"
+length = 2.0
+step = 0.0166667
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:text")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": ["round start go go go", ""]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -80,13 +133,86 @@ tracks/1/keys = {
 "method": &"players_act"
 }]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StageCamera/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["GO!!!", ""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StageCamera/Label:label_settings:font_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [32, 16]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StageCamera/Label:label_settings:outline_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StageCamera/Label:label_settings:font_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 1.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(0.992157, 0, 0.25098, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ptkmi"]
+resource_name = "match_end"
+length = 2.0
+step = 0.0166667
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"match_end"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rwyjs"]
 _data = {
 "RESET": SubResource("Animation_1wpww"),
+"match_end": SubResource("Animation_ptkmi"),
 "round_end": SubResource("Animation_42hnv"),
 "round_start": SubResource("Animation_sto7v")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_ejklg"]
+font = ExtResource("5_5ushf")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="RoundStart" type="Node2D"]
 script = ExtResource("1_xii17")
@@ -122,8 +248,13 @@ libraries = {
 "": SubResource("AnimationLibrary_rwyjs")
 }
 
-[node name="Label" type="Label" parent="."]
-offset_left = -60.0
-offset_top = -71.0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="StageCamera" parent="." instance=ExtResource("5_lj7ec")]
+
+[node name="Label" type="Label" parent="StageCamera"]
+texture_filter = 1
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 14.0
+label_settings = SubResource("LabelSettings_ejklg")
+horizontal_alignment = 1

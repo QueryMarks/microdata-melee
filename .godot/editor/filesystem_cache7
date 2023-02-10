@@ -1,5 +1,5 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1675722022
+::res://::1676005953
 character_list_generator.gd::GDScript::-1::1674942687::0::1::::<>Node<>::
 css_cursor.gd::GDScript::-1::1675029940::0::1::::<>Node2D<>::
 default_env.tres::Environment::-1::1664773792::0::1::::<><>::
@@ -78,7 +78,7 @@ state_machine.tscn::PackedScene::1995653481675845951::1674255813::0::1::::<><>::
 title.tscn::PackedScene::2779320556919156839::1675662656::0::1::::<><>::uid://edl88smbmrxa
 ::res://scenes/characters/::1674969117
 card - Copy.tscn::PackedScene::-1::1674969117::0::1::::<><>::res://scripts/player.gd<>res://scripts/input management/input_reader.gd<>uid://3oyeegtt5ps6<>res://scripts/collision/hurtbox.gd<>res://palette_swap/PaletteSwap.gdshader<>uid://dcxswsn0u2qu4<>res://scripts/collision/hitbox.gd<>res://resources/characters/card/scripts/card_move_list.gd
-::res://scripts/::1675662655
+::res://scripts/::1675744814
 character_state_machine.gd::GDScript::-1::1674594099::0::1::::CharacterStateMachine<>Node<>::
 css_adder.gd::GDScript::-1::1674968154::0::1::::<>Node<>::
 getup_state.gd::GDScript::-1::1673604182::0::1::::GetupState<>State<>::
@@ -88,7 +88,7 @@ knockdown_state.gd::GDScript::-1::1672936257::0::1::::<><>::
 move_list.gd::GDScript::-1::1668880630::0::1::::MoveList<>Node<>::
 player.gd::GDScript::-1::1675661081::0::1::::Player<>CharacterBody2D<>::
 projectile.gd::GDScript::-1::1668025992::0::1::::<>Node2D<>::
-round_start.gd::GDScript::-1::1675662655::0::1::::<>Node<>::
+round_start.gd::GDScript::-1::1675744814::0::1::::<>Node<>::
 soft_knockdown_state.gd::GDScript::-1::1673645968::0::1::::SoftKnockdownState<>State<>::
 tech_roll_back_state.gd::GDScript::-1::1673642537::0::1::::TechRollBackState<>GetupState<>::
 titlescreen.gd::GDScript::-1::1675632028::0::1::::<>Control<>::

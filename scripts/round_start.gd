@@ -18,14 +18,15 @@ var max_wins = 2
 
 var camera : Node2D
 
+var round_winner : int
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if RoundStartInfo.p1_character != null:
 		p1_character = RoundStartInfo.p1_character
 	if RoundStartInfo.p2_character != null:
 		p2_character = RoundStartInfo.p2_character
-	camera = preload("res://scenes/stage_camera.tscn").instantiate()
-	add_child(camera)
+	camera = get_node("StageCamera")
 	camera.position = Vector2(0,0)
 	#var camera = get_node("StageCamera")
 	p1 = load("res://resources/characters/"+p1_character+"/"+p1_character+".tscn").instantiate()
@@ -36,7 +37,7 @@ func _ready():
 	camera.add_child(p1_bar)
 	p1_bar.position = Vector2(-70, -115)
 	p1_bar.material.set_shader_parameter("palette", p1_palette)
-	p1_bar.health_zero.connect(round_end, p1)
+	p1_bar.health_zero.connect(round_end_p1)
 	
 	
 	p2 = load("res://resources/characters/"+p2_character+"/"+p2_character+".tscn").instantiate()
@@ -48,7 +49,7 @@ func _ready():
 	p2_bar.scale.x = -1
 	p2_bar.position = Vector2(70, -115)
 	p2_bar.material.set_shader_parameter("palette", p2_palette)
-	p2_bar.health_zero.connect(round_end, p2)
+	p2_bar.health_zero.connect(round_end_p2)
 	
 	p1.player_index = 1
 	p2.player_index = 2
@@ -62,13 +63,13 @@ func _ready():
 	p1.position = Vector2(-40, 1)
 	p2.position = Vector2(40, 1)
 	
-
 	add_child(p1)
 	add_child(p2)
 	
 	players_act(false)
 
 	$RoundAnims.play("round_start")
+	$StageCamera/Label.text = "Round " + str(len(p1_rounds)+1)
 	
 func players_act(yesno : bool):
 	if yesno:
@@ -109,19 +110,49 @@ func next_round():
 	p2.state_machine.change_state(IdleState.new())
 	
 	players_act(false)
-
+	
+	$StageCamera/Label.text = "Round " + str(len(p1_rounds)+1)
 	$RoundAnims.play("round_start")
 	
 
 func round_end(loser : Player):
-	$RoundAnims.play("round_end")
+	
 	if loser.hp <= 0 and loser.opponent.hp <= 0:
 		print("tie")
 	else:
 		if loser == p1:
 			p1_rounds.append("loss")
 			p2_rounds.append("win")
+			round_winner = 2
 		else:
 			p2_rounds.append("loss")
 			p1_rounds.append("win")
+			round_winner = 1
+	print("p1 rounds: " + str(p1_rounds) + "\np2 rounds: " + str(p2_rounds))
 	players_act(false)
+	
+	var winner = null
+	var rounds_array = [p1_rounds, p2_rounds]
+	for count in range(2):
+		var wins = 0
+		for round in rounds_array[count]:
+			if round == "win":
+				wins += 1
+		if wins >= max_wins:
+			winner = count+1
+			break
+	if winner == null:
+		$RoundAnims.play("round_end")
+		print("It's not over yet...")
+	else:
+		print("This game's winner is... Player " + str(winner))
+		$StageCamera/Label.text = "Player " + str(winner) + " wins!"
+		$RoundAnims.play("match_end")
+func round_end_p1():
+	round_end(p1)
+	
+func round_end_p2():
+	round_end(p2)
+	
+func match_end():
+	get_tree().change_scene_to_file("res://scenes/character_select_screen.tscn")

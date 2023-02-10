@@ -10,5 +10,3 @@ res://scenes/new_character.tscn
 res://scenes/title.tscn
 res://scenes/hp_bar.tscn
 res://scenes/stage_camera.tscn
-res://scripts/player.gd
-res://scenes/stage_camera.gd
