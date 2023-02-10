@@ -4,7 +4,7 @@ class_name DashState
 var dash_timer = 0
 # Called when the node enters the scene tree for the first time.
 func enter():
-	player.anim_player.queue("dash")
+	player.anim_player.play("dash")
 	player.velocity.x = 150 * player.my_facing	
 	
 func _physics_process(_delta):

@@ -78,7 +78,6 @@ func turn(facing: int):
 func take_damage(damage):
 	hp -= damage
 	hp = clamp(hp, 0, max_hp)
-	print(hp)
 	emit_signal("damaged")
 
 func get_hit(hitbox : Hitbox):
@@ -87,14 +86,19 @@ func get_hit(hitbox : Hitbox):
 func get_hurt(hitbox : Hitbox):
 	hitstop = false
 	hitstun = hitbox.hitstun
-	print("i am player " + str(player_index) + " with hitbox knockback " + str(hitbox.knockback))
-	if self.is_on_floor():
-		state_machine.call_deferred("change_state", HurtState.new())
-		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
-	else:
+	print("i am player " + str(player_index) + " with hitbox knockback " + str(hitbox.knockback) + " and " + str(hp) + " hp")
+	if hp == 0:
 		state_machine.call_deferred("change_state", AirHurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 		velocity.y = hitbox.knockback.y
+	else:
+		if self.is_on_floor():
+			state_machine.call_deferred("change_state", HurtState.new())
+			velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
+		else:
+			state_machine.call_deferred("change_state", AirHurtState.new())
+			velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
+			velocity.y = hitbox.knockback.y
 	call_deferred("hit_stop", hitbox.hitstop)
 	
 func block(hitbox : Hitbox):

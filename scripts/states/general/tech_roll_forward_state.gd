@@ -4,7 +4,7 @@ class_name TechRollForwardState
 
 # Called when the node enters the scene tree for the first time.
 func enter():
-	player.anim_player.queue("tech_roll_forward")
+	player.anim_player.play("tech_roll_forward")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

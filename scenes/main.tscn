@@ -12,6 +12,7 @@ size = Vector2(1000, 20)
 
 [sub_resource type="Animation" id="Animation_1wpww"]
 length = 0.001
+step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

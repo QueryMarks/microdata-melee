@@ -27,17 +27,17 @@ func block_check(hitbox : Hitbox):
 			player.block(hitbox)
 			return "block"
 		else:
-				player.get_hurt(hitbox)
-				player.take_damage(hitbox.damage)
-				return "hit"
+			player.take_damage(hitbox.damage)
+			player.get_hurt(hitbox)
+			return "hit"
 	else:
 		if Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
 			player.block(hitbox)
 			return "block"
 		else:
-				player.get_hurt(hitbox)
-				player.take_damage(hitbox.damage)
-				return "hit"
+			player.take_damage(hitbox.damage)
+			player.get_hurt(hitbox)
+			return "hit"
 
 func exit():
 	pass
