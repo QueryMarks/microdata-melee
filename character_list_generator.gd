@@ -17,6 +17,7 @@ func character_list_make():
 		var file_name = dir.get_next()
 		while file_name != "":
 			if dir.current_is_dir():
+				#if dir.file_exists(character_path+"/"+file_name+"/"+file_name+".tscn") or dir.file_exists(character_path+"/"+file_name+"/"+file_name+".tscn.import"):
 					character_list.append(file_name)
 					print(file_name)
 			file_name = dir.get_next()

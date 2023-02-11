@@ -2138,7 +2138,7 @@ material = SubResource("ShaderMaterial_kxekc")
 texture = ExtResource("7_v5jnl")
 offset = Vector2(0, -32)
 hframes = 8
-vframes = 32
+vframes = 33
 
 [node name="Hitboxes" type="Node2D" parent="."]
 
