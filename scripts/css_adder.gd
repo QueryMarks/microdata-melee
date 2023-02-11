@@ -14,5 +14,3 @@ func add_icons():
 		var instance = css_icon.instantiate()
 		instance.get_node("TextureRect").texture = load("res://resources/characters/" + character + "/sprites/css.png")
 		get_parent().add_child(instance)
-		print(character + "is" + str(instance))
-	print()

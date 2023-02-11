@@ -33,7 +33,6 @@ size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 texture_filter = 1
-layout_mode = 2
 offset_right = 79.0
 offset_bottom = 40.0
 size_flags_horizontal = 4
@@ -42,7 +41,6 @@ theme = SubResource("Theme_4e7pw")
 script = ExtResource("3_v4xea")
 
 [node name="Button1" type="Button" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
 offset_right = 79.0
 offset_bottom = 18.0
 focus_neighbor_left = NodePath("../Button2")
@@ -58,7 +56,6 @@ theme_override_styles/focus = ExtResource("5_34d0p")
 text = "GAMING!!"
 
 [node name="Button2" type="Button" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 22.0
 offset_right = 79.0
 offset_bottom = 40.0
