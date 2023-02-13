@@ -18,10 +18,6 @@ func enter():
 	else:
 		player.velocity.x = 0
 
-func get_hit(hitbox : Hitbox):
-	player.get_hurt(hitbox)
-	return "hit"
-
 func _physics_process(_delta):
 	player.velocity.y += player.gravity
 	if player.is_on_floor():

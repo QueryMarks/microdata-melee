@@ -15,12 +15,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 	midpoint = (player_1.get_position().x + player_2.get_position().x)/2
+	var target
 	if midpoint <= left_bound:
-		position.x = left_bound	
+		target = left_bound	
 	elif midpoint >= right_bound:
-		position.x = right_bound
+		target = right_bound
 	else:
-		self.position.x = midpoint
+		target = midpoint
+	position.x += clamp(target - position.x, -1, 1)
 		
 func disable_walls(yesno : bool):
 	for child in get_children():

@@ -10,9 +10,9 @@ func enter():
 func _physics_process(_delta):
 	#for the love of god fix this later
 	if (player.position.x > player.opponent.position.x) and (player.my_facing != -1):
-		player.turn(-1)
+		player.turn()
 	elif (player.position.x < player.opponent.position.x) and (player.my_facing != 1):
-		player.turn(1)
+		player.turn()
 	if player.os.os_action_check(tags):
 		return
 	#elif (Input.is_action_just_pressed(player.input_right)) or (Input.is_action_just_pressed(player.input_left)):

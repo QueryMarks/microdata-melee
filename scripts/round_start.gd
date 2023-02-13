@@ -99,6 +99,8 @@ func next_round():
 	
 	camera.disable_walls(true)
 	
+	camera.position = Vector2(0,0)
+	
 	p1.position = Vector2(-40, 1)
 	p2.position = Vector2(40, 1)
 	

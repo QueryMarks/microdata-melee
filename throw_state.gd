@@ -6,7 +6,8 @@ class_name ThrowState
 func _ready():
 	tags.erase("normal")
 	player.anim_player.play("throw")
-
+	if (Input.is_action_pressed(player.input_left) && !Input.is_action_pressed(player.input_right) && player.my_facing == 1) or (!Input.is_action_pressed(player.input_left) && Input.is_action_pressed(player.input_right) && player.my_facing == -1):
+		player.turn()
 
 func _to_idle(_variable):
 	super(_variable)

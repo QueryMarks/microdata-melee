@@ -11,9 +11,9 @@ func enter():
 func _physics_process(_delta):
 
 	if (player.position.x > player.opponent.position.x) and (player.my_facing != -1):
-		player.turn(-1)
+		player.turn()
 	elif (player.position.x < player.opponent.position.x) and (player.my_facing != 1):
-		player.turn(1)
+		player.turn()
 		
 	if player.can_act:	
 		if (Input.is_action_pressed(player.input_down)):

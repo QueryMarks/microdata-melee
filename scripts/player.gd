@@ -63,18 +63,16 @@ func _ready():
 	input_left = str("p"+str(player_index)+"_left")
 	input_right = str("p"+str(player_index)+"_right")
 	state_machine.initialize(idle_start, self, $InputReader)
-	if self.position.x < opponent.position.x:
-		my_facing = 1
-	else:
-		turn(-1)
+	if self.position.x > opponent.position.x:
+		turn()
 	
 	hp = max_hp
 	
 
-func turn(facing: int):
+func turn():
 	
 	self.scale.x *= -1
-	my_facing = facing
+	my_facing *= -1
 	
 func take_damage(damage):
 	hp -= damage
@@ -92,6 +90,7 @@ func get_grabbed(grabbox):
 func get_hurt(hitbox : Hitbox):
 	hitstop = false
 	hitstun = hitbox.hitstun
+	#take_damage(hitbox.damage)
 	print("i am player " + str(player_index) + " with hitbox knockback " + str(hitbox.knockback) + " and " + str(hp) + " hp")
 	if hp == 0:
 		state_machine.call_deferred("change_state", AirHurtState.new())
