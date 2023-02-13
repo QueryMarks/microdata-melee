@@ -8,8 +8,8 @@ func _ready():
 	title_label.text = "My Game"
 	title_label.rect_position = Vector2(get_size().x / 2, get_size().y / 2)
 	title_label.rect_size = Vector2(200, 50)
-	title_label.align = Label.ALIGN_CENTER
-	title_label.valign = Label.VALIGN_CENTER
+#	title_label.align = Label.ALIGN_CENTER
+#	title_label.valign = Label.VALIGN_CENTER
 	add_child(title_label)
 
 	# Set up the start button

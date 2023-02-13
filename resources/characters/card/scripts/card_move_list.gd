@@ -13,6 +13,9 @@ func _ready():
 		["2","3","6","c"] #also card throw A for now
 		]
 	air_specials = []
+	ground_throw = [
+		[["a","b"]]
+	]
 	ground_command_normals = []
 	air_command_normals = []
 	ground_normals = [
@@ -76,6 +79,8 @@ func move_change_state(inputs : Array):
 				state_machine.change_state(Card2bState.new())
 			[["down","c"]]:
 				state_machine.change_state(Card2cState.new())
+			[["a","b"]]:
+				state_machine.change_state(GrabState.new())
 			["2","3","6","a"]:
 				state_machine.change_state(CardTossState.new())
 			["2","3","6","c"]:

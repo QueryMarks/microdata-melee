@@ -14,7 +14,6 @@ default_font = ExtResource("2_aq1h8")
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true
 zoom = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -33,16 +32,14 @@ size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 texture_filter = 1
-offset_right = 79.0
-offset_bottom = 40.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_4e7pw")
 script = ExtResource("3_v4xea")
 
 [node name="Button1" type="Button" parent="PanelContainer/VBoxContainer"]
-offset_right = 79.0
-offset_bottom = 18.0
+layout_mode = 2
 focus_neighbor_left = NodePath("../Button2")
 focus_neighbor_top = NodePath("../Button2")
 focus_neighbor_right = NodePath("../Button2")
@@ -56,9 +53,7 @@ theme_override_styles/focus = ExtResource("5_34d0p")
 text = "GAMING!!"
 
 [node name="Button2" type="Button" parent="PanelContainer/VBoxContainer"]
-offset_top = 22.0
-offset_right = 79.0
-offset_bottom = 40.0
+layout_mode = 2
 focus_neighbor_left = NodePath("../Button1")
 focus_neighbor_top = NodePath("../Button1")
 focus_neighbor_right = NodePath("../Button1")

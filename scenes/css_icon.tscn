@@ -13,6 +13,7 @@ grow_vertical = 2
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 texture_repeat = 1
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_6yurw")

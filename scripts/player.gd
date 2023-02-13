@@ -39,6 +39,7 @@ var anim_var : String
 signal anim_signal
 
 signal damaged
+signal grab_ok
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -83,6 +84,11 @@ func take_damage(damage):
 func get_hit(hitbox : Hitbox):
 	return state_machine.current_state.get_hit(hitbox)
 	
+func get_grabbed(grabbox):
+	print("player is doin it")
+	return state_machine.current_state.get_grabbed(grabbox)
+	
+	
 func get_hurt(hitbox : Hitbox):
 	hitstop = false
 	hitstun = hitbox.hitstun
@@ -92,7 +98,7 @@ func get_hurt(hitbox : Hitbox):
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 		velocity.y = hitbox.knockback.y
 	else:
-		if self.is_on_floor():
+		if self.is_on_floor() && !hitbox.force_airborne:
 			state_machine.call_deferred("change_state", HurtState.new())
 			velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 		else:
@@ -138,13 +144,15 @@ func _physics_process(_delta):
 			self.position.x += 10/(pushbox.global_position.x - opponent.pushbox.global_position.x)
 
 func hit_stop(stop : int):
+	if stop == 0:
+		return
 	hitstop = true
 	set_physics_process(false)
 	state_machine.current_state.set_physics_process(false)
 	if state_machine.current_state.tags.has("hurt") or state_machine.current_state.tags.has("block"):
 		#anim_player.advance(1.0/60.0)
 		anim_player.call_deferred("advance",1.0/60.0)
-	anim_player.stop(false)
+	anim_player.pause()
 	hitstop_timer.stop()
 	hitstop_timer.start(stop/60.0)
 
@@ -159,3 +167,5 @@ func anim_emit_signal(string : String):
 	anim_var = string
 	emit_signal("anim_signal")
 
+func toggle_pushbox_disabled(truefalse):
+	pushbox.get_node("CollisionBox").set_disabled(truefalse)

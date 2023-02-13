@@ -9,7 +9,7 @@ func os_action_check(tags : Array):
 	if tags.has("ground"):
 		
 		if tags.has("actionable"):
-			inputs = input_reader.read_inputs(move_list.ground_supers + move_list.ground_specials + move_list.ground_command_normals + move_list.ground_normals + [["6","5","6"], ["o"]])
+			inputs = input_reader.read_inputs(move_list.ground_supers + move_list.ground_specials + move_list.ground_throw + move_list.ground_command_normals + move_list.ground_normals + [["6","5","6"], ["o"]])
 		
 		elif tags.has("can_cancel"):
 		

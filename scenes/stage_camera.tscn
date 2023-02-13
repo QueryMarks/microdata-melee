@@ -10,13 +10,12 @@ script = ExtResource("1_dc1iy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -45)
-current = true
 zoom = Vector2(4, 4)
 
 [node name="CameraLeftWall" type="CollisionShape2D" parent="."]
-position = Vector2(-500, 0)
+position = Vector2(-506, 0)
 shape = SubResource("RectangleShape2D_4bx3y")
 
 [node name="CameraRightWall" type="CollisionShape2D" parent="."]
-position = Vector2(500, 0)
+position = Vector2(506, 0)
 shape = SubResource("RectangleShape2D_4bx3y")

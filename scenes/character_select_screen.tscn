@@ -26,7 +26,6 @@ texture = ExtResource("1_mfyhk")
 stretch_mode = 2
 
 [node name="Camera2D2" type="Camera2D" parent="."]
-current = true
 zoom = Vector2(4, 4)
 
 [node name="CSS Grid 1" type="Control" parent="."]

@@ -231,9 +231,9 @@ position = Vector2(0, 10)
 shape = SubResource("1")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
+z_index = -1
 texture_filter = 1
 position = Vector2(1, -45)
-z_index = -1
 texture = ExtResource("1_64fyb")
 
 [node name="ColorRect" type="ColorRect" parent="Sprite2d"]
