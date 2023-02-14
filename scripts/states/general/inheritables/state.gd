@@ -38,7 +38,8 @@ func get_grabbed(hitbox : Grabbox):
 		return "whiff"
 		
 func grab_reference(hitbox : Grabbox):
-	state_machine.current_state.grabbox = hitbox
+	if state_machine.current_state is GrabbedState:
+		state_machine.current_state.grabbox = hitbox
 
 func block_check(hitbox : Hitbox):
 	if player.position.x > player.opponent.position.x:

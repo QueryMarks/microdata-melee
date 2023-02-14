@@ -17,3 +17,13 @@ func release():
 	print("releasing")
 	grabbed_player.get_hurt(self)
 	grabbed_player.take_damage(self.damage)
+	grabbed_player = null
+
+func release_no_dmg():
+	print("releasing")
+	grabbed_player.get_hurt(self)
+	grabbed_player = null
+	
+func _physics_process(_delta):
+	if grabbed_player != null and owner.state_machine.current_state.tags.has("hurt"):
+		release_no_dmg()
