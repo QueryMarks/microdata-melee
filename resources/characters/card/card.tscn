@@ -1438,7 +1438,7 @@ tracks/0/path = NodePath("Grabboxes/Throw/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0833335, 0.1),
+"times": PackedFloat32Array(0.0500001, 0.0666668),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -2277,6 +2277,7 @@ libraries = {
 [node name="StateMachine" parent="." instance=ExtResource("3_p21cg")]
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_obkc2")

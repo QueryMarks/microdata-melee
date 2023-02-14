@@ -22,19 +22,20 @@ func get_hit(hitbox : Hitbox):
 	return "hit"
 	
 func get_grabbed(hitbox : Grabbox):
-	print("state is checkin")
+
 	var tag_check = true
+
 	for tag in hitbox.valid_tags:
 		if !tags.has(tag):
 			tag_check = false
+	
 	if tag_check:
-		print("state says yes")
-		player.pushbox.get_node("CollisionBox").set_deferred("disabled", true)
-		state_machine.call_deferred("change_state", GrabbedState.new())
-		call_deferred("grab_reference", hitbox)
+		player.pushbox.get_node("CollisionBox").disabled = true
+		state_machine.change_state(GrabbedState.new())
+		grab_reference(hitbox)
 		return "grab"
+		
 	else:
-		print("state says WHIFF")
 		return "whiff"
 		
 func grab_reference(hitbox : Grabbox):

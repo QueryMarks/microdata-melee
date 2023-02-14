@@ -5,7 +5,8 @@ class_name WalkState
 # Called when the node enters the scene tree for the first time.
 func enter():
 	super()
-	player.anim_player.play("walk")
+	player.anim_play("walk")
+	player.anim_player.advance(1.0/60.0)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 	#for the love of god fix this later

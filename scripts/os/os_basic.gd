@@ -35,7 +35,6 @@ func os_action_check(tags : Array):
 				
 		if tags.has("can_grab"):
 			if input_reader.read_inputs(move_list.ground_throw) != null:
-				print("checkin for throw")
 				inputs = input_reader.read_inputs(move_list.ground_throw)
 	elif tags.has("air"):
 		if tags.has("actionable"):

@@ -16,8 +16,14 @@ func _on_area_entered(hitbox) -> void:
 	if hitbox == null:
 		print("null??")
 		return
+	call_deferred("check_hitbox", hitbox)
+	
+func check_hitbox(hitbox):
 	if hitbox.owner != owner and hitbox.owner.get_parent() != owner and owner.has_method("get_hit"):
 		if hitbox is Grabbox:
-			hitbox.this_hit(owner.get_grabbed(hitbox), owner)
+			call_deferred("check_grabbox",hitbox)
 		elif hitbox is Hitbox:
 			hitbox.this_hit(owner.get_hit(hitbox), owner)
+func check_grabbox(hitbox):
+	if hitbox.owner.state_machine.current_state is GrabState:
+		hitbox.this_hit(owner.get_grabbed(hitbox), owner)

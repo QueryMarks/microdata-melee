@@ -5,7 +5,7 @@ class_name GroundBounceState
 # Called when the node enters the scene tree for the first time.
 func enter():
 	player.hit_stop(6)
-	player.anim_player.play("ground_bounce")
+	player.anim_play("ground_bounce")
 	player.velocity.y *= -10
 	player.velocity.x = clamp(player.velocity.x, -80, 80)  
 

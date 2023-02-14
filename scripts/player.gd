@@ -83,7 +83,6 @@ func get_hit(hitbox : Hitbox):
 	return state_machine.current_state.get_hit(hitbox)
 	
 func get_grabbed(grabbox):
-	print("player is doin it")
 	return state_machine.current_state.get_grabbed(grabbox)
 	
 	
@@ -91,17 +90,16 @@ func get_hurt(hitbox : Hitbox):
 	hitstop = false
 	hitstun = hitbox.hitstun
 	#take_damage(hitbox.damage)
-	print("i am player " + str(player_index) + " with hitbox knockback " + str(hitbox.knockback) + " and " + str(hp) + " hp")
 	if hp == 0:
-		state_machine.call_deferred("change_state", AirHurtState.new())
+		state_machine.change_state(AirHurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 		velocity.y = hitbox.knockback.y
 	else:
 		if self.is_on_floor() && !hitbox.force_airborne:
-			state_machine.call_deferred("change_state", HurtState.new())
+			state_machine.change_state(HurtState.new())
 			velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 		else:
-			state_machine.call_deferred("change_state", AirHurtState.new())
+			state_machine.change_state(AirHurtState.new())
 			velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 			velocity.y = hitbox.knockback.y
 	call_deferred("hit_stop", hitbox.hitstop)
@@ -168,3 +166,7 @@ func anim_emit_signal(string : String):
 
 func toggle_pushbox_disabled(truefalse):
 	pushbox.get_node("CollisionBox").set_disabled(truefalse)
+
+func anim_play(string : String):
+	anim_player.play(string)
+	anim_player.advance(1.0/60.0)

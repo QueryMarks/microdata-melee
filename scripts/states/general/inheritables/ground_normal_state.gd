@@ -5,7 +5,6 @@ var grab_timer = 0
 # Called when the node enters the scene tree for the first time.
 func enter():
 	tags += ["ground","normal","can_grab"]
-	print(str(tags))
 	player.anim_player.animation_finished.connect(self._to_idle)
 	player.get_node("Sprite2D").z_index = 1
 
@@ -24,7 +23,6 @@ func _physics_process(_delta):
 	if grab_timer > 3 && tags.has("can_grab"):
 
 		tags.erase("can_grab")
-		print("no more grab")
 	else:
 		player.os.os_action_check(["ground", "can_grab"])
 		grab_timer += 1

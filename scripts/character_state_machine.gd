@@ -21,24 +21,31 @@ func initialize(starting_state, player, input_reader):
 	
 	
 func change_state(new_state: State):
+	#Only applies if the player is in hitstop -- I want the hitstop to last the full length before transitioning.
 	if my_player.hitstop == true:
-		print("new_state is" + str(new_state))
 		if state_to_change != null:
 			state_to_change.queue_free()
-		state_to_change = new_state	
+		state_to_change = new_state
 		new_state.set_physics_process(false)
 	else:
+		#change the state to the new State node given as an argument
+		#exit and remove the current state
 		current_state.exit()
-		current_state.queue_free()
-		my_player.anim_player.play("RESET")
-		#my_player.anim_player.call_deferred("advance",1.0/60.0)
+		current_state.queue_free()		
+		#don't think the below line is needed anymore, but leaving it in case we need to revert
+		#current_state.set_physics_process(false)
+		
+		#play the "RESET" animation to put hurtboxes etc back in place
+		my_player.anim_play("RESET")
 		my_player.anim_player.advance(1.0/60.0)
-		#my_player.anim_player.call_deferred("advance", 1)
-		current_state.set_physics_process(false)
+
+		#change references for the new state and stuff like that
 		current_state = new_state
 		current_state.player = my_player
 		current_state.state_machine = self
 		current_state.input_reader = my_input_reader
+		
+		#add current state to the scene tree and enter it
 		self.add_child(current_state)
 		current_state.enter()
 		state_to_change = null

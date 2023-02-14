@@ -14,13 +14,11 @@ func this_hit(grab_check, player_hit):
 			owner.state_machine.current_state.grab_success()
 			
 func release():
-	print("releasing")
 	grabbed_player.get_hurt(self)
 	grabbed_player.take_damage(self.damage)
 	grabbed_player = null
 
 func release_no_dmg():
-	print("releasing")
 	grabbed_player.get_hurt(self)
 	grabbed_player = null
 	

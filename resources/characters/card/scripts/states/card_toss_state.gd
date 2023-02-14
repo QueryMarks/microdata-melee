@@ -4,7 +4,7 @@ class_name CardTossState
 func enter():
 	super()
 	player.anim_signal.connect(self.toss_card)
-	player.anim_player.play("card_toss")
+	player.anim_play("card_toss")
 
 func toss_card():
 	if player.anim_var == "toss":

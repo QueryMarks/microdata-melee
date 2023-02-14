@@ -5,7 +5,7 @@ var grabbox
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	tags += ["grabbed", "air"]
-	player.anim_player.play("air_hurt")
+	player.anim_play("air_hurt")
 	player.toggle_pushbox_disabled(true)
 
 

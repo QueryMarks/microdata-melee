@@ -76,7 +76,6 @@ func players_act(yesno : bool):
 		camera.disable_walls(false)
 	p1.can_act = yesno
 	p2.can_act = yesno
-	print("players can act? " + str(yesno))
 
 func next_round():
 
@@ -104,8 +103,6 @@ func next_round():
 	p1.position = Vector2(-40, 1)
 	p2.position = Vector2(40, 1)
 	
-	
-	print("p1 is " + str(p1.position) + "and p2 is " + str(p2.position))
 
 	
 	p1.state_machine.change_state(IdleState.new())
@@ -130,7 +127,6 @@ func round_end(loser : Player):
 			p2_rounds.append("loss")
 			p1_rounds.append("win")
 			round_winner = 1
-	print("p1 rounds: " + str(p1_rounds) + "\np2 rounds: " + str(p2_rounds))
 	players_act(false)
 	
 	var winner = null
