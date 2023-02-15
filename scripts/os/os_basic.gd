@@ -34,6 +34,7 @@ func os_action_check(tags : Array):
 				print("ground super ok")
 				
 		if tags.has("can_grab"):
+			#print("can_grab")
 			if input_reader.read_inputs(move_list.ground_throw) != null:
 				inputs = input_reader.read_inputs(move_list.ground_throw)
 	elif tags.has("air"):

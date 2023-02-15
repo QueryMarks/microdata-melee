@@ -20,12 +20,15 @@ func _to_idle(_variable):
 	player.anim_player.advance(1.0/60.0)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
-	if grab_timer > 3 && tags.has("can_grab"):
+	if tags.has("can_grab"):
+		if grab_timer >= 3:
 
-		tags.erase("can_grab")
-	else:
-		player.os.os_action_check(["ground", "can_grab"])
-		grab_timer += 1
+			tags.erase("can_grab")
+			print(tags)
+		else:
+			print("else timer is " + str(grab_timer))
+			player.os.os_action_check(["ground", "can_grab"])
+			grab_timer += 1
 
 func exit():
 	player.anim_player.animation_finished.disconnect(self._to_idle)

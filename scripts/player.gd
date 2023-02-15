@@ -141,6 +141,7 @@ func _physics_process(_delta):
 			self.position.x += 10/(pushbox.global_position.x - opponent.pushbox.global_position.x)
 
 func hit_stop(stop : int):
+	print("hit stop" + str(player_index))
 	if stop == 0:
 		return
 	hitstop = true
@@ -154,6 +155,7 @@ func hit_stop(stop : int):
 	hitstop_timer.start(stop/60.0)
 
 func hit_restart():
+	print("hit restart" + str(player_index))
 	hitstop_timer.stop()
 	set_physics_process(true)
 	state_machine.current_state.set_physics_process(true)
