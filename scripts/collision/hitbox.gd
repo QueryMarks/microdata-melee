@@ -10,6 +10,8 @@ class_name Hitbox
 @export var hit_type := "mid"
 @export var force_airborne := false
 
+@export var player_index : int
+
 var my_hitbox
 
 func _init() -> void:
@@ -30,6 +32,8 @@ func _ready():
 		if hitbox is CollisionShape2D:
 			my_hitbox = hitbox
 			break
+	if player_index == 0:
+		player_index = owner.player_index
 	
 	#needed to make instances of players not interfere with each others' hurtbox shapes. it's weird!! leave this in tho
 	for hitbox in get_children():
