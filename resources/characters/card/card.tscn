@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dpowklmtj8rea"]
+[gd_scene load_steps=58 format=3 uid="uid://dpowklmtj8rea"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p0blo"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_pajsi"]
@@ -205,6 +205,9 @@ tracks/6/keys = {
 "values": [Vector2(10, -5), Vector2(18, -5), Vector2(10, -5)]
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i07tk"]
+size = Vector2(52, 8.5)
+
 [sub_resource type="Animation" id="Animation_2bux2"]
 resource_name = "2c"
 step = 0.0166667
@@ -255,6 +258,42 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.5, -17)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitboxes/2cHitbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.266667, 0.283333, 0.35, 0.366667, 0.45, 0.466667, 0.516667, 0.533333, 0.6, 0.616667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hitboxes/2cHitbox/CollisionShape2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -4)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Hitboxes/2cHitbox/CollisionShape2D:shape")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_i07tk")]
 }
 
 [sub_resource type="Animation" id="Animation_g4jnt"]
@@ -915,6 +954,42 @@ tracks/21/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(14, -21)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Hitboxes/2cHitbox/CollisionShape2D:disabled")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Hitboxes/2cHitbox/CollisionShape2D:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -4)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Hitboxes/2cHitbox/CollisionShape2D:shape")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_i07tk")]
 }
 
 [sub_resource type="Animation" id="Animation_luapq"]
@@ -2243,11 +2318,11 @@ size = Vector2(16, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya238"]
 size = Vector2(23, 13)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktrt1"]
-size = Vector2(23, 8)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6a20"]
 size = Vector2(18, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktrt1"]
+size = Vector2(23, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypsmb"]
 size = Vector2(14, 10)
@@ -2315,10 +2390,9 @@ texture = ExtResource("7_v5jnl")
 offset = Vector2(0, -32)
 hframes = 8
 vframes = 33
-frame = 256
+frame = 113
 
 [node name="Hitboxes" type="Node2D" parent="."]
-visible = false
 
 [node name="5aHitbox" type="Area2D" parent="Hitboxes"]
 modulate = Color(1, 0, 0, 1)
@@ -2438,6 +2512,19 @@ position = Vector2(14.5, -10.5)
 shape = SubResource("RectangleShape2D_ya238")
 disabled = true
 
+[node name="2aHitbox" type="Area2D" parent="Hitboxes"]
+visible = false
+position = Vector2(19, -5)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_hds3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/2aHitbox"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+shape = SubResource("RectangleShape2D_l6a20")
+disabled = true
+
 [node name="2bHitbox" type="Area2D" parent="Hitboxes"]
 visible = false
 collision_layer = 2
@@ -2456,17 +2543,20 @@ position = Vector2(15.5, -5)
 shape = SubResource("RectangleShape2D_ktrt1")
 disabled = true
 
-[node name="2aHitbox" type="Area2D" parent="Hitboxes"]
-visible = false
-position = Vector2(19, -5)
+[node name="2cHitbox" type="Area2D" parent="Hitboxes"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_hds3c")
+damage = 5
+hitstun = 20
+hitstop = 10
+knockback = Vector2(-10, -10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/2aHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/2cHitbox"]
 modulate = Color(1, 0, 0, 1)
 self_modulate = Color(0.993421, 0, 0.216357, 1)
-shape = SubResource("RectangleShape2D_l6a20")
+position = Vector2(1, -4)
+shape = SubResource("RectangleShape2D_i07tk")
 disabled = true
 
 [node name="CardMoveList" type="Node" parent="."]
@@ -2490,6 +2580,7 @@ process_callback = 0
 script = ExtResource("9_n07uy")
 
 [node name="Grabboxes" type="Node2D" parent="."]
+visible = false
 
 [node name="Throw" type="Area2D" parent="Grabboxes" node_paths=PackedStringArray("grab_point")]
 position = Vector2(16, -21)

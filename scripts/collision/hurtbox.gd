@@ -19,7 +19,7 @@ func _on_area_entered(hitbox) -> void:
 	call_deferred("check_hitbox", hitbox)
 	
 func check_hitbox(hitbox):
-	if hitbox.owner != owner and hitbox.owner.get_parent() != owner and owner.has_method("get_hit"):
+	if hitbox.player_index != owner.player_index and owner.has_method("get_hit") and !hitbox.hit_list.has(owner):
 		if hitbox is Grabbox:
 			call_deferred("check_grabbox",hitbox)
 		elif hitbox is Hitbox:

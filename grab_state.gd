@@ -18,4 +18,4 @@ func grab_success():
 
 func throw():
 	if state_machine.current_state is GrabState:
-		state_machine.change_state(ThrowState.new())
+		state_machine.change_state(player.move_list.my_throw.new())

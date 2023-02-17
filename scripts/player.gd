@@ -97,7 +97,7 @@ func get_hurt(hitbox : Hitbox):
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 		velocity.y = hitbox.knockback.y
 	else:
-		if self.is_on_floor() && !hitbox.force_airborne:
+		if state_machine.current_state.tags.has("ground") && !hitbox.force_airborne:
 			state_machine.change_state(HurtState.new())
 			velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 		else:
@@ -143,7 +143,6 @@ func _physics_process(_delta):
 			self.position.x += 10/(pushbox.global_position.x - opponent.pushbox.global_position.x)
 
 func hit_stop(stop : int):
-	print("hit stop" + str(player_index))
 	if stop == 0:
 		return
 	hitstop = true
@@ -157,7 +156,6 @@ func hit_stop(stop : int):
 	hitstop_timer.start(stop/60.0)
 
 func hit_restart():
-	print("hit restart" + str(player_index))
 	hitstop_timer.stop()
 	set_physics_process(true)
 	state_machine.current_state.set_physics_process(true)

@@ -12,8 +12,12 @@ func toss_card():
 		my_card.get_node("Sprite2D").material = my_card.get_node("Sprite2D").material.duplicate()
 		my_card.get_node("Sprite2D").material.set_shader_parameter("palette", player.get_node("Sprite2D").material.get_shader_parameter("palette"))
 		my_card.state_machine = state_machine
-		player.add_child(my_card)
+		my_card.get_node("Hitbox").player_index = player.player_index
 		
-		my_card.position.y -= 20 
-		my_card.position.x += 10*player.my_facing
+		
+	
+		my_card.position.y = player.position.y - 20 
+		my_card.position.x = player.position.x + 10*player.my_facing
 		my_card.velocity.x = 200*player.my_facing
+		
+		get_tree().get_root().add_child(my_card)
