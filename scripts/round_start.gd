@@ -18,7 +18,7 @@ var max_wins = 2
 
 var camera : Node2D
 
-var round_winner : int
+var round_winner := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -112,40 +112,41 @@ func next_round():
 	
 	$StageCamera/Label.text = "Round " + str(len(p1_rounds)+1)
 	$RoundAnims.play("round_start")
+	round_winner = 0
 	
 
 func round_end(loser : Player):
-	
-	if loser.hp <= 0 and loser.opponent.hp <= 0:
-		print("tie")
-	else:
-		if loser == p1:
-			p1_rounds.append("loss")
-			p2_rounds.append("win")
-			round_winner = 2
+	if round_winner == 0:
+		if loser.hp <= 0 and loser.opponent.hp <= 0:
+			print("tie")
 		else:
-			p2_rounds.append("loss")
-			p1_rounds.append("win")
-			round_winner = 1
-	players_act(false)
-	
-	var winner = null
-	var rounds_array = [p1_rounds, p2_rounds]
-	for count in range(2):
-		var wins = 0
-		for game_round in rounds_array[count]:
-			if game_round == "win":
-				wins += 1
-		if wins >= max_wins:
-			winner = count+1
-			break
-	if winner == null:
-		$RoundAnims.play("round_end")
-		print("It's not over yet...")
-	else:
-		print("This game's winner is... Player " + str(winner))
-		$StageCamera/Label.text = "Player " + str(winner) + " wins!"
-		$RoundAnims.play("match_end")
+			if loser == p1:
+				p1_rounds.append("loss")
+				p2_rounds.append("win")
+				round_winner = 2
+			else:
+				p2_rounds.append("loss")
+				p1_rounds.append("win")
+				round_winner = 1
+		players_act(false)
+		
+		var winner = null
+		var rounds_array = [p1_rounds, p2_rounds]
+		for count in range(2):
+			var wins = 0
+			for game_round in rounds_array[count]:
+				if game_round == "win":
+					wins += 1
+			if wins >= max_wins:
+				winner = count+1
+				break
+		if winner == null:
+			$RoundAnims.play("round_end")
+			print("It's not over yet...")
+		else:
+			print("This game's winner is... Player " + str(winner))
+			$StageCamera/Label.text = "Player " + str(winner) + " wins!"
+			$RoundAnims.play("match_end")
 func round_end_p1():
 	round_end(p1)
 	

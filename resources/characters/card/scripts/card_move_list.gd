@@ -3,7 +3,7 @@ class_name CardMoveList
 
 var tossed_card = load("res://resources/characters/card/tossed_card.tscn")
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _init():
 	super()
 	#edit inputs here, godot hates letting me overwrite inherited variables
 	ground_supers = []
@@ -60,28 +60,39 @@ func _ready():
 		["b"]
 	]
 
-
+	my_5a = Card5aState
+	my_5b = Card5bState
+	my_5c = Card5cState
+	my_2a = Card2aState
+	my_2b = Card2bState
+	my_2c = Card2cState
+	my_ja = CardjaState
+	my_jb = CardjbState
+	my_grab = GrabState
+	my_throw = ThrowState
+	#add below when CardjcState is implemented
+	#my_jc = CardjcState
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func move_change_state(inputs : Array):
 	if player.state_machine.current_state.tags.has("ground"):
 		match inputs:
 			["a"]:
-				state_machine.change_state(Card5aState.new())
+				state_machine.change_state(my_5a.new())
 			["b"]:
-				state_machine.change_state(Card5bState.new())
+				state_machine.change_state(my_5b.new())
 			["c"]:
-				state_machine.change_state(Card5cState.new())
+				state_machine.change_state(my_5c.new())
 			["d"]:
 				state_machine.change_state(Card5dState.new())
 			[["down","a"]]:
-				state_machine.change_state(Card2aState.new())
+				state_machine.change_state(my_2a.new())
 			[["down","b"]]:
-				state_machine.change_state(Card2bState.new())
+				state_machine.change_state(my_2b.new())
 			[["down","c"]]:
-				state_machine.change_state(Card2cState.new())
+				state_machine.change_state(my_2c.new())
 			[["a","b"]]:
-				state_machine.change_state(GrabState.new())
+				state_machine.change_state(my_grab.new())
 			["2","3","6","a"]:
 				state_machine.change_state(CardTossState.new())
 			["2","3","6","b"]:
@@ -93,6 +104,6 @@ func move_change_state(inputs : Array):
 	elif player.state_machine.current_state.tags.has("air"):
 		match inputs:
 			["a"]:
-				state_machine.change_state(CardjaState.new())
+				state_machine.change_state(my_ja.new())
 			["b"]:
-				state_machine.change_state(CardjbState.new())
+				state_machine.change_state(my_jb.new())

@@ -13,6 +13,7 @@ class_name Hitbox
 @export var player_index : int
 
 var my_hitbox
+var hit_list = []
 
 func _init() -> void:
 	collision_layer = 2
@@ -20,6 +21,7 @@ func _init() -> void:
 func this_hit(hit_block, player_hit):
 	match hit_block:
 		"hit":
+			hit_list.append(player_hit)
 			owner.state_machine.current_state.has_hit = true
 			owner.call_deferred("hit_stop", hitstop)
 		"block":
@@ -44,5 +46,6 @@ func disable_child(truefalse : bool):
 	my_hitbox.disabled = truefalse
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func _physics_process(_delta):
+	if my_hitbox.disabled && hit_list != []:
+		hit_list = []
