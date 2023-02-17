@@ -2352,7 +2352,6 @@ libraries = {
 [node name="StateMachine" parent="." instance=ExtResource("3_p21cg")]
 
 [node name="Hurtbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_obkc2")
@@ -2390,11 +2389,12 @@ texture = ExtResource("7_v5jnl")
 offset = Vector2(0, -32)
 hframes = 8
 vframes = 33
-frame = 113
+frame = 128
 
 [node name="Hitboxes" type="Node2D" parent="."]
 
 [node name="5aHitbox" type="Area2D" parent="Hitboxes"]
+visible = false
 modulate = Color(1, 0, 0, 1)
 self_modulate = Color(1, 0, 0, 1)
 collision_layer = 2
@@ -2434,7 +2434,7 @@ visible = false
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_hds3c")
-damage = 30
+damage = 22
 hitstun = 20
 knockback = Vector2(150, -30)
 
@@ -2513,7 +2513,6 @@ shape = SubResource("RectangleShape2D_ya238")
 disabled = true
 
 [node name="2aHitbox" type="Area2D" parent="Hitboxes"]
-visible = false
 position = Vector2(19, -5)
 collision_layer = 2
 collision_mask = 0
@@ -2544,6 +2543,7 @@ shape = SubResource("RectangleShape2D_ktrt1")
 disabled = true
 
 [node name="2cHitbox" type="Area2D" parent="Hitboxes"]
+visible = false
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_hds3c")

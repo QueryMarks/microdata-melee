@@ -92,7 +92,7 @@ func get_hurt(hitbox : Hitbox):
 	#take_damage(hitbox.damage)
 	
 	#should get_hurt() launch based on hitbox position difference or should hitboxes launch a specific direction based on where they face? hmmm
-	if hp == 0:
+	if hp <= 0:
 		state_machine.change_state(AirHurtState.new())
 		velocity.x = hitbox.knockback.x * sign(global_position.x - hitbox.global_position.x)
 		velocity.y = hitbox.knockback.y
