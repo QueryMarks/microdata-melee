@@ -9,6 +9,7 @@ func enter():
 func toss_card():
 	if player.anim_var == "toss":
 		var my_card = player.move_list.tossed_card.instantiate()
+		my_card.get_node("Sprite2D").material = my_card.get_node("Sprite2D").material.duplicate()
 		my_card.get_node("Sprite2D").material.set_shader_parameter("palette", player.get_node("Sprite2D").material.get_shader_parameter("palette"))
 		my_card.state_machine = state_machine
 		player.add_child(my_card)
