@@ -4,7 +4,7 @@ class_name BlockState
 # Called when the node enters the scene tree for the first time.
 func enter():
 	tags += ["block", "grounded"]
-	player.anim_play("block")
+	player.anim_play(player.character_name+"/block")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

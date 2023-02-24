@@ -5,7 +5,7 @@ var grab = false
 # Called when the node enters the scene tree for the first time.
 func enter():
 	player.anim_player.animation_finished.connect(self._to_idle)
-	player.anim_player.play("grab")
+	player.anim_player.play(player.character_name+"/grab")
 
 func exit():
 	super()

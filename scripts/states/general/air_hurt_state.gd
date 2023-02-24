@@ -3,7 +3,7 @@ class_name AirHurtState
 # Called when the node enters the scene tree for the first time.
 func enter():
 	tags += ["air","hurt"]
-	player.anim_play("air_hurt")
+	player.anim_play(player.character_name+"/air_hurt")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

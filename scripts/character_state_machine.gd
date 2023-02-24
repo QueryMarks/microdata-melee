@@ -36,7 +36,7 @@ func change_state(new_state: State):
 		#current_state.set_physics_process(false)
 		
 		#play the "RESET" animation to put hurtboxes etc back in place
-		my_player.anim_play("RESET")
+		my_player.anim_play(my_player.character_name + "/RESET")
 		my_player.anim_player.advance(1.0/60.0)
 
 		#change references for the new state and stuff like that
