@@ -5,7 +5,7 @@ var max_timer = 20
 var timer = max_timer
 # Called when the node enters the scene tree for the first time.
 func enter():
-	player.anim_play("getup")
+	player.anim_play(player.character_name+"/getup")
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

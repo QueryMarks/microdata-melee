@@ -8,7 +8,7 @@ class_name AirState
 
 
 func enter():
-	player.anim_play("jump")
+	player.anim_play(player.character_name+"/jump")
 	
 func get_hit(hitbox : Hitbox):
 	player.get_hurt(hitbox)

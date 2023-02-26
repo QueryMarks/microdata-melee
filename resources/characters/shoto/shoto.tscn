@@ -1,27 +1,81 @@
-[gd_scene load_steps=31 format=3 uid="uid://dpowklmtj8rea"]
+[gd_scene load_steps=34 format=3 uid="uid://ch3r5ku320oso"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_p0blo"]
-[ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_pajsi"]
-[ext_resource type="AnimationLibrary" uid="uid://cskp3yfuireji" path="res://resources/characters/luke/card anims.res" id="3_lfxwa"]
-[ext_resource type="PackedScene" uid="uid://3oyeegtt5ps6" path="res://scenes/state_machine.tscn" id="3_p21cg"]
-[ext_resource type="Script" path="res://scripts/collision/hurtbox.gd" id="4_obkc2"]
-[ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="5_xe5rc"]
-[ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="7_hds3c"]
-[ext_resource type="Texture2D" uid="uid://cg1a0oew0cahn" path="res://resources/characters/card/sprites/card sprite sheet.png" id="7_v5jnl"]
-[ext_resource type="Script" path="res://resources/characters/card/scripts/card_move_list.gd" id="8_nvq6e"]
-[ext_resource type="Script" path="res://resources/characters/card/scripts/card_deck.gd" id="9_n07uy"]
-[ext_resource type="Script" path="res://grabbox.gd" id="13_6dgsv"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_y733n"]
+[ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_dyqt8"]
+[ext_resource type="PackedScene" uid="uid://3oyeegtt5ps6" path="res://scenes/state_machine.tscn" id="4_lcqan"]
+[ext_resource type="Script" path="res://scripts/collision/hurtbox.gd" id="5_lybt1"]
+[ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="6_f7fw0"]
+[ext_resource type="Texture2D" uid="uid://cg1a0oew0cahn" path="res://resources/characters/card/sprites/card sprite sheet.png" id="7_o80qo"]
+[ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="8_ekacf"]
+[ext_resource type="Script" path="res://shoto_movelist.gd" id="8_uoe6k"]
+[ext_resource type="Script" path="res://resources/characters/card/scripts/card_deck.gd" id="10_ibpds"]
+[ext_resource type="Script" path="res://grabbox.gd" id="11_asm8o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayr5o"]
 size = Vector2(23, 36)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ims83"]
+[sub_resource type="Animation" id="Animation_wb1et"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 31)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esedh"]
+_data = {
+"RESET": SubResource("Animation_wb1et")
+}
+
+[sub_resource type="Animation" id="Animation_aype0"]
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.116667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 12), Vector2i(1, 12), Vector2i(0, 12)]
+}
+
+[sub_resource type="Animation" id="Animation_xx0a4"]
+resource_name = "idle"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 31)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_amtke"]
+_data = {
+"5a": SubResource("Animation_aype0"),
+"idle": SubResource("Animation_xx0a4")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7vcu"]
 size = Vector2(24, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmbbf"]
-size = Vector2(20, 7.75)
+size = Vector2(16, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m12ty"]
 size = Vector2(18, 10)
@@ -33,7 +87,7 @@ size = Vector2(9, 7.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kxekc"]
 resource_local_to_scene = true
-shader = ExtResource("5_xe5rc")
+shader = ExtResource("6_f7fw0")
 shader_parameter/skip_first_row = true
 shader_parameter/use_palette_alpha = false
 shader_parameter/fps = 6.0
@@ -73,8 +127,8 @@ size = Vector2(14, 10)
 
 [node name="Card_Player" type="CharacterBody2D"]
 collision_layer = 4
-script = ExtResource("1_p0blo")
-character_name = "card"
+script = ExtResource("1_y733n")
+character_name = "shoto"
 gravity = 9.0
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
@@ -84,30 +138,31 @@ position = Vector2(-1, -19.012)
 shape = SubResource("RectangleShape2D_ayr5o")
 
 [node name="InputReader" type="Node" parent="." node_paths=PackedStringArray("player")]
-script = ExtResource("2_pajsi")
+script = ExtResource("2_dyqt8")
 player = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
 libraries = {
-"": SubResource("AnimationLibrary_ims83"),
-"card": ExtResource("3_lfxwa")
+"": SubResource("AnimationLibrary_esedh"),
+"shoto": SubResource("AnimationLibrary_amtke")
 }
 
-[node name="StateMachine" parent="." instance=ExtResource("3_p21cg")]
+[node name="StateMachine" parent="." instance=ExtResource("4_lcqan")]
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("4_obkc2")
+script = ExtResource("5_lybt1")
 
 [node name="Hurtbox1" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(3, -17)
 shape = SubResource("RectangleShape2D_m7vcu")
 
 [node name="Hurtbox2" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(-9, -21)
+position = Vector2(14, -21)
 shape = SubResource("RectangleShape2D_qmbbf")
+disabled = true
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Hurtbox3" type="CollisionShape2D" parent="Hurtbox"]
@@ -128,11 +183,11 @@ disabled = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
 material = SubResource("ShaderMaterial_kxekc")
-texture = ExtResource("7_v5jnl")
+texture = ExtResource("7_o80qo")
 offset = Vector2(0, -32)
 hframes = 8
 vframes = 33
-frame = 128
+frame = 248
 
 [node name="Hitboxes" type="Node2D" parent="."]
 
@@ -142,7 +197,7 @@ modulate = Color(1, 0, 0, 1)
 self_modulate = Color(1, 0, 0, 1)
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_hds3c")
+script = ExtResource("8_ekacf")
 damage = 8
 hitstun = 10
 hitstop = 8
@@ -160,7 +215,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_hds3c")
+script = ExtResource("8_ekacf")
 hitstun = 18
 hitstop = 10
 knockback = Vector2(50, -10)
@@ -176,7 +231,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_hds3c")
+script = ExtResource("8_ekacf")
 damage = 22
 hitstun = 20
 knockback = Vector2(150, -30)
@@ -192,7 +247,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_hds3c")
+script = ExtResource("8_ekacf")
 damage = 100
 hitstun = 20
 knockback = Vector2(100, -90)
@@ -208,7 +263,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_hds3c")
+script = ExtResource("8_ekacf")
 damage = 5
 hitstop = 10
 knockback = Vector2(20, -10)
@@ -225,7 +280,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_hds3c")
+script = ExtResource("8_ekacf")
 damage = 5
 hitstop = 10
 knockback = Vector2(40, -10)
@@ -242,7 +297,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_hds3c")
+script = ExtResource("8_ekacf")
 hitstun = 25
 hitstop = 10
 knockback = Vector2(50, -50)
@@ -259,7 +314,7 @@ disabled = true
 position = Vector2(19, -5)
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_hds3c")
+script = ExtResource("8_ekacf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/2aHitbox"]
 modulate = Color(1, 0, 0, 1)
@@ -271,7 +326,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_hds3c")
+script = ExtResource("8_ekacf")
 damage = 8
 hitstun = 10
 hitstop = 8
@@ -289,7 +344,7 @@ disabled = true
 visible = false
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("7_hds3c")
+script = ExtResource("8_ekacf")
 damage = 5
 hitstun = 20
 hitstop = 10
@@ -302,8 +357,8 @@ position = Vector2(1, -4)
 shape = SubResource("RectangleShape2D_i07tk")
 disabled = true
 
-[node name="CardMoveList" type="Node" parent="."]
-script = ExtResource("8_nvq6e")
+[node name="ShotoMoveList" type="Node" parent="."]
+script = ExtResource("8_uoe6k")
 
 [node name="Pushbox" type="Area2D" parent="."]
 visible = false
@@ -320,7 +375,7 @@ shape = SubResource("RectangleShape2D_ayr5o")
 process_callback = 0
 
 [node name="Deck" type="Node" parent="."]
-script = ExtResource("9_n07uy")
+script = ExtResource("10_ibpds")
 
 [node name="Grabboxes" type="Node2D" parent="."]
 visible = false
@@ -329,7 +384,7 @@ visible = false
 position = Vector2(16, -21)
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("13_6dgsv")
+script = ExtResource("11_asm8o")
 grab_point = NodePath("GrabPoint")
 damage = 12
 hitstop = 0
@@ -337,7 +392,7 @@ blockstop = 0
 knockback = Vector2(150, -100)
 
 [node name="GrabPoint" type="Node2D" parent="Grabboxes/Throw"]
-position = Vector2(0, -1)
+position = Vector2(17, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grabboxes/Throw"]
 modulate = Color(1, 0, 0, 1)

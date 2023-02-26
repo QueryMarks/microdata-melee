@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccj8l1locmvro"
-path="res://.godot/imported/card_red.png-08926874ebbeb46c7a37f1e6b4acf4c8.ctex"
+uid="uid://5v3ky86j6llc"
+path="res://.godot/imported/css.png-8e44d790de1bacff46326b8f65909246.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://palettes/card/card_red.png"
-dest_files=["res://.godot/imported/card_red.png-08926874ebbeb46c7a37f1e6b4acf4c8.ctex"]
+source_file="res://resources/characters/shoto/sprites/css.png"
+dest_files=["res://.godot/imported/css.png-8e44d790de1bacff46326b8f65909246.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
