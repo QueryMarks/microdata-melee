@@ -1,11 +1,16 @@
-extends Node
+extends MoveList
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _init():
+	super()
+	ground_normals = [
+		["a"]
+	]
+	
+	my_5a = Shoto5aState
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func move_change_state(inputs : Array):
+	if player.state_machine.current_state.tags.has("ground"):
+		match inputs:
+			["a"]:
+				state_machine.change_state(my_5a.new())
