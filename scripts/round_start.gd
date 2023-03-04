@@ -31,7 +31,8 @@ func _ready():
 	#var camera = get_node("StageCamera")
 	p1 = load("res://resources/characters/"+p1_character+"/"+p1_character+".tscn").instantiate()
 	p1.add_child(load("res://scripts/os/"+p1_os+".tscn").instantiate())
-	p1.get_node("Sprite2D").material.set_shader_parameter("palette", p1_palette)
+	if RoundStartInfo.p1_palette != "":
+		p1.get_node("Sprite2D").material.set_shader_parameter("palette", load(RoundStartInfo.p1_palette))
 	p1_bar = preload("res://scenes/hp_bar.tscn").instantiate()
 	p1_bar.player = p1
 	camera.add_child(p1_bar)
@@ -42,7 +43,8 @@ func _ready():
 	
 	p2 = load("res://resources/characters/"+p2_character+"/"+p2_character+".tscn").instantiate()
 	p2.add_child(load("res://scripts/os/"+p2_os+".tscn").instantiate())
-	p2.get_node("Sprite2D").material.set_shader_parameter("palette", p2_palette)
+	if RoundStartInfo.p2_palette != "":
+		p2.get_node("Sprite2D").material.set_shader_parameter("palette", load(RoundStartInfo.p2_palette))
 	p2_bar = preload("res://scenes/hp_bar.tscn").instantiate()
 	p2_bar.player = p2
 	camera.add_child(p2_bar)
