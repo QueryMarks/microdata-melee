@@ -14,6 +14,8 @@ var p2
 var p2_bar
 var p2_rounds = []
 
+var remove_me = []
+
 var max_wins = 2
 
 var camera : Node2D
@@ -80,15 +82,17 @@ func players_act(yesno : bool):
 	p2.can_act = yesno
 
 func next_round():
-
+	for item in remove_me:
+		item.queue_free()
+	
 	p1.get_node("Sprite2D").material.set_shader_parameter("palette", load(RoundStartInfo.p1_palette))
 	p1_bar.position = Vector2(-70, -115)
-	p1_bar.material.set_shader_parameter("palette", p1_palette)
+	p1_bar.material.set_shader_parameter("palette",  load(RoundStartInfo.p1_palette))
 	
 	
 	p2.get_node("Sprite2D").material.set_shader_parameter("palette", load(RoundStartInfo.p2_palette))
 	p2_bar.position = Vector2(70, -115)
-	p2_bar.material.set_shader_parameter("palette", p2_palette)
+	p2_bar.material.set_shader_parameter("palette",  load(RoundStartInfo.p2_palette))
 	
 	p1.opponent = p2
 	p2.opponent = p1
@@ -158,5 +162,7 @@ func round_end_p2():
 func match_end():
 	RoundStartInfo.p1_character = null
 	RoundStartInfo.p2_character = null
+	RoundStartInfo.p1_palette = null
+	RoundStartInfo.p2_palette = null
 	get_tree().change_scene_to_file("res://scenes/character_select_screen.tscn")
 	

@@ -7,7 +7,9 @@ func enter():
 	super()
 	player.anim_play(player.character_name+"/card_summon")
 	var my_summon = player.move_list.summon_2.instantiate()
-	get_tree().get_root().add_child(my_summon)
+	my_summon.get_child(0).player = player
+	get_tree().get_root().get_node("RoundStart").add_child(my_summon)
+	
 	my_summon.position.x = player.position.x - (20*player.my_facing)
 	my_summon.scale.x *= player.my_facing
 

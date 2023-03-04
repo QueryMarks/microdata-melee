@@ -112,9 +112,11 @@ func color_select():
 		match player_index:
 			1:
 				RoundStartInfo.p1_character = null
+				palette_index = 0
 			2:
 				RoundStartInfo.p2_character = null
-			
+				palette_index = 0
+		preview.get_child(0).get_node("Sprite2D").material.set_shader_parameter("palette", null)
 
 func update_preview():
 	if len(CharacterList.character_list) > currentSelected:

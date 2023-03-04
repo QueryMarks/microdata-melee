@@ -26,6 +26,10 @@ func character_list_make():
 		
 func palette_list_make(player_index : int, char_name : String):
 	print("MAKIN A LIST CHECKIN IT LIST")
+	if player_index == 1:
+		p1_palettes = [""]
+	elif player_index == 2:
+		p2_palettes = [""]
 	var dir = DirAccess.open(character_path+"/"+char_name+"/palettes")
 	if dir:
 		dir.list_dir_begin()
