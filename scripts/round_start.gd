@@ -37,7 +37,7 @@ func _ready():
 	p1_bar.player = p1
 	camera.add_child(p1_bar)
 	p1_bar.position = Vector2(-70, -115)
-	p1_bar.material.set_shader_parameter("palette", p1_palette)
+	p1_bar.material.set_shader_parameter("palette",  load(RoundStartInfo.p1_palette))
 	p1_bar.health_zero.connect(round_end_p1)
 	
 	
@@ -50,7 +50,7 @@ func _ready():
 	camera.add_child(p2_bar)
 	p2_bar.scale.x = -1
 	p2_bar.position = Vector2(70, -115)
-	p2_bar.material.set_shader_parameter("palette", p2_palette)
+	p2_bar.material.set_shader_parameter("palette",  load(RoundStartInfo.p2_palette))
 	p2_bar.health_zero.connect(round_end_p2)
 	
 	p1.player_index = 1
@@ -81,12 +81,12 @@ func players_act(yesno : bool):
 
 func next_round():
 
-	p1.get_node("Sprite2D").material.set_shader_parameter("palette", p1_palette)
+	p1.get_node("Sprite2D").material.set_shader_parameter("palette", load(RoundStartInfo.p1_palette))
 	p1_bar.position = Vector2(-70, -115)
 	p1_bar.material.set_shader_parameter("palette", p1_palette)
 	
 	
-	p2.get_node("Sprite2D").material.set_shader_parameter("palette", p2_palette)
+	p2.get_node("Sprite2D").material.set_shader_parameter("palette", load(RoundStartInfo.p2_palette))
 	p2_bar.position = Vector2(70, -115)
 	p2_bar.material.set_shader_parameter("palette", p2_palette)
 	
