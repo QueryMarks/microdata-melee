@@ -35,10 +35,10 @@ var my_2c
 var my_ja
 var my_jb
 var my_jc
-var my_idle
-var my_walk
-var my_jump
-var my_run
+var my_idle = IdleState
+var my_walk = WalkState
+var my_jump = JumpState
+var my_run = DashState
 var my_grab
 var my_throw
 

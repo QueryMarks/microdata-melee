@@ -72,7 +72,6 @@ func read_inputs(move_list : Array):
 		if player.my_facing != 1:
 			while i < len(input_list):
 				if typeof(input_list[i]) == TYPE_STRING:
-
 					match input_list[i]:
 						"6":
 							input_list[i] = "4"
@@ -93,6 +92,7 @@ func read_inputs(move_list : Array):
 							
 			#if that entry in input_list is an array (for multiple inputs on the same frame) edit those as well
 				elif typeof(input_list[i]) == TYPE_ARRAY:
+					input_list[i] = input_list[i].duplicate()
 					var j = 0
 					while j < len(input_list[i]):
 						match input_list[i][j]:

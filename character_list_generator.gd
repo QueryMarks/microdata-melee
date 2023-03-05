@@ -1,6 +1,8 @@
 extends Node
 var character_path = "res://resources/characters"
 var character_list = []
+var p1_palettes = [""]
+var p2_palettes = [""]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	character_list_make()
@@ -18,6 +20,30 @@ func character_list_make():
 			if dir.current_is_dir():
 				#if dir.file_exists(character_path+"/"+file_name+"/"+file_name+".tscn") or dir.file_exists(character_path+"/"+file_name+"/"+file_name+".tscn.import"):
 					character_list.append(file_name)
+			file_name = dir.get_next()
+	else:
+		print("uh oh! problem")
+		
+func palette_list_make(player_index : int, char_name : String):
+	print("MAKIN A LIST CHECKIN IT LIST")
+	if player_index == 1:
+		p1_palettes = [""]
+	elif player_index == 2:
+		p2_palettes = [""]
+	var dir = DirAccess.open(character_path+"/"+char_name+"/palettes")
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		print(file_name)
+		while file_name != "":
+		#if dir.file_exists(character_path+"/"+file_name+"/"+file_name+".tscn") or dir.file_exists(character_path+"/"+file_name+"/"+file_name+".tscn.import"):
+			if file_name.ends_with(".png"):
+				if player_index == 1:
+					p1_palettes.append(character_path+"/"+char_name+"/palettes/"+file_name)
+					print(file_name)
+					print(p1_palettes)
+				elif player_index == 2:
+					p2_palettes.append(character_path+"/"+char_name+"/palettes/"+file_name)
 			file_name = dir.get_next()
 	else:
 		print("uh oh! problem")

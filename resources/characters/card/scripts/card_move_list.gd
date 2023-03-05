@@ -2,6 +2,7 @@ extends MoveList
 class_name CardMoveList
 
 var tossed_card = load("res://resources/characters/card/tossed_card.tscn")
+var summon_2 = load("res://resources/characters/card/summon_2.tscn")
 # Called when the node enters the scene tree for the first time.
 func _init():
 	super()
@@ -11,7 +12,8 @@ func _init():
 	ground_specials = [
 		["2","3","6","a"], #Card Throw A
 		["2","3","6","b"],
-		["2","3","6","c"] #also card throw A for now
+		["2","3","6","c"], #also card throw A for now
+		["2","1","4","a"]
 		]
 	air_specials = []
 	ground_throw = [
@@ -99,6 +101,8 @@ func move_change_state(inputs : Array):
 				state_machine.change_state(CardTossState.new())
 			["2","3","6","c"]:
 				state_machine.change_state(CardTossState.new())
+			["2","1","4","a"]:
+				state_machine.change_state(CardSummonaState.new())
 			_:
 				player.os.os_change_state(inputs)
 	elif player.state_machine.current_state.tags.has("air"):

@@ -6,9 +6,9 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i22av"]
 resource_local_to_scene = true
 shader = ExtResource("1_wkpr7")
-shader_parameter/fps = null
-shader_parameter/skip_first_row = null
-shader_parameter/use_palette_alpha = null
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/fps = 6.0
 
 [sub_resource type="Animation" id="Animation_sb6wt"]
 resource_name = "idle"

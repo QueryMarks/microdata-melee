@@ -5,7 +5,8 @@ extends Node2D
 @export var player_index := 1
 @export var preview : Node2D
 
-
+var my_palettes
+var palette_index = 0
 
 var currentSelected = 0
 var currentColumnSpot = 0
@@ -25,13 +26,18 @@ func _process(_delta):
 		1:
 			if RoundStartInfo.p1_character == null:
 				move_cursor()
+			elif RoundStartInfo.p1_palette == null:
+				color_select()
 			elif Input.is_action_just_pressed("p"+str(player_index)+"_b"):
-				RoundStartInfo.p1_character = null
+				RoundStartInfo.p1_palette = null
+		
 		2:
 			if RoundStartInfo.p2_character == null:
 				move_cursor()
+			elif RoundStartInfo.p2_palette == null:
+				color_select()
 			elif Input.is_action_just_pressed("p"+str(player_index)+"_b"):
-				RoundStartInfo.p2_character = null
+				RoundStartInfo.p1_palette = null
 
 
 func move_cursor():
@@ -64,11 +70,54 @@ func move_cursor():
 		match player_index:
 			1:
 				RoundStartInfo.p1_character = CharacterList.character_list[currentSelected]
+				CharacterList.palette_list_make(1, CharacterList.character_list[currentSelected])
+				my_palettes = CharacterList.p1_palettes
 			2:
 				RoundStartInfo.p2_character = CharacterList.character_list[currentSelected]
-		if RoundStartInfo.p1_character != null and RoundStartInfo.p2_character != null:
-			get_tree().change_scene_to_file("res://scenes/main.tscn")
+				CharacterList.palette_list_make(2, CharacterList.character_list[currentSelected])
+				my_palettes = CharacterList.p2_palettes
+
 	
+func color_select():
+	if (Input.is_action_just_pressed("p"+str(player_index)+"_right")):
+		if palette_index < my_palettes.size() -1:
+			palette_index += 1
+			preview.get_child(0).get_node("Sprite2D").material.set_shader_parameter("palette", load(my_palettes[palette_index]))
+			
+	elif (Input.is_action_just_pressed("p"+str(player_index)+"_left")):
+		if palette_index > 0:
+			palette_index -= 1
+			
+			if my_palettes[palette_index] == "":
+				preview.get_child(0).get_node("Sprite2D").material.set_shader_parameter("palette", null)
+			else:
+				preview.get_child(0).get_node("Sprite2D").material.set_shader_parameter("palette", load(my_palettes[palette_index]))
+				
+				
+	if Input.is_action_just_pressed("p"+str(player_index)+"_a"):
+		match player_index:
+			1:
+				if (my_palettes[palette_index] != RoundStartInfo.p2_palette) or (RoundStartInfo.p1_character != RoundStartInfo.p2_character):
+					RoundStartInfo.p1_palette = my_palettes[palette_index]
+					print(RoundStartInfo.p1_palette)
+			2:
+				if (my_palettes[palette_index] != RoundStartInfo.p1_palette) or (RoundStartInfo.p1_character != RoundStartInfo.p2_character):
+					RoundStartInfo.p2_palette = my_palettes[palette_index]
+					print(RoundStartInfo.p2_palette)
+		
+		if (RoundStartInfo.p1_palette != null) and (RoundStartInfo.p2_palette != null):
+			get_tree().change_scene_to_file("res://scenes/main.tscn")
+			
+	elif Input.is_action_just_pressed("p"+str(player_index)+"_b"):
+		match player_index:
+			1:
+				RoundStartInfo.p1_character = null
+				palette_index = 0
+			2:
+				RoundStartInfo.p2_character = null
+				palette_index = 0
+		preview.get_child(0).get_node("Sprite2D").material.set_shader_parameter("palette", null)
+
 func update_preview():
 	if len(CharacterList.character_list) > currentSelected:
 		for child in preview.get_children():

@@ -1,0 +1,403 @@
+[gd_scene load_steps=34 format=3 uid="uid://ch3r5ku320oso"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_y733n"]
+[ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_dyqt8"]
+[ext_resource type="PackedScene" uid="uid://3oyeegtt5ps6" path="res://scenes/state_machine.tscn" id="4_lcqan"]
+[ext_resource type="Script" path="res://scripts/collision/hurtbox.gd" id="5_lybt1"]
+[ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="6_f7fw0"]
+[ext_resource type="Texture2D" uid="uid://cg1a0oew0cahn" path="res://resources/characters/card/sprites/card sprite sheet.png" id="7_o80qo"]
+[ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="8_ekacf"]
+[ext_resource type="Script" path="res://shoto_movelist.gd" id="8_uoe6k"]
+[ext_resource type="Script" path="res://resources/characters/card/scripts/card_deck.gd" id="10_ibpds"]
+[ext_resource type="Script" path="res://grabbox.gd" id="11_asm8o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayr5o"]
+size = Vector2(23, 36)
+
+[sub_resource type="Animation" id="Animation_wb1et"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 31)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esedh"]
+_data = {
+"RESET": SubResource("Animation_wb1et")
+}
+
+[sub_resource type="Animation" id="Animation_aype0"]
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.116667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 12), Vector2i(1, 12), Vector2i(0, 12)]
+}
+
+[sub_resource type="Animation" id="Animation_xx0a4"]
+resource_name = "idle"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 31)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_amtke"]
+_data = {
+"5a": SubResource("Animation_aype0"),
+"idle": SubResource("Animation_xx0a4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7vcu"]
+size = Vector2(24, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmbbf"]
+size = Vector2(16, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m12ty"]
+size = Vector2(18, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvntp"]
+size = Vector2(9, 7.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_up8ol"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kxekc"]
+resource_local_to_scene = true
+shader = ExtResource("6_f7fw0")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/fps = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytqxq"]
+size = Vector2(17, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3utw4"]
+size = Vector2(16, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0i2e"]
+size = Vector2(21, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iinxj"]
+size = Vector2(25, 19.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt6yh"]
+size = Vector2(24, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skxjn"]
+size = Vector2(16, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya238"]
+size = Vector2(23, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6a20"]
+size = Vector2(18, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktrt1"]
+size = Vector2(23, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i07tk"]
+size = Vector2(52, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypsmb"]
+size = Vector2(14, 10)
+
+[node name="Card_Player" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_y733n")
+character_name = "shoto"
+gravity = 9.0
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+visible = false
+modulate = Color(0.501961, 1, 0, 1)
+position = Vector2(-1, -19.012)
+shape = SubResource("RectangleShape2D_ayr5o")
+
+[node name="InputReader" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("2_dyqt8")
+player = NodePath("..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_process_mode = 0
+libraries = {
+"": SubResource("AnimationLibrary_esedh"),
+"shoto": SubResource("AnimationLibrary_amtke")
+}
+
+[node name="StateMachine" parent="." instance=ExtResource("4_lcqan")]
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_lybt1")
+
+[node name="Hurtbox1" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(3, -17)
+shape = SubResource("RectangleShape2D_m7vcu")
+
+[node name="Hurtbox2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(14, -21)
+shape = SubResource("RectangleShape2D_qmbbf")
+disabled = true
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Hurtbox3" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(7, -28)
+shape = SubResource("RectangleShape2D_m12ty")
+disabled = true
+
+[node name="Hurtbox4" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(14.5, -11.75)
+shape = SubResource("RectangleShape2D_rvntp")
+disabled = true
+
+[node name="Hurtbox5" type="CollisionShape2D" parent="Hurtbox"]
+visible = false
+shape = SubResource("RectangleShape2D_up8ol")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+material = SubResource("ShaderMaterial_kxekc")
+texture = ExtResource("7_o80qo")
+offset = Vector2(0, -32)
+hframes = 8
+vframes = 33
+frame = 248
+
+[node name="Hitboxes" type="Node2D" parent="."]
+
+[node name="5aHitbox" type="Area2D" parent="Hitboxes"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("8_ekacf")
+damage = 8
+hitstun = 10
+hitstop = 8
+knockback = Vector2(30, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5aHitbox"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+position = Vector2(15.5, -22.5)
+shape = SubResource("RectangleShape2D_ytqxq")
+disabled = true
+
+[node name="5bHitbox" type="Area2D" parent="Hitboxes"]
+visible = false
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("8_ekacf")
+hitstun = 18
+hitstop = 10
+knockback = Vector2(50, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5bHitbox"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+position = Vector2(16, -4.75)
+shape = SubResource("RectangleShape2D_3utw4")
+disabled = true
+
+[node name="5cHitbox" type="Area2D" parent="Hitboxes"]
+visible = false
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("8_ekacf")
+damage = 22
+hitstun = 20
+knockback = Vector2(150, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5cHitbox"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+position = Vector2(21.5, -18.5)
+shape = SubResource("RectangleShape2D_e0i2e")
+disabled = true
+
+[node name="5dHitbox" type="Area2D" parent="Hitboxes"]
+visible = false
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("8_ekacf")
+damage = 100
+hitstun = 20
+knockback = Vector2(100, -90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5dHitbox"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+position = Vector2(18.5, -21.75)
+shape = SubResource("RectangleShape2D_iinxj")
+disabled = true
+
+[node name="jaHitbox" type="Area2D" parent="Hitboxes"]
+visible = false
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("8_ekacf")
+damage = 5
+hitstop = 10
+knockback = Vector2(20, -10)
+hit_type = "high"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/jaHitbox"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+position = Vector2(19, -19)
+shape = SubResource("RectangleShape2D_lt6yh")
+disabled = true
+
+[node name="jaHitbox2" type="Area2D" parent="Hitboxes"]
+visible = false
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("8_ekacf")
+damage = 5
+hitstop = 10
+knockback = Vector2(40, -10)
+hit_type = "high"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/jaHitbox2"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+position = Vector2(19, -21.5)
+shape = SubResource("RectangleShape2D_skxjn")
+disabled = true
+
+[node name="jbHitbox" type="Area2D" parent="Hitboxes"]
+visible = false
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("8_ekacf")
+hitstun = 25
+hitstop = 10
+knockback = Vector2(50, -50)
+hit_type = "high"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/jbHitbox"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+position = Vector2(14.5, -10.5)
+shape = SubResource("RectangleShape2D_ya238")
+disabled = true
+
+[node name="2aHitbox" type="Area2D" parent="Hitboxes"]
+position = Vector2(19, -5)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("8_ekacf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/2aHitbox"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+shape = SubResource("RectangleShape2D_l6a20")
+disabled = true
+
+[node name="2bHitbox" type="Area2D" parent="Hitboxes"]
+visible = false
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("8_ekacf")
+damage = 8
+hitstun = 10
+hitstop = 8
+knockback = Vector2(30, 0)
+hit_type = "low"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/2bHitbox"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+position = Vector2(15.5, -5)
+shape = SubResource("RectangleShape2D_ktrt1")
+disabled = true
+
+[node name="2cHitbox" type="Area2D" parent="Hitboxes"]
+visible = false
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("8_ekacf")
+damage = 5
+hitstun = 20
+hitstop = 10
+knockback = Vector2(-10, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/2cHitbox"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+position = Vector2(1, -4)
+shape = SubResource("RectangleShape2D_i07tk")
+disabled = true
+
+[node name="ShotoMoveList" type="Node" parent="."]
+script = ExtResource("8_uoe6k")
+
+[node name="Pushbox" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionBox" type="CollisionShape2D" parent="Pushbox"]
+visible = false
+modulate = Color(0.501961, 1, 0, 1)
+position = Vector2(-1, -19)
+shape = SubResource("RectangleShape2D_ayr5o")
+
+[node name="HitstopTimer" type="Timer" parent="."]
+process_callback = 0
+
+[node name="Deck" type="Node" parent="."]
+script = ExtResource("10_ibpds")
+
+[node name="Grabboxes" type="Node2D" parent="."]
+visible = false
+
+[node name="Throw" type="Area2D" parent="Grabboxes" node_paths=PackedStringArray("grab_point")]
+position = Vector2(16, -21)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("11_asm8o")
+grab_point = NodePath("GrabPoint")
+damage = 12
+hitstop = 0
+blockstop = 0
+knockback = Vector2(150, -100)
+
+[node name="GrabPoint" type="Node2D" parent="Grabboxes/Throw"]
+position = Vector2(17, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grabboxes/Throw"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(0.993421, 0, 0.216357, 1)
+shape = SubResource("RectangleShape2D_ypsmb")
+disabled = true
+
+[editable path="StateMachine"]

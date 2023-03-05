@@ -14,6 +14,8 @@ var p2
 var p2_bar
 var p2_rounds = []
 
+var remove_me = []
+
 var max_wins = 2
 
 var camera : Node2D
@@ -31,24 +33,26 @@ func _ready():
 	#var camera = get_node("StageCamera")
 	p1 = load("res://resources/characters/"+p1_character+"/"+p1_character+".tscn").instantiate()
 	p1.add_child(load("res://scripts/os/"+p1_os+".tscn").instantiate())
-	p1.get_node("Sprite2D").material.set_shader_parameter("palette", p1_palette)
+	if RoundStartInfo.p1_palette != "":
+		p1.get_node("Sprite2D").material.set_shader_parameter("palette", load(RoundStartInfo.p1_palette))
 	p1_bar = preload("res://scenes/hp_bar.tscn").instantiate()
 	p1_bar.player = p1
 	camera.add_child(p1_bar)
 	p1_bar.position = Vector2(-70, -115)
-	p1_bar.material.set_shader_parameter("palette", p1_palette)
+	p1_bar.material.set_shader_parameter("palette",  load(RoundStartInfo.p1_palette))
 	p1_bar.health_zero.connect(round_end_p1)
 	
 	
 	p2 = load("res://resources/characters/"+p2_character+"/"+p2_character+".tscn").instantiate()
 	p2.add_child(load("res://scripts/os/"+p2_os+".tscn").instantiate())
-	p2.get_node("Sprite2D").material.set_shader_parameter("palette", p2_palette)
+	if RoundStartInfo.p2_palette != "":
+		p2.get_node("Sprite2D").material.set_shader_parameter("palette", load(RoundStartInfo.p2_palette))
 	p2_bar = preload("res://scenes/hp_bar.tscn").instantiate()
 	p2_bar.player = p2
 	camera.add_child(p2_bar)
 	p2_bar.scale.x = -1
 	p2_bar.position = Vector2(70, -115)
-	p2_bar.material.set_shader_parameter("palette", p2_palette)
+	p2_bar.material.set_shader_parameter("palette",  load(RoundStartInfo.p2_palette))
 	p2_bar.health_zero.connect(round_end_p2)
 	
 	p1.player_index = 1
@@ -78,15 +82,17 @@ func players_act(yesno : bool):
 	p2.can_act = yesno
 
 func next_round():
-
-	p1.get_node("Sprite2D").material.set_shader_parameter("palette", p1_palette)
+	for item in remove_me:
+		item.queue_free()
+	
+	p1.get_node("Sprite2D").material.set_shader_parameter("palette", load(RoundStartInfo.p1_palette))
 	p1_bar.position = Vector2(-70, -115)
-	p1_bar.material.set_shader_parameter("palette", p1_palette)
+	p1_bar.material.set_shader_parameter("palette",  load(RoundStartInfo.p1_palette))
 	
 	
-	p2.get_node("Sprite2D").material.set_shader_parameter("palette", p2_palette)
+	p2.get_node("Sprite2D").material.set_shader_parameter("palette", load(RoundStartInfo.p2_palette))
 	p2_bar.position = Vector2(70, -115)
-	p2_bar.material.set_shader_parameter("palette", p2_palette)
+	p2_bar.material.set_shader_parameter("palette",  load(RoundStartInfo.p2_palette))
 	
 	p1.opponent = p2
 	p2.opponent = p1
@@ -156,5 +162,7 @@ func round_end_p2():
 func match_end():
 	RoundStartInfo.p1_character = null
 	RoundStartInfo.p2_character = null
+	RoundStartInfo.p1_palette = null
+	RoundStartInfo.p2_palette = null
 	get_tree().change_scene_to_file("res://scenes/character_select_screen.tscn")
 	

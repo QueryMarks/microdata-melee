@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Projectile
 
 var state_machine
 @export var max_timer := 60

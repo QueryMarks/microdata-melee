@@ -6,6 +6,6 @@ class_name Card2aState
 func enter():
 	super()
 	tags += ["a", "crouching", "can_cancel"]
-	player.anim_play("2a")
+	player.anim_play("card/2a")
 
 

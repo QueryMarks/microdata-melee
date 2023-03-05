@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgr2esxkmgwuw"
-path="res://.godot/imported/card_brown.png-c7c8285bd09602a791d468b4c2a3065c.ctex"
+uid="uid://uwivquguqgti"
+path="res://.godot/imported/summon 2 sheet.png-30c5b90988f52063c931f0e530429772.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://palettes/card/card_brown.png"
-dest_files=["res://.godot/imported/card_brown.png-c7c8285bd09602a791d468b4c2a3065c.ctex"]
+source_file="res://resources/characters/card/sprites/summon 2 sheet.png"
+dest_files=["res://.godot/imported/summon 2 sheet.png-30c5b90988f52063c931f0e530429772.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
