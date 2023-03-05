@@ -36,8 +36,7 @@ func _ready():
 		if hitbox is CollisionShape2D:
 			my_hitbox = hitbox
 			break
-	if player_index == 0:
-		player_index = player.player_index
+
 	
 	#needed to make instances of players not interfere with each others' hurtbox shapes. it's weird!! leave this in tho
 	for hitbox in get_children():
@@ -49,5 +48,7 @@ func disable_child(truefalse : bool):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
+	if player_index == 0:
+		player_index = player.player_index
 	if my_hitbox.disabled && hit_list != []:
 		hit_list = []
