@@ -154,10 +154,10 @@ func round_end(loser : Player):
 			$StageCamera/Label.text = "Player " + str(winner) + " wins!"
 			$RoundAnims.play("match_end")
 func round_end_p1():
-	round_end(p1)
+	call_deferred("round_end", p1)
 	
 func round_end_p2():
-	round_end(p2)
+	call_deferred("round_end", p2)
 	
 func match_end():
 	RoundStartInfo.p1_character = null
