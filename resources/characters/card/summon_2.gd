@@ -2,6 +2,7 @@ extends Projectile
 
 var player : Player
 var idle = true
+var summon_timer = 0
 
 func _ready():
 	$AnimationPlayer.play("summon_2_idle")
@@ -12,6 +13,9 @@ func _ready():
 	
 
 func _physics_process(delta):
-	if idle and (!Input.is_action_pressed(player.input_a)):
-		idle = false
-		$AnimationPlayer.play("summon_2_dash")	
+	if idle:
+		if summon_timer < 10:
+			summon_timer += 1
+		elif (!Input.is_action_pressed(player.input_a)):
+			idle = false
+			$AnimationPlayer.play("summon_2_dash")	
