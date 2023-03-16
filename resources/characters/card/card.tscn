@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dpowklmtj8rea"]
+[gd_scene load_steps=36 format=3 uid="uid://dpowklmtj8rea"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p0blo"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_pajsi"]
@@ -10,7 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://cg1a0oew0cahn" path="res://resources/characters/card/sprites/card sprite sheet.png" id="7_v5jnl"]
 [ext_resource type="Script" path="res://resources/characters/card/scripts/card_move_list.gd" id="8_nvq6e"]
 [ext_resource type="Script" path="res://resources/characters/card/scripts/card_deck.gd" id="9_n07uy"]
+[ext_resource type="Texture2D" uid="uid://l8bxjo0sk1wl" path="res://resources/characters/card/palettes/card_candy.png" id="11_1x6eq"]
+[ext_resource type="Texture2D" uid="uid://bcht7g4nilatu" path="res://resources/characters/card/palettes/card_darkblue.png" id="11_auxkp"]
 [ext_resource type="Script" path="res://grabbox.gd" id="13_6dgsv"]
+[ext_resource type="Texture2D" uid="uid://c0p5vtdww7uls" path="res://resources/characters/card/palettes/card_red.png" id="13_robhk"]
+[ext_resource type="Texture2D" uid="uid://ca8dq4h2vo5v" path="res://resources/characters/card/palettes/card_blue.png" id="14_1nyu8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayr5o"]
 size = Vector2(23, 36)
@@ -375,6 +379,10 @@ process_callback = 0
 
 [node name="Deck" type="Node" parent="."]
 script = ExtResource("9_n07uy")
+clubs_palette = ExtResource("11_auxkp")
+diamonds_palette = ExtResource("11_1x6eq")
+hearts_palette = ExtResource("13_robhk")
+spades_palette = ExtResource("14_1nyu8")
 
 [node name="Grabboxes" type="Node2D" parent="."]
 visible = false

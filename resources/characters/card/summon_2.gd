@@ -5,6 +5,8 @@ var idle = true
 var hitstop_timer
 var hitstop = false
 
+var summon_timer = 0
+
 func _ready():
 	hitstop_timer = $HitstopTimer
 	hitstop_timer.timeout.connect(hit_restart)
@@ -15,11 +17,13 @@ func _ready():
 	$Hitbox.this_hit_something.connect(hit_stop_do_it)
 	state_machine = player.state_machine
 	
-
 func _physics_process(_delta):
-	if idle and (!Input.is_action_pressed(player.input_a)):
-		idle = false
-		$AnimationPlayer.play("summon_2_dash")	
+	if idle:
+		if summon_timer < 10:
+			summon_timer += 1
+		elif (!Input.is_action_pressed(player.input_a)):
+			idle = false
+			$AnimationPlayer.play("summon_2_dash")	
 		
 func hit_stop_do_it():
 	hit_stop($Hitbox.hitstop)
