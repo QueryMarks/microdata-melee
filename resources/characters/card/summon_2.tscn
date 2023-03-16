@@ -259,8 +259,8 @@ hframes = 5
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("3_f1lur")
+player_hitstop = false
 knockback = Vector2(50, 20)
-
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Hitbox"]
 modulate = Color(1, 0, 0, 1)

@@ -83,7 +83,8 @@ func players_act(yesno : bool):
 
 func next_round():
 	for item in remove_me:
-		item.queue_free()
+		if item != null:
+			item.queue_free()
 	
 	p1.get_node("Sprite2D").material.set_shader_parameter("palette", load(RoundStartInfo.p1_palette))
 	p1_bar.position = Vector2(-70, -115)

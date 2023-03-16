@@ -4,6 +4,7 @@ var player
 @export var damage := 10
 @export var hitstun := 15
 @export var hitstop := 15
+@export var player_hitstop = true
 @export var blockstun := 7
 @export var blockstop := 8
 @export var knockback : Vector2
@@ -26,10 +27,12 @@ func this_hit(hit_block, player_hit):
 		"hit":
 			hit_list.append(player_hit)
 			player.state_machine.current_state.has_hit = true
-			player.call_deferred("hit_stop", hitstop)
+			if player_hitstop:
+				player.call_deferred("hit_stop", hitstop)
 		"block":
 			player.state_machine.current_state.has_hit = true
-			player.call_deferred("hit_stop", hitstop)
+			if player_hitstop:
+				player.call_deferred("hit_stop", hitstop)
 			
 # Called when the node enters the scene tree for the first time.
 func _ready():
