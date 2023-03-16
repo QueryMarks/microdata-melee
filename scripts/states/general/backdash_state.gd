@@ -10,7 +10,7 @@ func enter():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player.is_on_floor():
 		state_machine.change_state(player.move_list.my_idle.new())
 	else:

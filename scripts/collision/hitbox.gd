@@ -12,6 +12,8 @@ var player
 
 @export var player_index : int
 
+signal this_hit_something
+
 var my_hitbox
 var hit_list = []
 
@@ -19,6 +21,7 @@ func _init() -> void:
 	collision_layer = 2
 
 func this_hit(hit_block, player_hit):
+	this_hit_something.emit()
 	match hit_block:
 		"hit":
 			hit_list.append(player_hit)
