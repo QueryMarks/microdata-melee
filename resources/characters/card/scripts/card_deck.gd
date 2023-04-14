@@ -2,7 +2,10 @@ extends Node
 
 var deck = []
 var hand = []
+var player
 
+
+var card_hand_ui_scene = preload("res://resources/characters/card/card_hand_ui.tscn")
 @export var clubs_palette : Texture2D
 @export var diamonds_palette : Texture2D
 @export var hearts_palette : Texture2D
@@ -11,7 +14,7 @@ var hand = []
 func _ready():
 	
 	for suit in ["Clubs","Diamonds","Hearts","Spades"]:
-		for rank in ["Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"]:
+		for rank in ["A","2","3","4","5","6","7","8","9","0","J","Q","K"]:
 			var card = Card.new()
 			card.suit = suit
 			card.rank = rank
@@ -19,6 +22,26 @@ func _ready():
 			
 	deck.shuffle()
 	new_hand()
+	var card_hand_ui = card_hand_ui_scene.instantiate()
+	get_tree().get_root().get_node("RoundStart").camera.add_child(card_hand_ui)
+	player = get_parent()
+	if player.player_index == 1:
+		card_hand_ui.position.x -= 58
+		card_hand_ui.position.y += 15
+	elif player.player_index == 2:
+		card_hand_ui.position.x += 58
+		card_hand_ui.position.y += 15
+	var index = 0
+	for card_ui in card_hand_ui.get_child(0).get_children():
+		print(card_ui.get_path())
+		card_ui.get_node("Sprite2D").material = card_ui.get_node("Sprite2D").material.duplicate()
+		if player.player_index == 1:
+			card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  load(RoundStartInfo.p1_palette))
+		elif player.player_index == 2:
+			card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  load(RoundStartInfo.p2_palette))
+		card_ui.get_node("Label").text = hand[index].rank
+		index += 1
+		
 	for card in hand:
 		print(card.rank + " of " + card.suit)
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2wfejggnfwa0"]
+
+[ext_resource type="Texture2D" uid="uid://cf2a41o0xhsha" path="res://resources/characters/card/sprites/card ui.png" id="1_3oodg"]
+[ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="1_w3w05"]
+[ext_resource type="FontFile" uid="uid://bfyq3r85rco1d" path="res://fonts/MatchupPro.ttf" id="2_wnyv6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7hmxc"]
+shader = ExtResource("1_w3w05")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/fps = 6.0
+
+[sub_resource type="Theme" id="Theme_krcqd"]
+default_font = ExtResource("2_wnyv6")
+default_font_size = 0
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_7hmxc")
+texture = ExtResource("1_3oodg")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -3.0
+offset_top = -7.0
+offset_right = 3.0
+offset_bottom = 6.0
+theme = SubResource("Theme_krcqd")
+theme_override_colors/font_color = Color(0, 0, 0, 1)

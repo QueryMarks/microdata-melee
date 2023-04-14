@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckq47oh3ik5ga"]
+
+[ext_resource type="PackedScene" uid="uid://c2wfejggnfwa0" path="res://resources/characters/card/card_ui.tscn" id="1_cw8pb"]
+
+[sub_resource type="Theme" id="Theme_qcuy2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Control" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qcuy2")
+theme_override_constants/h_separation = 11
+theme_override_constants/v_separation = 13
+columns = 3
+
+[node name="Node2D" parent="Control" instance=ExtResource("1_cw8pb")]
+layout_mode = 2
+
+[node name="Node2D2" parent="Control" instance=ExtResource("1_cw8pb")]
+layout_mode = 2
+
+[node name="Node2D3" parent="Control" instance=ExtResource("1_cw8pb")]
+layout_mode = 2
+
+[node name="Node2D4" parent="Control" instance=ExtResource("1_cw8pb")]
+layout_mode = 2
+
+[node name="Node2D5" parent="Control" instance=ExtResource("1_cw8pb")]
+layout_mode = 2
