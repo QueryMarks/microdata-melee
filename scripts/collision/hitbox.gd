@@ -1,6 +1,7 @@
 extends Area2D
 class_name Hitbox
 var player
+var projectile
 @export var damage := 10
 @export var hitstun := 15
 @export var hitstop := 15
@@ -29,19 +30,27 @@ func this_hit(hit_block, player_hit):
 			player.state_machine.current_state.has_hit = true
 			if player_hitstop:
 				player.call_deferred("hit_stop", hitstop)
+			if projectile:
+				projectile.call_deferred("hit_stop", hitstop)
+
 		"block":
 			player.state_machine.current_state.has_hit = true
 			if player_hitstop:
 				player.call_deferred("hit_stop", hitstop)
+			if projectile:
+				projectile.call_deferred("hit_stop", hitstop)
 			
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if player == null:
+	if projectile == null && owner is Projectile:
+		projectile = owner
+	elif player == null:
 		player = owner
 	for hitbox in get_children():
 		if hitbox is CollisionShape2D:
 			my_hitbox = hitbox
 			break
+	
 
 	
 	#needed to make instances of players not interfere with each others' hurtbox shapes. it's weird!! leave this in tho

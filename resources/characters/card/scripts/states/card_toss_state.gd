@@ -13,6 +13,7 @@ func toss_card():
 		my_card.get_node("Sprite2D").material.set_shader_parameter("palette", player.get_node("Sprite2D").material.get_shader_parameter("palette"))
 		my_card.state_machine = state_machine
 		my_card.get_node("Hitbox").player_index = player.player_index
+		my_card.get_node("Hitbox").player = player
 		
 		
 	
