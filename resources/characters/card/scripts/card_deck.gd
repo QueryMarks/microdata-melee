@@ -36,9 +36,11 @@ func _ready():
 		print(card_ui.get_path())
 		card_ui.get_node("Sprite2D").material = card_ui.get_node("Sprite2D").material.duplicate()
 		if player.player_index == 1:
-			card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  load(RoundStartInfo.p1_palette))
+			if RoundStartInfo.p1_palette != "":
+				card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  load(RoundStartInfo.p1_palette))
 		elif player.player_index == 2:
-			card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  load(RoundStartInfo.p2_palette))
+			if RoundStartInfo.p2_palette != "":
+				card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  load(RoundStartInfo.p2_palette))
 		card_ui.get_node("Label").text = hand[index].rank
 		index += 1
 		
