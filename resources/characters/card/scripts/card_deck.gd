@@ -13,8 +13,10 @@ var card_hand_ui_scene = preload("res://resources/characters/card/card_hand_ui.t
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	for suit in ["Clubs","Diamonds","Hearts","Spades"]:
-		for rank in ["A","2","3","4","5","6","7","8","9","0","J","Q","K"]:
+	for suit_string in ["Clubs","Diamonds","Hearts","Spades"]:
+		for rank_string in ["Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"]:
+			var suit = CardSuit.new(suit_string)
+			var rank = CardRank.new(rank_string)
 			var card = Card.new()
 			card.suit = suit
 			card.rank = rank
@@ -41,11 +43,11 @@ func _ready():
 		elif player.player_index == 2:
 			if RoundStartInfo.p2_palette != "":
 				card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  load(RoundStartInfo.p2_palette))
-		card_ui.get_node("Label").text = hand[index].rank
+		card_ui.get_node("Label").text = hand[index].rank.rank_abbrev
 		index += 1
 		
 	for card in hand:
-		print(card.rank + " of " + card.suit)
+		print(card.rank.rank_string + " of " + card.suit.suit_string)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass

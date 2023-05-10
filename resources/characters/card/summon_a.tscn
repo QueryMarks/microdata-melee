@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://blaxnyhmqcpxp"]
+[gd_scene load_steps=16 format=3 uid="uid://5xoy0b2deesl"]
 
-[ext_resource type="Texture2D" uid="uid://uwivquguqgti" path="res://resources/characters/card/sprites/summon 2 sheet.png" id="1_q84mh"]
-[ext_resource type="Script" path="res://card_summon.gd" id="1_uwhuu"]
-[ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="2_hlcx2"]
-[ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="3_f1lur"]
+[ext_resource type="Script" path="res://card_summon.gd" id="1_rkx73"]
+[ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="2_e5ou0"]
+[ext_resource type="Texture2D" uid="uid://bq6hragpsafm2" path="res://resources/characters/card/sprites/summon a sheet.png" id="3_xks6f"]
+[ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="4_ym8dh"]
 
 [sub_resource type="Animation" id="Animation_tocbs"]
 length = 0.001
@@ -90,6 +90,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite2D:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ogplf"]
@@ -292,7 +304,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.266667, 0.483333, 0.666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-20, 0), Vector2(22.5, 0), Vector2(75, 0), Vector2(110, 0), Vector2(125, 0)]
+"values": [Vector2(0, 0), Vector2(22.5, 0), Vector2(75, 0), Vector2(110, 0), Vector2(125, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -369,14 +381,96 @@ tracks/7/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_0prne"]
+resource_name = "summon_a_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -50)]
+}
+
+[sub_resource type="Animation" id="Animation_r8el0"]
+resource_name = "summon_a_release"
+length = 0.566668
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(1, 0), Vector2i(2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -50), Vector2(85, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2aovx"]
 _data = {
 "summon_2_idle": SubResource("Animation_m2ga1"),
-"summon_2_release": SubResource("Animation_qff6s")
+"summon_2_release": SubResource("Animation_qff6s"),
+"summon_a_idle": SubResource("Animation_0prne"),
+"summon_a_release": SubResource("Animation_r8el0")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tte6j"]
-shader = ExtResource("2_hlcx2")
+shader = ExtResource("2_e5ou0")
 shader_parameter/skip_first_row = true
 shader_parameter/use_palette_alpha = false
 shader_parameter/fps = 6.0
@@ -387,9 +481,9 @@ size = Vector2(50, 19)
 [node name="Node2D" type="Node2D"]
 
 [node name="Node2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_uwhuu")
-my_idle_anim = "card_summons/summon_2_idle"
-my_release_anim = "card_summons/summon_2_release"
+script = ExtResource("1_rkx73")
+my_idle_anim = "card_summons/summon_a_idle"
+my_release_anim = "card_summons/summon_a_release"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
 libraries = {
@@ -401,16 +495,19 @@ libraries = {
 z_index = -1
 texture_filter = 1
 material = SubResource("ShaderMaterial_tte6j")
-texture = ExtResource("1_q84mh")
-offset = Vector2(0, -64)
-hframes = 5
+texture = ExtResource("3_xks6f")
+offset = Vector2(0, -32)
+hframes = 3
 
 [node name="Hitbox" type="Area2D" parent="Node2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("3_f1lur")
+script = ExtResource("4_ym8dh")
+damage = 12
 player_hitstop = false
-knockback = Vector2(50, 20)
+knockback = Vector2(20, 100)
+hit_type = "high"
+force_airborne = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Hitbox"]
 modulate = Color(1, 0, 0, 1)

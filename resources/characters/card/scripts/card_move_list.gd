@@ -3,6 +3,10 @@ class_name CardMoveList
 
 var tossed_card = load("res://resources/characters/card/tossed_card.tscn")
 var summon_2 = load("res://resources/characters/card/summon_2.tscn")
+
+func get_summon_path(rank : String):
+	return ("res://resources/characters/card/summon_" + rank + ".tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _init():
 	super()

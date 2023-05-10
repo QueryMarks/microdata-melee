@@ -1,21 +1,9 @@
-extends Projectile
+extends CardSummon
 
-var player : Player
-var idle = true
-var hitstop_timer
-var hitstop = false
-
-var summon_timer = 0
 
 func _ready():
-	hitstop_timer = $HitstopTimer
-	hitstop_timer.timeout.connect(hit_restart)
+	super()
 	$AnimationPlayer.play("summon_2_idle")
-	get_parent().get_parent().remove_me.append(get_parent())
-	$Hitbox.player_index = player.player_index
-	$Hitbox.player = player
-	$Hitbox.this_hit_something.connect(hit_stop_do_it)
-	state_machine = player.state_machine
 	
 func _physics_process(_delta):
 	if idle:
