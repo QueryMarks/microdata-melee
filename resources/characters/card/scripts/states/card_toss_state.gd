@@ -1,10 +1,19 @@
 extends GroundSpecialState
 class_name CardTossState
 
+var card_index = 0
+
+func _init(index = 0):
+	card_index = index
+	
+
 func enter():
 	super()
-	player.anim_signal.connect(self.toss_card)
-	player.anim_play("card/card_toss")
+	if player.get_node("Deck").hand[card_index] != null:
+		player.anim_signal.connect(self.toss_card)
+		player.anim_play("card/card_toss")
+	else:
+		player.anim_play("card/card_toss_fail")
 
 func toss_card():
 	if player.anim_var == "toss":
@@ -22,3 +31,5 @@ func toss_card():
 		my_card.velocity.x = 200*player.my_facing
 		
 		get_tree().get_root().add_child(my_card)
+		print(card_index)
+		player.get_node("Deck").card_used(card_index)

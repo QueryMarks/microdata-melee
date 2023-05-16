@@ -22,4 +22,4 @@ func _init(r):
 	if ResourceLoader.exists("res://resources/characters/card/summon_" + rank_abbrev.to_lower() + ".tscn"):
 		summon = load("res://resources/characters/card/summon_" + rank_abbrev.to_lower() + ".tscn")
 	else:
-		summon = load("res://resources/characters/card/summon_2.tscn")
+		summon = load("res://resources/characters/card/summon_a.tscn")

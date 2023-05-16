@@ -3,6 +3,7 @@ extends Node
 var deck = []
 var hand = []
 var player
+var card_hand_ui
 
 
 var card_hand_ui_scene = preload("res://resources/characters/card/card_hand_ui.tscn")
@@ -10,6 +11,9 @@ var card_hand_ui_scene = preload("res://resources/characters/card/card_hand_ui.t
 @export var diamonds_palette : Texture2D
 @export var hearts_palette : Texture2D
 @export var spades_palette : Texture2D
+
+var player_palette : Texture2D
+@export var used_card_palette : Texture2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -24,7 +28,7 @@ func _ready():
 			
 	deck.shuffle()
 	new_hand()
-	var card_hand_ui = card_hand_ui_scene.instantiate()
+	card_hand_ui = card_hand_ui_scene.instantiate()
 	get_tree().get_root().get_node("RoundStart").camera.add_child(card_hand_ui)
 	player = get_parent()
 	if player.player_index == 1:
@@ -33,22 +37,40 @@ func _ready():
 	elif player.player_index == 2:
 		card_hand_ui.position.x += 58
 		card_hand_ui.position.y += 15
+
+	
+	if player.player_index == 1:
+		if RoundStartInfo.p1_palette != "":
+			player_palette = load(RoundStartInfo.p1_palette)
+	elif player.player_index == 2:
+		if RoundStartInfo.p2_palette != "":
+			player_palette = load(RoundStartInfo.p2_palette)
+	
 	var index = 0
 	for card_ui in card_hand_ui.get_child(0).get_children():
 		print(card_ui.get_path())
 		card_ui.get_node("Sprite2D").material = card_ui.get_node("Sprite2D").material.duplicate()
-		if player.player_index == 1:
-			if RoundStartInfo.p1_palette != "":
-				card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  load(RoundStartInfo.p1_palette))
-		elif player.player_index == 2:
-			if RoundStartInfo.p2_palette != "":
-				card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  load(RoundStartInfo.p2_palette))
-		card_ui.get_node("Label").text = hand[index].rank.rank_abbrev
 		index += 1
+	update_hand()
 		
 	for card in hand:
 		print(card.rank.rank_string + " of " + card.suit.suit_string)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func update_hand():
+	var index = 0
+	for card_ui in card_hand_ui.get_child(0).get_children():
+		if hand[index] != null:
+			print(hand[index].rank.rank_abbrev)
+			card_ui.get_node("Label").text = hand[index].rank.rank_abbrev
+			if player_palette:
+				card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  player_palette)
+		else: 
+			print("no card here")
+			card_ui.get_node("Label").text = ""
+			card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  used_card_palette)
+		index += 1
+
 func _process(_delta):
 	pass
 
@@ -57,6 +79,10 @@ func new_hand():
 	for count in range(5):
 		hand.append(deck[count])
 		
+func card_used(index):
+	hand[index] = null
+	update_hand()
+
 #no longer used, ignore the below function
 func which_suit_palette(index):
 	match hand[index].suit:

@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://blaxnyhmqcpxp"]
+[gd_scene load_steps=15 format=3 uid="uid://blaxnyhmqcpxp"]
 
 [ext_resource type="Texture2D" uid="uid://uwivquguqgti" path="res://resources/characters/card/sprites/summon 2 sheet.png" id="1_q84mh"]
 [ext_resource type="Script" path="res://card_summon.gd" id="1_uwhuu"]
-[ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="2_hlcx2"]
+[ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="2_irwdh"]
 [ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="3_f1lur"]
 
 [sub_resource type="Animation" id="Animation_tocbs"]
@@ -90,6 +90,42 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SuitColors:frame_coords")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SuitColors:z_index")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SuitColors:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ogplf"]
@@ -193,6 +229,42 @@ tracks/7/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SuitColors:frame_coords")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.183334, 0.25, 0.316667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SuitColors:z_index")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.183334, 0.450001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [-1, 1, -1]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SuitColors:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.316667, 0.383334, 0.466668, 0.533334, 0.600001, 0.666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, true, false, true, false]
+}
 
 [sub_resource type="Animation" id="Animation_7ayio"]
 resource_name = "summon_2_idle"
@@ -219,6 +291,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SuitColors:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kv0gf"]
@@ -267,8 +351,8 @@ tracks/2/keys = {
 "values": [Vector2(-20, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_qff6s"]
-resource_name = "summon_2_release"
+[sub_resource type="Animation" id="Animation_6s3r6"]
+resource_name = "summon_2_dash"
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -292,7 +376,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.266667, 0.483333, 0.666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-20, 0), Vector2(22.5, 0), Vector2(75, 0), Vector2(110, 0), Vector2(125, 0)]
+"values": [Vector2(0, 0), Vector2(22.5, 0), Vector2(75, 0), Vector2(110, 0), Vector2(125, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -368,15 +452,57 @@ tracks/7/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SuitColors:frame_coords")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.183334, 0.25, 0.316667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SuitColors:z_index")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.183334, 0.450001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [-1, 1, -1]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SuitColors:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.316667, 0.383334, 0.466668, 0.533334, 0.600001, 0.666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, true, false, true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2aovx"]
 _data = {
 "summon_2_idle": SubResource("Animation_m2ga1"),
-"summon_2_release": SubResource("Animation_qff6s")
+"summon_2_release": SubResource("Animation_6s3r6")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tte6j"]
-shader = ExtResource("2_hlcx2")
+shader = ExtResource("2_irwdh")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/fps = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r1vha"]
+shader = ExtResource("2_irwdh")
 shader_parameter/skip_first_row = true
 shader_parameter/use_palette_alpha = false
 shader_parameter/fps = 6.0
@@ -401,6 +527,14 @@ libraries = {
 z_index = -1
 texture_filter = 1
 material = SubResource("ShaderMaterial_tte6j")
+texture = ExtResource("1_q84mh")
+offset = Vector2(0, -64)
+hframes = 5
+
+[node name="SuitColors" type="Sprite2D" parent="Node2D"]
+z_index = -1
+texture_filter = 1
+material = SubResource("ShaderMaterial_r1vha")
 texture = ExtResource("1_q84mh")
 offset = Vector2(0, -64)
 hframes = 5

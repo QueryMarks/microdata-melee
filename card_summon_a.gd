@@ -6,19 +6,24 @@ class_name CardSummonaState
 func enter():
 	super()
 	var deck = player.get_node("Deck")
-	player.anim_play(player.character_name+"/card_summon")
-	var my_summon = deck.hand[0].rank.summon.instantiate()
-	var my_summon_script = my_summon.get_child(0)
-	my_summon_script.player = player
-	my_summon_script.my_rank = deck.hand[0].rank
-	my_summon_script.my_suit = deck.hand[0].suit
-	my_summon_script.my_input = player.input_a
-	
-	#my_summon.get_child(0).get_node("Sprite2D").material.set_shader_parameter("palette", player.get_node("Deck").)
-	get_tree().get_root().get_node("RoundStart").add_child(my_summon)
-	
-	my_summon.position.x = player.position.x
-	my_summon.scale.x *= player.my_facing
+	if (deck.hand[0]):
+		player.anim_play(player.character_name+"/card_summon")
+		var my_summon = deck.hand[0].rank.summon.instantiate()
+		var my_summon_script = my_summon.get_child(0)
+		my_summon_script.player = player
+		my_summon_script.my_rank = deck.hand[0].rank
+		my_summon_script.my_suit = deck.hand[0].suit
+		my_summon_script.my_input = player.input_a
+		
+		deck.card_used(0)
+		
+		#my_summon.get_child(0).get_node("Sprite2D").material.set_shader_parameter("palette", player.get_node("Deck").)
+		get_tree().get_root().get_node("RoundStart").add_child(my_summon)
+		
+		my_summon.position.x = player.position.x
+		my_summon.scale.x *= player.my_facing
+	else:
+		print("no card in hand")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

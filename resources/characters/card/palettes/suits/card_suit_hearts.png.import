@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4hggf2x0aqtg"
-path="res://.godot/imported/card_weird.png-b4c8a368fc7d8bc7b1df045c90109e7e.ctex"
+uid="uid://clg56x8i0wq1e"
+path="res://.godot/imported/card_suit_hearts.png-9c9e7814655385f4069e1e9ce2ac2481.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/characters/card/palettes/card_weird.png"
-dest_files=["res://.godot/imported/card_weird.png-b4c8a368fc7d8bc7b1df045c90109e7e.ctex"]
+source_file="res://resources/characters/card/palettes/suits/card_suit_hearts.png"
+dest_files=["res://.godot/imported/card_suit_hearts.png-9c9e7814655385f4069e1e9ce2ac2481.ctex"]
 
 [params]
 

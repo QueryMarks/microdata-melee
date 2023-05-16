@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://cr310pf4i3kh2"]
 
-[ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="1_wkpr7"]
+[ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="1_c68kg"]
 [ext_resource type="Texture2D" uid="uid://cg1a0oew0cahn" path="res://resources/characters/card/sprites/card sprite sheet.png" id="2_h677j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i22av"]
 resource_local_to_scene = true
-shader = ExtResource("1_wkpr7")
+shader = ExtResource("1_c68kg")
 shader_parameter/skip_first_row = true
 shader_parameter/use_palette_alpha = false
 shader_parameter/fps = 6.0

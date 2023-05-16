@@ -17,6 +17,13 @@ var summon_timer = 0
 func _ready():
 	sprite = $Sprite2D
 	sprite.material = sprite.material.duplicate()
+	sprite.material.set_shader_parameter("palette", player.get_node("Sprite2D").material.get_shader_parameter("palette"))
+	
+	var suit_colors = $SuitColors
+	suit_colors.material = suit_colors.material.duplicate()
+	suit_colors.material.set_shader_parameter("palette", my_suit.palette)
+	
+	
 	hitstop_timer = $HitstopTimer
 	hitstop_timer.timeout.connect(hit_restart)
 	get_parent().get_parent().remove_me.append(get_parent())
