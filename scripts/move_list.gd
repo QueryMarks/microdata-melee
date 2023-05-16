@@ -2,7 +2,7 @@ extends Node
 class_name MoveList
 
 @export var player : Node
-@export var input_reader : Node
+@export var input_log : Node
 @export var state_machine : Node
 
 #These arrays hold groups of inputs. Each array is used when checking for specific groups of moves via os_action_check.
@@ -45,7 +45,7 @@ var my_throw
 
 func _ready():
 	player = self.get_parent()
-	input_reader = player.get_node("InputReader")
+	input_log = player.get_node("InputLog")
 	state_machine = player.get_node("StateMachine")
 
 func move_change_state(_inputs : Array):

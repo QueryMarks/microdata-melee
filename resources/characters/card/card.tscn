@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dpowklmtj8rea"]
+[gd_scene load_steps=38 format=3 uid="uid://dpowklmtj8rea"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p0blo"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_pajsi"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c0p5vtdww7uls" path="res://resources/characters/card/palettes/card_red.png" id="13_robhk"]
 [ext_resource type="Texture2D" uid="uid://ca8dq4h2vo5v" path="res://resources/characters/card/palettes/card_blue.png" id="14_1nyu8"]
 [ext_resource type="Texture2D" uid="uid://c4j51qcd7cos5" path="res://resources/characters/card/used_up_card_palette.png" id="15_as2mm"]
+[ext_resource type="Script" path="res://input_log.gd" id="17_v3bum"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ayr5o"]
 size = Vector2(23, 36)
@@ -408,5 +409,9 @@ modulate = Color(1, 0, 0, 1)
 self_modulate = Color(0.993421, 0, 0.216357, 1)
 shape = SubResource("RectangleShape2D_ypsmb")
 disabled = true
+
+[node name="InputLog" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("17_v3bum")
+player = NodePath("..")
 
 [editable path="StateMachine"]

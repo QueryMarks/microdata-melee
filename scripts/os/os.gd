@@ -3,7 +3,7 @@ class_name OSStyle
 
 var player : Node
 var move_list : Node
-var input_reader : InputReader
+var input_log : InputLog
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = self.get_parent()
@@ -11,8 +11,8 @@ func _ready():
 	for node in player.get_children():
 		if node is MoveList:
 			move_list = node
-		elif node is InputReader:
-			input_reader = node
+		elif node is InputLog:
+			input_log = node
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,3 +22,10 @@ func _physics_process(_delta):
 
 func os_action_check(_tags : Array):
 	return false
+
+func os_change_state_check(move : Move):
+	if move.check_inputs(input_log.input_log, player.facing):
+		player.state_machine.change_state(move.state.new())
+		return true
+	else:
+		return false
