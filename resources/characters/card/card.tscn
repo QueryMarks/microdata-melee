@@ -189,10 +189,10 @@ disabled = true
 texture_filter = 3
 material = SubResource("ShaderMaterial_kxekc")
 texture = ExtResource("7_v5jnl")
-offset = Vector2(0, -32)
-hframes = 8
-vframes = 35
-frame = 16
+offset = Vector2(0, -64)
+hframes = 7
+vframes = 33
+frame = 14
 
 [node name="Hitboxes" type="Node2D" parent="."]
 

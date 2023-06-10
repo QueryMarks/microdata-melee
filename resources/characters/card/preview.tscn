@@ -39,9 +39,9 @@ _data = {
 texture_filter = 3
 material = SubResource("ShaderMaterial_i22av")
 texture = ExtResource("2_h677j")
-offset = Vector2(0, -32)
-hframes = 8
-vframes = 32
+offset = Vector2(0, -64)
+hframes = 7
+vframes = 33
 frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
