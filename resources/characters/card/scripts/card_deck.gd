@@ -1,7 +1,7 @@
 extends Node
 
 var deck = []
-var hand = []
+var hand = [null, null, null, null, null]
 var player
 var card_hand_ui
 
@@ -63,8 +63,8 @@ func update_hand():
 		if hand[index] != null:
 			print(hand[index].rank.rank_abbrev)
 			card_ui.get_node("Label").text = hand[index].rank.rank_abbrev
-			if player_palette:
-				card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  player_palette)
+			card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  player_palette)
+				
 		else: 
 			print("no card here")
 			card_ui.get_node("Label").text = ""
@@ -75,12 +75,34 @@ func _process(_delta):
 	pass
 
 func new_hand():
-	hand.clear()
+	for i in hand.size():
+		if hand[i] != null:
+			card_used(i)
 	for count in range(5):
-		hand.append(deck[count])
-		
+		hand[count] = (deck[count])
+		print(deck[count].rank.rank_string+" "+deck[count].suit.suit_string)
+	for count in range(5):
+		deck.remove_at(count)
+	
 func card_used(index):
+	deck.append(hand[index])
 	hand[index] = null
+	update_hand()
+	
+func refill_hand():
+	var deck_index = 0
+	for i in hand.size():
+		if hand[i] == null:
+			print("null!")
+			hand[i] = deck[deck_index]
+			
+			deck_index += 1
+	for count in range(deck_index+1):
+		deck.remove_at(count)
+	update_hand()
+	
+func shuffle_hand():
+	new_hand()
 	update_hand()
 
 #no longer used, ignore the below function
