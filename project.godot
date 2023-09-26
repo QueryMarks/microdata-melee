@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Microdata Melee"
 run/main_scene="res://scenes/title.tscn"
-config/features=PackedStringArray("4.0")
+config/features=PackedStringArray("4.1")
 config/icon="res://icon.png"
 
 [autoload]
@@ -170,7 +170,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-textures/vram_compression/import_s3tc_bptc=false
 textures/default_filters/use_nearest_mipmap_filter=true
 environment/defaults/default_clear_color=Color(0.282353, 0.243137, 0.423529, 1)
 environment/default_environment="res://default_env.tres"

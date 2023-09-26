@@ -10,7 +10,7 @@ func os_action_check(tags : Array):
 		
 		if tags.has("actionable"):
 			#for move in [move_list.ground_supers + move_list.ground_specials + move_list.ground_throw + move_list.ground_command_normals + move_list.ground_normals + [Move.new([["5","4","5","4"], ["4","o"]], BackdashState, 8), ["5","6","5","6"], ["o"]]):
-			for move in move_list.ground_supers + move_list.ground_specials + move_list.ground_grab + move_list.ground_command_normals + move_list.ground_normals + [Move.new([["5","4","5","4"], ["4","o"]], BackdashState, 8)]:
+			for move in move_list.ground_supers + move_list.ground_specials + move_list.ground_grab + move_list.ground_command_normals + move_list.ground_normals + [Move.new([["5","6","5","6"], ["6","o"]], DashState, 8)] + [Move.new([["5","4","5","4"], ["4","o"]], BackdashState, 8)]:
 				if os_change_state_check(move):
 					return true
 

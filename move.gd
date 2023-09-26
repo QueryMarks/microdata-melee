@@ -2,10 +2,16 @@ class_name Move
 
 # Contains array of valid move input sequences, example: [["2", "3", "6", "a"], ["2", "3", "6", "b"]]
 var move_input_sequences = []
+
 # Number of frames allowed between inputs in sequence. Charge moves or moves with very unique inputs should inherit this class and alter its logic.
 var lenience := 8
+
 # Number of frames allowed between final input of the move being pressed and the input being checked. 5 by default.
 var first_lenience := 5
+
+# Number of frames allowed between "simultaneous" button inputs, such as ab for grab. 3 by default.
+var simultaneous_button_lenience := 3
+
 # State to change to on a valid input sequence.
 var state : GDScript
 
@@ -14,9 +20,10 @@ func _init(mis, s, l = 8, fl = 5):
 	state = s
 	lenience = l
 	first_lenience = fl
-# Method to check if inputs match a move input sequence. Takes an array of inputs.
+	
+	
+# Method to check if inputs match a move input sequence. Takes an array of inputs. This section is *really* hard to parse; I'd like to clean it up.
 func check_inputs(input_log, facing):
-	#reverse inputs, if necessary
 	#for each input sequence that can perform the move, example: ["2", "3", "6", "a"]
 	for input_sequence in move_input_sequences:
 		#if not facing right, flip input sequence, example: ["2", "1", "4", "a"]
@@ -27,22 +34,44 @@ func check_inputs(input_log, facing):
 		
 		
 		#do not perform input check if last input in sequence was not started in log within the past 5 frames
-		var last_input = input_sequence.back()
+		var last_input_in_sequence = input_sequence.back()
+		#first_lenience_check tracks how many frames backwards we've looked for the last input in the sequence. starts at 0. once it goes past first_lenience, we stop checking and the move input is invalid
 		var first_lenience_check = 0
 		var first_input_in_log = false
+		#button_inputs tracks if the input is a button or a direction. inputs like 6a should be valid even if 6 is held, but inputs like ab should not be valid if one button has been held for too long
 		var button_inputs = ["a", "b", "c", "d", "o", "s"]
+		
+		#iterate backwards through every input in the log. Will stop at 0, the first input recorded, although the for loop is broken when we get past "first_lenience_check".
 		for j in range(current_log_index, -1, -1):
-			if typeof(last_input) == TYPE_STRING:
-				if (!first_input_in_log) and (input_sequence[-1] in input_log[j].input):
+			#if the last input of the sequence is a singular button or direction, not a combination
+			if typeof(last_input_in_sequence) == TYPE_STRING:
+				#if we haven't yet found the first input, and if it's in the current log index,
+				if (!first_input_in_log) and (last_input_in_sequence in input_log[j].input):
 					first_input_in_log = true
 					first_lenience_check += input_log[j].frames
-				elif (first_input_in_log) and !(input_sequence[-1] in input_log[j].input):
+				#else, if the first input has been found and *is not* still inputted at the current log. this means tapped inputs like "a" will not register as valid if "a" is held for too long.
+				elif (first_input_in_log) and !(last_input_in_sequence in input_log[j].input):
 					break
 				else:
 					first_lenience_check += input_log[j].frames
+			elif typeof(last_input_in_sequence) == TYPE_ARRAY:
+				#set a variable to track if all simultaneous inputs can be found. if so, execute the move. if one simultaneous input is found to be false, the move does not execute
+				var simultaneous_inputs_valid = true
+				for input_part in last_input_in_sequence:
+					if !input_part in input_log[j].input:
+						simultaneous_inputs_valid = false
+						break
+				if !first_input_in_log and simultaneous_inputs_valid:
+					first_input_in_log = true
+					first_lenience_check += input_log[j].frames
+					print(input_log[j].frames)
+				elif first_input_in_log and !simultaneous_inputs_valid:
+					break
+				else:
+					first_lenience_check += input_log[j].frames
+				
 			if first_lenience_check > first_lenience:
 							break			
-				
 				
 		if (first_lenience_check <= first_lenience) and (first_input_in_log):
 			for i in range(input_sequence.size() -1, -1, -1):

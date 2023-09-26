@@ -20,7 +20,7 @@ func _init():
 	my_2b = Move.new([[["down","b"]]],Card2bState)
 	my_2c = Move.new([[["down","c"]]],Card2cState)
 	my_ja = Move.new([["a"]],CardjaState)
-	my_jb = Move.new([["a"]],CardjbState)
+	my_jb = Move.new([["b"]],CardjbState)
 	my_grab = Move.new([[["a","b"]]],GrabState)
 	my_throw = ThrowState
 	

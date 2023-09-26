@@ -24,9 +24,7 @@ func _physics_process(_delta):
 		if grab_timer >= 3:
 
 			tags.erase("can_grab")
-			print(tags)
 		else:
-			print("else timer is " + str(grab_timer))
 			player.os.os_action_check(["ground", "can_grab"])
 			grab_timer += 1
 
