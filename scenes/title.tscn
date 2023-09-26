@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfulaeb5yxukl"]
+[gd_scene load_steps=7 format=3 uid="uid://bfulaeb5yxukl"]
 
-[ext_resource type="Texture2D" uid="uid://edl88smbmrxa" path="res://sprites/Street_Fighter_Logo.png" id="1_mpp6k"]
 [ext_resource type="FontFile" uid="uid://drigi4ou15cr0" path="res://fonts/EquipmentPro.ttf" id="2_aq1h8"]
 [ext_resource type="StyleBox" uid="uid://cgkrtysd83qy2" path="res://title_buttons.tres" id="3_racfd"]
 [ext_resource type="Script" path="res://scenes/title_screen_focus.gd" id="3_v4xea"]
@@ -15,12 +14,6 @@ default_font = ExtResource("2_aq1h8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-9.53674e-07, -57)
-scale = Vector2(0.218333, 0.222973)
-texture = ExtResource("1_mpp6k")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_left = -40.0
@@ -50,7 +43,7 @@ theme = SubResource("Theme_y0uej")
 theme_override_styles/normal = ExtResource("3_racfd")
 theme_override_styles/hover = ExtResource("5_34d0p")
 theme_override_styles/focus = ExtResource("5_34d0p")
-text = "GAMING!!"
+text = "VS."
 
 [node name="Button2" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -63,4 +56,4 @@ focus_previous = NodePath("../Button1")
 theme_override_styles/normal = ExtResource("3_racfd")
 theme_override_styles/hover = ExtResource("5_34d0p")
 theme_override_styles/focus = ExtResource("5_34d0p")
-text = " NOT GAMING "
+text = "     QUIT     "
