@@ -56,8 +56,8 @@ func _physics_process(_delta):
 	if Input.is_action_pressed(player.input_o):
 		this_input_frame.input.append("o")
 	if ((input_log == []) or !(this_input_frame.input == input_log.back().input)):
-		if input_log != []:
-			print("This frame's input is " + str(this_input_frame.input) + ". The previous input was " + str(input_log.back().input))
+		#if input_log != []:
+			#print("This frame's input is " + str(this_input_frame.input) + ". The previous input was " + str(input_log.back().input))
 		input_log.append(this_input_frame)
 		
 	input_log.back().frames += 1

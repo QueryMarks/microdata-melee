@@ -64,7 +64,6 @@ func check_inputs(input_log, facing):
 				if !first_input_in_log and simultaneous_inputs_valid:
 					first_input_in_log = true
 					first_lenience_check += input_log[j].frames
-					print(input_log[j].frames)
 				elif first_input_in_log and !simultaneous_inputs_valid:
 					break
 				else:
@@ -104,7 +103,6 @@ func check_inputs(input_log, facing):
 								valid = false
 								break
 			if valid:
-				print(str(input_sequence) + " was valid.")
 				return true
 			else:
 				pass
