@@ -219,8 +219,10 @@ hitstop = 8
 knockback = Vector2(30, -50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5aHitbox"]
+visible = false
 position = Vector2(15.5, -22.5)
 shape = SubResource("RectangleShape2D_ytqxq")
+disabled = true
 debug_color = Color(0.886275, 0, 0.290196, 0.419608)
 
 [node name="5bHitbox" type="Area2D" parent="Hitboxes"]
