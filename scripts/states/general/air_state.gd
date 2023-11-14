@@ -17,4 +17,8 @@ func get_hit(hitbox : Hitbox):
 func _physics_process(_delta):
 	player.velocity.y += player.gravity
 	if player.is_on_floor():
+		if (player.position.x > player.opponent.position.x) and (player.my_facing != -1):
+			player.turn()
+		elif (player.position.x < player.opponent.position.x) and (player.my_facing != 1):
+			player.turn()
 		state_machine.change_state(IdleState.new())

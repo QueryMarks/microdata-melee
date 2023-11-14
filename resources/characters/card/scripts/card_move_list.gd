@@ -21,6 +21,8 @@ func _init():
 	my_2c = Move.new([[["down","c"]]],Card2cState)
 	my_ja = Move.new([["a"]],CardjaState)
 	my_jb = Move.new([["b"]],CardjbState)
+	my_jc = Move.new([["c"]],CardjcState)
+	
 	my_grab = Move.new([[["a","b"]]],GrabState)
 	my_throw = ThrowState
 	
@@ -71,7 +73,8 @@ func _init():
 	air_normals = [
 		
 	my_ja,
-	my_jb
+	my_jb,
+	my_jc
 	]
 	
 	air_normals_a = [
@@ -82,6 +85,9 @@ func _init():
 	air_normals_b = [
 		
 		my_jb
+	]
+	air_normals_c = [
+		my_jc
 	]
 
 
