@@ -7,7 +7,7 @@ signal released
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func this_hit(grab_check, player_hit):
+func this_hit(grab_check, player_hit, box_hit):
 	match grab_check:
 		"grab":
 			grabbed_player = player_hit

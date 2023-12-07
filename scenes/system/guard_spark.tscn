@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4lkecrpd2brf"]
+
+[ext_resource type="Script" path="res://scripts/hit_spark.gd" id="1_a4q4h"]
+[ext_resource type="Texture2D" uid="uid://c62j0ccnl85ty" path="res://sprites/lazy blockspark.png" id="2_3utxw"]
+
+[sub_resource type="Animation" id="Animation_ak5n5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k4ylf"]
+resource_name = "hit_spark"
+length = 0.133335
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0166667, 0.0333333, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tj6oo"]
+_data = {
+"RESET": SubResource("Animation_ak5n5"),
+"hit_spark": SubResource("Animation_k4ylf")
+}
+
+[node name="guard_spark" type="Node2D"]
+script = ExtResource("1_a4q4h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_3utxw")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tj6oo")
+}

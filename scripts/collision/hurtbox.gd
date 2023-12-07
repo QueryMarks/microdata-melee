@@ -23,7 +23,7 @@ func check_hitbox(hitbox):
 		if hitbox is Grabbox:
 			call_deferred("check_grabbox",hitbox)
 		elif hitbox is Hitbox:
-			hitbox.this_hit(owner.get_hit(hitbox), owner)
+			hitbox.this_hit(owner.get_hit(hitbox), owner, self)
 func check_grabbox(hitbox):
 	if hitbox.owner.state_machine.current_state is GrabState:
-		hitbox.this_hit(owner.get_grabbed(hitbox), owner)
+		hitbox.this_hit(owner.get_grabbed(hitbox), owner, self)

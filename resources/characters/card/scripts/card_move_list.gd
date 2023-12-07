@@ -12,7 +12,6 @@ func get_summon_path(rank : String):
 
 # Called when the node enters the scene tree for the first time.
 func _init():
-	super()
 	my_5a = Move.new([["a"]], Card5aState)
 	my_5b = Move.new([["b"]], Card5bState)
 	my_5c = Move.new([["c"]], Card5cState)
