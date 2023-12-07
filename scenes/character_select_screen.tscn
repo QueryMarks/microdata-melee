@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://caega2vwfpk48"]
 
-[ext_resource type="Texture2D" uid="uid://8p4er31w1fxw" path="res://sprites/ui/css bg.png" id="1_mfyhk"]
+[ext_resource type="Texture2D" uid="uid://8p4er31w1fxw" path="res://sprites/css bg.png" id="1_c4fc8"]
 [ext_resource type="Texture2D" uid="uid://bcjdwjwrusiwb" path="res://sprites/ui/css grid.png" id="2_11ydh"]
 [ext_resource type="Script" path="res://scripts/css_adder.gd" id="3_nwsvq"]
 [ext_resource type="PackedScene" uid="uid://ddusf3ay6shqf" path="res://scenes/css_cursor.tscn" id="3_uv6po"]
@@ -22,7 +22,7 @@ offset_right = 80.0
 offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_mfyhk")
+texture = ExtResource("1_c4fc8")
 stretch_mode = 2
 
 [node name="Camera2D2" type="Camera2D" parent="."]

@@ -160,7 +160,7 @@ script = ExtResource("2_pajsi")
 player = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-playback_process_mode = 0
+callback_mode_process = 0
 libraries = {
 "": SubResource("AnimationLibrary_ims83"),
 "card": ExtResource("3_lfxwa")

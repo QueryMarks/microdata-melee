@@ -19,10 +19,13 @@ signal this_hit_something
 var my_hitbox
 var hit_list = []
 
+@export var my_hit_spark : PackedScene = preload("res://scenes/system/hit_spark.tscn")
+@export var my_guard_spark : PackedScene = preload("res://scenes/system/guard_spark.tscn")
+
 func _init() -> void:
 	collision_layer = 2
 
-func this_hit(hit_block, player_hit):
+func this_hit(hit_block, player_hit, box_hit):
 	this_hit_something.emit()
 	match hit_block:
 		"hit":
@@ -32,6 +35,7 @@ func this_hit(hit_block, player_hit):
 				player.call_deferred("hit_stop", hitstop)
 			if projectile:
 				projectile.call_deferred("hit_stop", hitstop)
+			spawn_hitspark(box_hit)
 
 		"block":
 			player.state_machine.current_state.has_hit = true
@@ -39,6 +43,7 @@ func this_hit(hit_block, player_hit):
 				player.call_deferred("hit_stop", hitstop)
 			if projectile:
 				projectile.call_deferred("hit_stop", hitstop)
+			spawn_guardspark(box_hit)
 			
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -67,3 +72,24 @@ func _physics_process(_delta):
 		player_index = player.player_index
 	if my_hitbox.disabled && hit_list != []:
 		hit_list = []
+		
+func spawn_hitspark(box_hit):
+	var spawned_hit_spark = my_hit_spark.instantiate()
+	get_tree().root.add_child(spawned_hit_spark)
+	var pos_to_spawn : Vector2
+	pos_to_spawn.x = (my_hitbox.global_position.x+box_hit.global_position.x)/2
+	pos_to_spawn.y = my_hitbox.global_position.y
+	spawned_hit_spark.global_position = pos_to_spawn
+	spawned_hit_spark.z_index = 1
+	pass
+
+#identical function for now, things will change
+func spawn_guardspark(box_hit):
+	var spawned_hit_spark = my_guard_spark.instantiate()
+	get_tree().root.add_child(spawned_hit_spark)
+	var pos_to_spawn : Vector2
+	pos_to_spawn.x = (my_hitbox.global_position.x+box_hit.global_position.x)/2
+	pos_to_spawn.y = my_hitbox.global_position.y
+	spawned_hit_spark.global_position = pos_to_spawn
+	spawned_hit_spark.z_index = 1
+	pass
