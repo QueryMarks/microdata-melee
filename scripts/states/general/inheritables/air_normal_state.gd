@@ -1,4 +1,4 @@
-extends State
+extends AirState
 class_name AirNormalState
 
 
@@ -9,9 +9,7 @@ func enter():
 
 
 func _physics_process(_delta):
-	player.velocity.y += player.gravity
-	if player.is_on_floor():
-		state_machine.change_state(IdleState.new())
+	super(_delta)
 
 func exit():
 	player.get_node("Sprite2D").z_index = 0

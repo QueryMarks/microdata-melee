@@ -83,6 +83,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hitboxes/5bHitbox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ims83"]
 _data = {
@@ -93,7 +105,7 @@ _data = {
 size = Vector2(24, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmbbf"]
-size = Vector2(15, 11)
+size = Vector2(20, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m12ty"]
 size = Vector2(18, 10)
@@ -178,7 +190,7 @@ position = Vector2(3, -17)
 shape = SubResource("RectangleShape2D_m7vcu")
 
 [node name="Hurtbox2" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(14.5, -23.5)
+position = Vector2(8, -4.5)
 shape = SubResource("RectangleShape2D_qmbbf")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
@@ -219,14 +231,12 @@ hitstop = 8
 knockback = Vector2(30, -50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5aHitbox"]
-visible = false
 position = Vector2(15.5, -22.5)
 shape = SubResource("RectangleShape2D_ytqxq")
 disabled = true
-debug_color = Color(0.886275, 0, 0.290196, 0.419608)
+debug_color = Color(0.996078, 0, 0, 0.419608)
 
 [node name="5bHitbox" type="Area2D" parent="Hitboxes"]
-visible = false
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_hds3c")
@@ -235,11 +245,10 @@ hitstop = 10
 knockback = Vector2(50, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5bHitbox"]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(0.993421, 0, 0.216357, 1)
 position = Vector2(16, -4.75)
 shape = SubResource("RectangleShape2D_3utw4")
 disabled = true
+debug_color = Color(0.996078, 0, 0, 0.419608)
 
 [node name="5cHitbox" type="Area2D" parent="Hitboxes"]
 visible = false
@@ -251,11 +260,10 @@ hitstun = 20
 knockback = Vector2(150, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5cHitbox"]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(0.993421, 0, 0.216357, 1)
 position = Vector2(21.5, -18.5)
 shape = SubResource("RectangleShape2D_e0i2e")
 disabled = true
+debug_color = Color(0.996078, 0, 0, 0.419608)
 
 [node name="5dHitbox" type="Area2D" parent="Hitboxes"]
 visible = false
@@ -267,11 +275,10 @@ hitstun = 20
 knockback = Vector2(100, -90)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5dHitbox"]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(0.993421, 0, 0.216357, 1)
 position = Vector2(18.5, -21.75)
 shape = SubResource("RectangleShape2D_iinxj")
 disabled = true
+debug_color = Color(0.996078, 0, 0, 0.419608)
 
 [node name="jaHitbox" type="Area2D" parent="Hitboxes"]
 visible = false
@@ -284,11 +291,10 @@ knockback = Vector2(20, -10)
 hit_type = "high"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/jaHitbox"]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(0.993421, 0, 0.216357, 1)
 position = Vector2(19, -19)
 shape = SubResource("RectangleShape2D_lt6yh")
 disabled = true
+debug_color = Color(0.996078, 0, 0, 0.419608)
 
 [node name="jaHitbox2" type="Area2D" parent="Hitboxes"]
 visible = false
@@ -301,11 +307,10 @@ knockback = Vector2(40, -10)
 hit_type = "high"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/jaHitbox2"]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(0.993421, 0, 0.216357, 1)
 position = Vector2(19, -21.5)
 shape = SubResource("RectangleShape2D_skxjn")
 disabled = true
+debug_color = Color(0.996078, 0, 0, 0.419608)
 
 [node name="jbHitbox" type="Area2D" parent="Hitboxes"]
 visible = false
@@ -318,11 +323,10 @@ knockback = Vector2(50, -50)
 hit_type = "high"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/jbHitbox"]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(0.993421, 0, 0.216357, 1)
 position = Vector2(14.5, -10.5)
 shape = SubResource("RectangleShape2D_ya238")
 disabled = true
+debug_color = Color(0.996078, 0, 0, 0.419608)
 
 [node name="2aHitbox" type="Area2D" parent="Hitboxes"]
 visible = false
@@ -332,10 +336,9 @@ collision_mask = 0
 script = ExtResource("7_hds3c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/2aHitbox"]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(0.993421, 0, 0.216357, 1)
 shape = SubResource("RectangleShape2D_l6a20")
 disabled = true
+debug_color = Color(0.996078, 0, 0, 0.419608)
 
 [node name="2bHitbox" type="Area2D" parent="Hitboxes"]
 visible = false
@@ -349,11 +352,10 @@ knockback = Vector2(30, 0)
 hit_type = "low"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/2bHitbox"]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(0.993421, 0, 0.216357, 1)
 position = Vector2(15.5, -5)
 shape = SubResource("RectangleShape2D_ktrt1")
 disabled = true
+debug_color = Color(0.996078, 0, 0, 0.419608)
 
 [node name="2cHitbox" type="Area2D" parent="Hitboxes"]
 visible = false
@@ -366,11 +368,10 @@ hitstop = 10
 knockback = Vector2(-10, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/2cHitbox"]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(0.993421, 0, 0.216357, 1)
 position = Vector2(1, -4)
 shape = SubResource("RectangleShape2D_i07tk")
 disabled = true
+debug_color = Color(0.996078, 0, 0, 0.419608)
 
 [node name="CardMoveList" type="Node" parent="."]
 script = ExtResource("8_nvq6e")
@@ -412,7 +413,7 @@ blockstop = 0
 knockback = Vector2(150, -100)
 
 [node name="GrabPoint" type="Node2D" parent="Grabboxes/Throw"]
-position = Vector2(0, -1)
+position = Vector2(17, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grabboxes/Throw"]
 modulate = Color(1, 0, 0, 1)
