@@ -202,7 +202,6 @@ disabled = true
 [node name="Hurtbox4" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(14.5, -11.75)
 shape = SubResource("RectangleShape2D_rvntp")
-disabled = true
 
 [node name="Hurtbox5" type="CollisionShape2D" parent="Hurtbox"]
 visible = false
