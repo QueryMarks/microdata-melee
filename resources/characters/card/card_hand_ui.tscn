@@ -19,7 +19,7 @@ offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qcuy2")
-theme_override_constants/h_separation = 11
+theme_override_constants/h_separation = 13
 theme_override_constants/v_separation = 13
 columns = 3
 
