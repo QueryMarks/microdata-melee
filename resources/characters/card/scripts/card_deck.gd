@@ -64,11 +64,13 @@ func update_hand():
 			print(hand[index].rank.rank_abbrev)
 			card_ui.get_node("Label").text = hand[index].rank.rank_abbrev
 			card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  player_palette)
+			card_ui.get_node("SuitSprite").frame = hand[index].suit.suit_icon_index
 				
 		else: 
 			print("no card here")
 			card_ui.get_node("Label").text = ""
 			card_ui.get_node("Sprite2D").material.set_shader_parameter("palette",  used_card_palette)
+			card_ui.get_node("SuitSprite").frame = 0
 		index += 1
 
 func _process(_delta):
