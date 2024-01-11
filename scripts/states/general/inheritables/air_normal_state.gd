@@ -14,5 +14,6 @@ func _physics_process(_delta):
 func exit():
 	player.get_node("Sprite2D").z_index = 0
 	for node in player.get_node("Hitboxes").get_children():
-		if node.get_node("CollisionShape2D").disabled == false:
-			node.get_node("CollisionShape2D").set_deferred("disabled",true)
+		for shape in node.get_children():
+			if shape.disabled == false:
+				shape.set_deferred("disabled",true)

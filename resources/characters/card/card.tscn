@@ -86,7 +86,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Hitboxes/5bHitbox/CollisionShape2D:disabled")
+tracks/5/path = NodePath("Hitboxes/5bHitbox/5bCollisionShape:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -105,7 +105,7 @@ _data = {
 size = Vector2(24, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmbbf"]
-size = Vector2(20, 9)
+size = Vector2(15, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m12ty"]
 size = Vector2(18, 10)
@@ -190,7 +190,7 @@ position = Vector2(3, -17)
 shape = SubResource("RectangleShape2D_m7vcu")
 
 [node name="Hurtbox2" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(8, -4.5)
+position = Vector2(10, -22)
 shape = SubResource("RectangleShape2D_qmbbf")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
@@ -229,7 +229,7 @@ hitstun = 10
 hitstop = 8
 knockback = Vector2(30, -50)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5aHitbox"]
+[node name="5aCollisionShape" type="CollisionShape2D" parent="Hitboxes/5aHitbox"]
 position = Vector2(15.5, -22.5)
 shape = SubResource("RectangleShape2D_ytqxq")
 disabled = true
@@ -243,7 +243,7 @@ hitstun = 18
 hitstop = 10
 knockback = Vector2(50, -10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/5bHitbox"]
+[node name="5bCollisionShape" type="CollisionShape2D" parent="Hitboxes/5bHitbox"]
 position = Vector2(16, -4.75)
 shape = SubResource("RectangleShape2D_3utw4")
 disabled = true
