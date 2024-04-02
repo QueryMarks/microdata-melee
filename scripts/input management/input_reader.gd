@@ -1,6 +1,7 @@
 extends Node
 class_name InputReader
 
+#THIS SCRIPT IS DEPRECATED. inputs are now logged in "input_log.gd" and compared in "move.gd". Do not use this script anymore.
 @export var my_device = 0
 @export var player : Node
 var input_history_buttons = []
@@ -10,59 +11,59 @@ var temp_input_dict = {}
 var input_leniency = 10
 var first_input_leniency = 5
 	
-func _physics_process(_delta):
-	temp_input_dict.clear()
-
-	#add inputs to this frame's dictionary.
-	#numpad notation (1, 2, 3, etc) are used for precise inputs. direction notation (down, up, back, forward) are used for cardinal directions -- for example, 1, 2, and 3 would all still register "down". useful for crouching moves or moves that aren't picky about diagonals
-	if Input.is_action_pressed(player.input_up) and !Input.is_action_pressed(player.input_down): 
-		temp_input_dict["up"] = true
-		if Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
-			temp_input_dict["back"] = true
-			temp_input_dict["7"] = true
-		elif Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left):
-			temp_input_dict["forward"] = true
-			temp_input_dict["9"] = true
-		else:
-			temp_input_dict["8"] = true
-	elif Input.is_action_pressed(player.input_down) and !Input.is_action_pressed(player.input_up):
-		temp_input_dict["down"] = true
-		if Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
-			temp_input_dict["back"] = true
-			temp_input_dict["1"] = true
-		elif Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left):
-			temp_input_dict["forward"] = true
-			temp_input_dict["3"] = true
-		else:
-			temp_input_dict["2"] = true
-
-	elif Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
-		temp_input_dict["back"] = true
-		temp_input_dict["4"] = true
-	elif Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left):
-		temp_input_dict["forward"] = true
-		temp_input_dict["6"] = true
-	else:
-		temp_input_dict["5"] = true
-	if Input.is_action_pressed(player.input_a):
-		temp_input_dict["a"] = true
-	if Input.is_action_pressed(player.input_b):
-		temp_input_dict["b"] = true
-	if Input.is_action_pressed(player.input_c):
-		temp_input_dict["c"] = true
-	if Input.is_action_pressed(player.input_d):
-		temp_input_dict["d"] = true
-	if Input.is_action_pressed(player.input_o):
-		temp_input_dict["o"] = true
-	if ((input_history_buttons == []) or (temp_input_dict.hash() != input_history_buttons.back().hash())):
-		#uncomment the following 3 lines when debugging inputs
-#		if input_history_buttons != []:
-#			print("Releasing " + str(input_history_buttons.back()) + " after " + str(input_history_frames.back()))
-#			print("pressing" + str(temp_input_dict))
-		input_history_buttons.append(temp_input_dict.duplicate())
-		input_history_frames.append(0)
-		
-	input_history_frames[-1] += 1
+#func _physics_process(_delta):
+	#temp_input_dict.clear()
+#
+	##add inputs to this frame's dictionary.
+	##numpad notation (1, 2, 3, etc) are used for precise inputs. direction notation (down, up, back, forward) are used for cardinal directions -- for example, 1, 2, and 3 would all still register "down". useful for crouching moves or moves that aren't picky about diagonals
+	#if Input.is_action_pressed(player.input_up) and !Input.is_action_pressed(player.input_down): 
+		#temp_input_dict["up"] = true
+		#if Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
+			#temp_input_dict["back"] = true
+			#temp_input_dict["7"] = true
+		#elif Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left):
+			#temp_input_dict["forward"] = true
+			#temp_input_dict["9"] = true
+		#else:
+			#temp_input_dict["8"] = true
+	#elif Input.is_action_pressed(player.input_down) and !Input.is_action_pressed(player.input_up):
+		#temp_input_dict["down"] = true
+		#if Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
+			#temp_input_dict["back"] = true
+			#temp_input_dict["1"] = true
+		#elif Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left):
+			#temp_input_dict["forward"] = true
+			#temp_input_dict["3"] = true
+		#else:
+			#temp_input_dict["2"] = true
+#
+	#elif Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
+		#temp_input_dict["back"] = true
+		#temp_input_dict["4"] = true
+	#elif Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left):
+		#temp_input_dict["forward"] = true
+		#temp_input_dict["6"] = true
+	#else:
+		#temp_input_dict["5"] = true
+	#if Input.is_action_pressed(player.input_a):
+		#temp_input_dict["a"] = true
+	#if Input.is_action_pressed(player.input_b):
+		#temp_input_dict["b"] = true
+	#if Input.is_action_pressed(player.input_c):
+		#temp_input_dict["c"] = true
+	#if Input.is_action_pressed(player.input_d):
+		#temp_input_dict["d"] = true
+	#if Input.is_action_pressed(player.input_o):
+		#temp_input_dict["o"] = true
+	#if ((input_history_buttons == []) or (temp_input_dict.hash() != input_history_buttons.back().hash())):
+		##uncomment the following 3 lines when debugging inputs
+##		if input_history_buttons != []:
+##			print("Releasing " + str(input_history_buttons.back()) + " after " + str(input_history_frames.back()))
+##			print("pressing" + str(temp_input_dict))
+		#input_history_buttons.append(temp_input_dict.duplicate())
+		#input_history_frames.append(0)
+		#
+	#input_history_frames[-1] += 1
 
 func read_inputs(move_list : Array):
 	for original_input_list in move_list:

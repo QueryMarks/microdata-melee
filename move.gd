@@ -7,15 +7,15 @@ var move_input_sequences = []
 var lenience := 8
 
 # Number of frames allowed between final input of the move being pressed and the input being checked. 5 by default.
-var first_lenience := 5
+var first_lenience := 3
 
 # Number of frames allowed between "simultaneous" button inputs, such as ab for grab. 3 by default.
-var simultaneous_button_lenience := 3
+var simultaneous_button_lenience := 4
 
 # State to change to on a valid input sequence.
 var state : GDScript
 
-func _init(mis, s, l = 8, fl = 5):
+func _init(mis, s, l = lenience, fl = first_lenience):
 	move_input_sequences = mis
 	state = s
 	lenience = l
@@ -61,6 +61,18 @@ func check_inputs(input_log, facing):
 					if !input_part in input_log[j].input:
 						simultaneous_inputs_valid = false
 						break
+					else:
+						for k in range(j, -1, -1):
+							var simul_held_tracker = 0;
+							#If this part of the input is a button, make sure it started being pressed in the past few frames.
+							if input_part in button_inputs:
+								if input_part in input_log[k].input:
+									simul_held_tracker += input_log[k].frames
+									if simul_held_tracker > simultaneous_button_lenience:
+										simultaneous_inputs_valid = false
+										break
+								else:
+									break
 				if !first_input_in_log and simultaneous_inputs_valid:
 					first_input_in_log = true
 					first_lenience_check += input_log[j].frames
