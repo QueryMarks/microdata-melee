@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://5xoy0b2deesl"]
+[gd_scene load_steps=18 format=3 uid="uid://5xoy0b2deesl"]
 
 [ext_resource type="Script" path="res://card_summon.gd" id="1_rkx73"]
 [ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="2_e5ou0"]
-[ext_resource type="Texture2D" uid="uid://4hggf2x0aqtg" path="res://resources/characters/card/palettes/card_weird.png" id="3_1euxv"]
 [ext_resource type="Texture2D" uid="uid://bq6hragpsafm2" path="res://resources/characters/card/sprites/summon a sheet.png" id="3_xks6f"]
 [ext_resource type="Script" path="res://scripts/collision/hitbox.gd" id="4_ym8dh"]
 [ext_resource type="Texture2D" uid="uid://clg56x8i0wq1e" path="res://resources/characters/card/palettes/suits/card_suit_hearts.png" id="5_eycok"]
@@ -119,7 +118,7 @@ tracks/8/keys = {
 }
 tracks/9/type = "value"
 tracks/9/imported = false
-tracks/9/enabled = true
+tracks/9/enabled = false
 tracks/9/path = NodePath("SuitColors:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
@@ -435,7 +434,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("SuitColors:frame_coords")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -512,7 +511,7 @@ tracks/4/keys = {
 }
 tracks/5/type = "value"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("SuitColors:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -536,7 +535,6 @@ shader = ExtResource("2_e5ou0")
 shader_parameter/skip_first_row = true
 shader_parameter/use_palette_alpha = false
 shader_parameter/fps = 0.0
-shader_parameter/palette = ExtResource("3_1euxv")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tte6j"]
 shader = ExtResource("2_e5ou0")
@@ -570,6 +568,7 @@ offset = Vector2(0, -32)
 hframes = 3
 
 [node name="SuitColors" type="Sprite2D" parent="Node2D"]
+visible = false
 z_index = -1
 texture_filter = 1
 material = SubResource("ShaderMaterial_tte6j")
@@ -578,7 +577,6 @@ offset = Vector2(0, -32)
 hframes = 3
 
 [node name="Hitbox" type="Area2D" parent="Node2D"]
-visible = false
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("4_ym8dh")

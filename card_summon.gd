@@ -19,9 +19,9 @@ func _ready():
 	sprite.material = sprite.material.duplicate()
 	sprite.material.set_shader_parameter("palette", player.get_node("Sprite2D").material.get_shader_parameter("palette"))
 	
-	var suit_colors = $SuitColors
-	suit_colors.material = suit_colors.material.duplicate()
-	suit_colors.material.set_shader_parameter("palette", my_suit.palette)
+	#var suit_colors = $SuitColors
+	#suit_colors.material = suit_colors.material.duplicate()
+	#suit_colors.material.set_shader_parameter("palette", my_suit.palette)
 	
 	
 	hitstop_timer = $HitstopTimer

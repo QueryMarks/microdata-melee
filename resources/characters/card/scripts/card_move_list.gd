@@ -28,6 +28,7 @@ func _init():
 	
 	var my_card_toss_a = Move.new([["2","3","6","a"]], CardTossState)
 	var my_card_summon_a = Move.new([["2","1","4","a"]], CardSummonaState)
+	var my_card_summon_b = Move.new([["2","1","4","b"]], CardSummonbState)
 	var my_card_refill = Move.new([["2","5","2","a"]], CardRefillState)
 	var my_card_shuffle = Move.new([["2","5","2","c"]], CardShuffleState)
 	#edit inputs here, godot hates letting me overwrite inherited variables
@@ -36,6 +37,7 @@ func _init():
 	ground_specials = [
 		my_card_toss_a, #Card Throw A
 		my_card_summon_a,
+		my_card_summon_b,
 		my_card_refill,
 		my_card_shuffle
 		]

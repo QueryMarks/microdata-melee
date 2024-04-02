@@ -24,9 +24,11 @@ RoundStartInfo="*res://round_start_info.gd"
 
 window/size/viewport_width=640
 window/size/viewport_height=608
+window/size/mode=3
 window/size/resizable=false
 window/size/window_width_override=640
 window/size/window_height_override=608
+window/stretch/mode="viewport"
 
 [input]
 

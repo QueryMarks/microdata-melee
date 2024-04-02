@@ -117,7 +117,7 @@ tracks/8/keys = {
 }
 tracks/9/type = "value"
 tracks/9/imported = false
-tracks/9/enabled = true
+tracks/9/enabled = false
 tracks/9/path = NodePath("SuitColors:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
@@ -478,7 +478,7 @@ tracks/9/keys = {
 }
 tracks/10/type = "value"
 tracks/10/imported = false
-tracks/10/enabled = true
+tracks/10/enabled = false
 tracks/10/path = NodePath("SuitColors:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
@@ -532,6 +532,7 @@ offset = Vector2(0, -64)
 hframes = 5
 
 [node name="SuitColors" type="Sprite2D" parent="Node2D"]
+visible = false
 z_index = -1
 texture_filter = 1
 material = SubResource("ShaderMaterial_r1vha")

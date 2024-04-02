@@ -105,7 +105,7 @@ _data = {
 size = Vector2(24, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmbbf"]
-size = Vector2(15, 11)
+size = Vector2(20, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m12ty"]
 size = Vector2(18, 10)
@@ -190,8 +190,9 @@ position = Vector2(3, -17)
 shape = SubResource("RectangleShape2D_m7vcu")
 
 [node name="Hurtbox2" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(10, -22)
+position = Vector2(21, -19)
 shape = SubResource("RectangleShape2D_qmbbf")
+disabled = true
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Hurtbox3" type="CollisionShape2D" parent="Hurtbox"]
@@ -250,7 +251,6 @@ disabled = true
 debug_color = Color(0.996078, 0, 0, 0.419608)
 
 [node name="5cHitbox" type="Area2D" parent="Hitboxes"]
-visible = false
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_hds3c")
