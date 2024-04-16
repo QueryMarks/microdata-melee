@@ -9,7 +9,6 @@ func enter():
 
 func _to_jump(_variable):
 	state_machine.change_state(JumpState.new())
-	player.anim_player.advance(1.0/60.0)
 	print("Transitioning to jump.")
 func exit():
 	player.anim_player.animation_finished.disconnect(self._to_jump)
