@@ -19,7 +19,7 @@ func _physics_process(_delta):
 		if (Input.is_action_pressed(player.input_down)):
 			state_machine.change_state(CrouchState.new())
 		elif (Input.is_action_pressed(player.input_up)): 
-			state_machine.change_state(JumpState.new())
+			state_machine.change_state(PrejumpState.new())
 		elif ((Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right)) or (Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left))):
 			state_machine.change_state(WalkState.new())
 
