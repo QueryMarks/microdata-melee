@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byl36l3u4q3ww"
+path="res://.godot/imported/33 Still Green (Shingo Yabuki).mp3-c873deecb5fecf3e70a3e74897138f56.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/33 Still Green (Shingo Yabuki).mp3"
+dest_files=["res://.godot/imported/33 Still Green (Shingo Yabuki).mp3-c873deecb5fecf3e70a3e74897138f56.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
