@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_cq81f"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_5dg0w"]
-[ext_resource type="AnimationLibrary" uid="uid://cskp3yfuireji" path="res://resources/characters/luke/card anims.res" id="3_yrswa"]
+[ext_resource type="AnimationLibrary" uid="uid://cskp3yfuireji" path="res://resources/characters/card/card anims.res" id="3_yrswa"]
 [ext_resource type="PackedScene" uid="uid://3oyeegtt5ps6" path="res://scenes/state_machine.tscn" id="4_epnlp"]
 [ext_resource type="Script" path="res://scripts/collision/hurtbox.gd" id="5_qqp5k"]
 [ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="6_x76q7"]
 [ext_resource type="Texture2D" uid="uid://cg1a0oew0cahn" path="res://resources/characters/card/sprites/card sprite sheet.png" id="7_hy1d0"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n82jm"]
 size = Vector2(23, 36)
