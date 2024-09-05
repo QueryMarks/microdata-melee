@@ -1,8 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://dpowklmtj8rea"]
+[gd_scene load_steps=41 format=3 uid="uid://dpowklmtj8rea"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p0blo"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_pajsi"]
-[ext_resource type="AnimationLibrary" uid="uid://cskp3yfuireji" path="res://resources/characters/card/card anims.res" id="3_lfxwa"]
+[ext_resource type="AnimationLibrary" uid="uid://cskp3yfuireji" path="res://resources/characters/card/card anims.res" id="3_gqu37"]
 [ext_resource type="PackedScene" uid="uid://3oyeegtt5ps6" path="res://scenes/state_machine.tscn" id="3_p21cg"]
 [ext_resource type="Script" path="res://scripts/collision/hurtbox.gd" id="4_obkc2"]
 [ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="6_n4wha"]
@@ -227,6 +227,18 @@ tracks/16/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Hitboxes/3cHitbox/3cCollisionShape:disabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ims83"]
 _data = {
@@ -290,6 +302,9 @@ size = Vector2(23, 18.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yghdk"]
 size = Vector2(18.5, 34.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4q6f"]
+size = Vector2(23, 58)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypsmb"]
 size = Vector2(14, 10)
 
@@ -313,7 +328,7 @@ player = NodePath("..")
 callback_mode_process = 0
 libraries = {
 "": SubResource("AnimationLibrary_ims83"),
-"card": ExtResource("3_lfxwa")
+"card": ExtResource("3_gqu37")
 }
 
 [node name="StateMachine" parent="." instance=ExtResource("3_p21cg")]
@@ -537,6 +552,24 @@ hit_type = "high"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/jcHitbox2"]
 position = Vector2(17, -29.25)
 shape = SubResource("RectangleShape2D_yghdk")
+disabled = true
+debug_color = Color(0.996078, 0, 0, 0.419608)
+
+[node name="3cHitbox" type="Area2D" parent="Hitboxes"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_hds3c")
+damage = 15
+hitstun = 30
+hitstop = 10
+blockstun = 15
+blockstop = 10
+knockback = Vector2(10, -200)
+force_airborne = true
+
+[node name="3cCollisionShape" type="CollisionShape2D" parent="Hitboxes/3cHitbox"]
+position = Vector2(21.5, -29)
+shape = SubResource("RectangleShape2D_q4q6f")
 disabled = true
 debug_color = Color(0.996078, 0, 0, 0.419608)
 

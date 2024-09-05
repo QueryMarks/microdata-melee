@@ -39,7 +39,9 @@ func os_action_check(tags : Array):
 						#os will then call the movelist's arrays for normal
 
 			elif tags.has("command_normal"):
-				print("ground super, special ok")
+				for move in (move_list.ground_supers + move_list.ground_specials + move_list.jump_cancel):
+						if os_change_state_check(move):
+							return true
 
 			elif tags.has("special"):
 				print("ground super ok")
@@ -62,6 +64,10 @@ func os_action_check(tags : Array):
 			if tags.has("normal"):
 				if tags.has("a"):
 					for move in (move_list.air_normals_b + move_list.air_normals_c + move_list.air_normals_d):
+						if os_change_state_check(move):
+							return true
+				if tags.has("b"):
+					for move in (move_list.air_normals_c + move_list.air_normals_d):
 						if os_change_state_check(move):
 							return true
 			#os will then call the movelist's arrays for normal'

@@ -24,6 +24,7 @@ var air_normals_a = []
 var air_normals_b = []
 var air_normals_c = []
 var air_normals_d = []
+var jump_cancel = []
 
 #
 var my_5a

@@ -24,6 +24,7 @@ func _init():
 	
 	my_grab = Move.new([[["a","b"]]],GrabState)
 	my_throw = ThrowState
+	my_jump = Move.new([[["up"]]], JumpState)
 	
 	
 	var my_card_toss_a = Move.new([["2","3","6","a"]], CardTossState)
@@ -45,7 +46,9 @@ func _init():
 	ground_grab = [
 		my_grab
 	]
-	ground_command_normals = []
+	ground_command_normals = [
+		Move.new([[["3","c"]]], Card3cState)
+		]
 	air_command_normals = []
 	ground_normals = [
 		#use "down" instead of "2" for crouching normals. this ensures that 3a and 1a still count for the move. if you want *exactly* 2a, use 2a.
@@ -90,7 +93,9 @@ func _init():
 	air_normals_c = [
 		my_jc
 	]
-
+	jump_cancel = [
+		my_jump
+	]
 
 # Old. Does nothing anymore.
 func move_change_state(inputs : Array):
