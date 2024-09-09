@@ -89,7 +89,6 @@ func get_grabbed(grabbox):
 func get_hurt(hitbox : Hitbox):
 	hitstop = false
 	hitstun = hitbox.hitstun
-	print(hitbox)
 	#take_damage(hitbox.damage)
 	
 	#should get_hurt() launch based on hitbox position difference or should hitboxes launch a specific direction based on where they face? hmmm

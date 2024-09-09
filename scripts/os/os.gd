@@ -24,7 +24,7 @@ func os_action_check(_tags : Array):
 	return false
 
 func os_change_state_check(move : Move):
-	if move.check_inputs(input_log.input_log, player.facing):
+	if move.check_inputs(input_log.input_log, player.my_facing):
 		player.state_machine.change_state(move.state.new())
 		return true
 	else:

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_p0blo"]
 [ext_resource type="Script" path="res://scripts/input management/input_reader.gd" id="2_pajsi"]
-[ext_resource type="AnimationLibrary" uid="uid://cskp3yfuireji" path="res://resources/characters/card/card anims.res" id="3_gqu37"]
+[ext_resource type="AnimationLibrary" uid="uid://cskp3yfuireji" path="res://resources/characters/card/card_anims.res" id="3_f5v53"]
 [ext_resource type="PackedScene" uid="uid://3oyeegtt5ps6" path="res://scenes/state_machine.tscn" id="3_p21cg"]
 [ext_resource type="Script" path="res://scripts/collision/hurtbox.gd" id="4_obkc2"]
 [ext_resource type="Shader" path="res://palette_swap/PaletteSwap.gdshader" id="6_n4wha"]
@@ -328,7 +328,7 @@ player = NodePath("..")
 callback_mode_process = 0
 libraries = {
 "": SubResource("AnimationLibrary_ims83"),
-"card": ExtResource("3_gqu37")
+"card": ExtResource("3_f5v53")
 }
 
 [node name="StateMachine" parent="." instance=ExtResource("3_p21cg")]
@@ -356,6 +356,7 @@ disabled = true
 [node name="Hurtbox4" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(14.5, -11.75)
 shape = SubResource("RectangleShape2D_rvntp")
+disabled = true
 
 [node name="Hurtbox5" type="CollisionShape2D" parent="Hurtbox"]
 visible = false

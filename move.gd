@@ -25,7 +25,8 @@ func _init(mis, s, l = lenience, fl = first_lenience):
 # Method to check if inputs match a move input sequence. Takes an array of inputs. This section is *really* hard to parse; I'd like to clean it up.
 func check_inputs(input_log, facing):
 	#for each input sequence that can perform the move, example: ["2", "3", "6", "a"]
-	for input_sequence in move_input_sequences:
+	for original_input_sequence in move_input_sequences:
+		var input_sequence = original_input_sequence.duplicate(true)
 		#if not facing right, flip input sequence, example: ["2", "1", "4", "a"]
 		if facing != 1:
 			input_sequence = flip_input_sequence(input_sequence)
@@ -121,43 +122,43 @@ func check_inputs(input_log, facing):
 	return false	
 
 func flip_input_sequence(input_sequence):
-	input_sequence = input_sequence.duplicate()
-	for i in input_sequence.size():
-		if typeof(input_sequence[i]) == TYPE_STRING:
-			match input_sequence[i]:
+	var new_input_sequence = input_sequence.duplicate()
+	for i in new_input_sequence.size():
+		if typeof(new_input_sequence[i]) == TYPE_STRING:
+			match new_input_sequence[i]:
 				"6":
-					input_sequence[i] = "4"
+					new_input_sequence[i] = "4"
 				"3":
-					input_sequence[i] = "1"
+					new_input_sequence[i] = "1"
 				"1":
-					input_sequence[i] = "3"
+					new_input_sequence[i] = "3"
 				"4":
-					input_sequence[i] = "6"
+					new_input_sequence[i] = "6"
 				"7":
-					input_sequence[i] = "9"
+					new_input_sequence[i] = "9"
 				"9":
-					input_sequence[i] = "7"
+					new_input_sequence[i] = "7"
 				"back":
-					input_sequence[i] = "forward"
+					new_input_sequence[i] = "forward"
 				"forward":
-					input_sequence[i] = "back"
-		elif typeof(input_sequence[i]) == TYPE_ARRAY:
-			for j in input_sequence[i].size():
-				match input_sequence[i][j]:
+					new_input_sequence[i] = "back"
+		elif typeof(new_input_sequence[i]) == TYPE_ARRAY:
+			for j in new_input_sequence[i].size():
+				match new_input_sequence[i][j]:
 					"6":
-						input_sequence[i][j] = "4"
+						new_input_sequence[i][j] = "4"
 					"3":
-						input_sequence[i][j] = "1"
+						new_input_sequence[i][j] = "1"
 					"1":
-						input_sequence[i][j] = "3"
+						new_input_sequence[i][j] = "3"
 					"4":
-						input_sequence[i][j] = "6"
+						new_input_sequence[i][j] = "6"
 					"7":
-						input_sequence[i][j] = "9"
+						new_input_sequence[i][j] = "9"
 					"9":
-						input_sequence[i][j] = "7"
+						new_input_sequence[i][j] = "7"
 					"back":
-						input_sequence[i][j] = "forward"
+						new_input_sequence[i][j] = "forward"
 					"forward":
-						input_sequence[i][j] = "back"
-	return input_sequence
+						new_input_sequence[i][j] = "back"
+	return new_input_sequence
