@@ -263,4 +263,3 @@ horizontal_alignment = 1
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_3gs7k")
-autoplay = true
