@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkbqit8kn32o2"]
+[gd_scene load_steps=7 format=3 uid="uid://dkbqit8kn32o2"]
 
 [ext_resource type="Script" path="res://scripts/hit_spark.gd" id="1_mpmm8"]
 [ext_resource type="Texture2D" uid="uid://dfm7w0jk36tti" path="res://sprites/lazy hitspark.png" id="2_mg8do"]
+[ext_resource type="AudioStream" uid="uid://66jcnw8tokry" path="res://sounds/SFX/Hit_hurt 3.wav" id="3_uiuxq"]
 
 [sub_resource type="Animation" id="Animation_dwwd8"]
 length = 0.001
@@ -54,3 +55,7 @@ hframes = 3
 libraries = {
 "": SubResource("AnimationLibrary_ofrxl")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uiuxq")
+autoplay = true

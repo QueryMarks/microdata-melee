@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://caega2vwfpk48"]
+[gd_scene load_steps=8 format=3 uid="uid://caega2vwfpk48"]
 
 [ext_resource type="Texture2D" uid="uid://8p4er31w1fxw" path="res://sprites/css bg.png" id="1_c4fc8"]
 [ext_resource type="Texture2D" uid="uid://bcjdwjwrusiwb" path="res://sprites/ui/css grid.png" id="2_11ydh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ddusf3ay6shqf" path="res://scenes/css_cursor.tscn" id="3_uv6po"]
 [ext_resource type="Script" path="res://css_cursor.gd" id="5_o7jlx"]
 [ext_resource type="Texture2D" uid="uid://61v4hm2q33k3" path="res://sprites/ui/p2 select.png" id="6_el753"]
+[ext_resource type="AudioStream" uid="uid://c6erqrej7dkky" path="res://sounds/music/load it up.mp3" id="7_43fce"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -106,3 +107,7 @@ position = Vector2(-40, -2)
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2(40, 72)
 scale = Vector2(-1, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_43fce")
+autoplay = true

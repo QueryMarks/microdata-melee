@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6erqrej7dkky"
+path="res://.godot/imported/load it up.mp3-2ce1e03184ac6821a5c3f67d68214083.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/load it up.mp3"
+dest_files=["res://.godot/imported/load it up.mp3-2ce1e03184ac6821a5c3f67d68214083.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
