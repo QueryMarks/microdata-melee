@@ -9,6 +9,7 @@ var projectile
 @export var blockstun := 7
 @export var blockstop := 8
 @export var knockback : Vector2
+@export var combo_scaling := 0.8
 @export var hit_type := "mid"
 @export var force_airborne := false
 
@@ -26,6 +27,8 @@ func _init() -> void:
 	collision_layer = 2
 
 func this_hit(hit_block, player_hit, box_hit):
+	if player:
+		print(player)
 	this_hit_something.emit()
 	match hit_block:
 		"hit":

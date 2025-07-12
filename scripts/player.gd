@@ -40,6 +40,8 @@ signal anim_signal
 
 signal damaged
 signal grab_ok
+signal was_hit
+signal uncombo
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -89,6 +91,7 @@ func get_grabbed(grabbox):
 func get_hurt(hitbox : Hitbox):
 	hitstop = false
 	hitstun = hitbox.hitstun
+	emit_signal("was_hit")
 	#take_damage(hitbox.damage)
 	
 	#should get_hurt() launch based on hitbox position difference or should hitboxes launch a specific direction based on where they face? hmmm
@@ -172,3 +175,6 @@ func toggle_pushbox_disabled(truefalse):
 func anim_play(string : String):
 	anim_player.play(string)
 	anim_player.advance(1.0/60.0)
+
+func un_combo():
+	emit_signal("uncombo")

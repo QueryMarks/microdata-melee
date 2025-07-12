@@ -13,16 +13,20 @@ func enter():
 func _physics_process(_delta):
 	if player.can_act:
 		if timer <= 0:
-				state_machine.change_state(GetupState.new())
+			player.un_combo()
+			state_machine.change_state(GetupState.new())
 		elif timer <= 20:
 			if (Input.is_action_pressed(player.input_down)):
+				player.un_combo()
 				state_machine.change_state(GetupState.new())
 			elif (Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right)):
+				player.un_combo()
 				if player.my_facing == -1:
 					state_machine.change_state(TechRollForwardState.new())
 				else:
 					state_machine.change_state(TechRollBackState.new())
 			elif ((Input.is_action_pressed(player.input_right) and !Input.is_action_pressed(player.input_left))):
+				player.un_combo()
 				if player.my_facing == -1:
 					state_machine.change_state(TechRollBackState.new())
 				else:
